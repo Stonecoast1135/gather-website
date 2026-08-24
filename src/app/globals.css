@@ -980,9 +980,11 @@ img {
   }
 
   .site-header,
+  .site-header.is-scrolled,
+  .site-header.has-open-menu,
   .site-header:not(.is-scrolled):not(.has-open-menu) {
     border-bottom-color: var(--sand-200);
-    background: rgb(250 248 242 / 97%);
+    background: var(--ivory-50);
     color: var(--forest-950);
   }
 
@@ -1176,12 +1178,13 @@ img {
 
 @media (max-width: 767px) {
   :root {
+    --header-height: 4rem;
     --site-gutter: clamp(1.25rem, 5.5vw, 1.5rem);
-    --space-section: clamp(4.5rem, 18vw, 5.5rem);
+    --space-section: clamp(4rem, 14vw, 4.5rem);
   }
 
   .wordmark {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
   }
 
   .home-hero {
@@ -1195,9 +1198,10 @@ img {
     position: relative;
     inset: auto;
     width: 100%;
-    height: clamp(16.5rem, 72vw, 20rem);
+    height: clamp(15.5rem, 66vw, 18rem);
     flex: 0 0 auto;
-    clip-path: inset(0 0 8% 0);
+    margin-bottom: -1.25rem;
+    clip-path: inset(0 0 6% 0);
     animation-name: hero-mask-in-mobile;
   }
 
@@ -1208,14 +1212,19 @@ img {
   }
 
   .hero-photo-veil {
-    background: linear-gradient(180deg, transparent 45%, rgb(11 36 27 / 54%) 100%);
+    background: linear-gradient(
+      180deg,
+      transparent 42%,
+      rgb(11 36 27 / 12%) 62%,
+      var(--forest-950) 100%
+    );
   }
 
   .hero-shell {
     display: block;
     min-height: 0;
-    padding-top: 2.35rem;
-    padding-bottom: 2.45rem;
+    padding-top: 3rem;
+    padding-bottom: 1.85rem;
   }
 
   .hero-copy {
@@ -1224,55 +1233,83 @@ img {
   }
 
   .hero-kicker {
-    margin-bottom: 0.9rem;
+    margin-bottom: 0.75rem;
   }
 
   .hero-copy h1 {
     max-width: 100%;
-    font-size: clamp(2.75rem, 13.2vw, 3.25rem);
-    line-height: 0.94;
+    font-size: clamp(2.7rem, 12vw, 3.1rem);
+    line-height: 0.96;
   }
 
   .hero-lead {
     max-width: 34rem;
-    margin-top: 1.25rem;
-    font-size: 1rem;
-    line-height: 1.6;
+    margin-top: 1rem;
+    font-size: 0.96rem;
+    line-height: 1.58;
   }
 
   .hero-actions {
     display: grid;
     grid-template-columns: 1fr;
-    margin-top: 1.55rem;
+    gap: 0.25rem;
+    margin-top: 1.3rem;
   }
 
   .hero-actions .button {
     width: 100%;
+    min-height: 2.875rem;
+  }
+
+  .hero-actions .button--ghost {
+    width: max-content;
+    min-width: 0;
+    min-height: 2.75rem;
+    justify-self: start;
+    border-color: transparent;
+    background: transparent;
+    padding-inline: 0.25rem;
+  }
+
+  .hero-actions .button-arrow::before {
+    transition-duration: 160ms;
+  }
+
+  .hero-actions .button:active .button-arrow::before {
+    transform: scaleX(1);
+  }
+
+  .hero-actions .button:active .button-arrow::after {
+    transform: translateX(0.14rem) rotate(45deg);
   }
 
   .hero-participants {
-    --participant-gap: 0.7rem;
+    --participant-gap: 0rem;
 
     width: 100%;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin-top: 2.2rem;
-    padding-top: 1.4rem;
+    margin-top: 1.45rem;
+    padding-top: 1.2rem;
   }
 
   .hero-participants li {
     grid-template-columns: 1fr;
-    gap: 0.65rem;
+    justify-items: center;
+    gap: 0.55rem;
+    text-align: center;
   }
 
   .hero-participants li:not(:last-child)::after {
-    top: 1rem;
-    right: calc(var(--participant-gap) * -1);
-    width: var(--participant-gap);
+    top: 0.95rem;
+    right: auto;
+    left: calc(50% + 0.95rem);
+    width: calc(100% - 1.9rem);
   }
 
   .hero-participants li:not(:last-child)::before {
-    top: 0.86rem;
-    right: calc(var(--participant-gap) * -1);
+    top: 0.81rem;
+    right: auto;
+    left: calc(150% - 1.25rem);
   }
 
   .participant-number {
@@ -1283,56 +1320,64 @@ img {
 
   .participant-copy strong {
     font-family: var(--font-body);
-    font-size: clamp(0.64rem, 2.85vw, 0.75rem);
+    max-width: 11ch;
+    font-size: clamp(0.66rem, 2.85vw, 0.74rem);
     font-weight: 750;
-    line-height: 1.3;
+    line-height: 1.25;
+    text-wrap: balance;
   }
 
   .opening-transition {
-    padding-top: var(--space-section);
+    padding: var(--space-section) 0 4rem;
   }
 
   .opening-transition::before {
     left: var(--site-gutter);
-    height: 3rem;
+    height: 2.5rem;
   }
 
   .opening-transition__intro {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.65rem;
+    gap: 1.25rem;
   }
 
   .opening-transition h2 {
     max-width: 18ch;
-    font-size: clamp(2.1rem, 8.8vw, 2.65rem);
-    line-height: 1.08;
+    font-size: clamp(1.95rem, 8vw, 2.25rem);
+    line-height: 1.1;
   }
 
   .opening-transition__copy {
     max-width: 36rem;
     margin: 0;
-    padding: 1.5rem 0 0;
+    padding: 1.15rem 0 0;
     border-top: 1px solid var(--sand-200);
     border-left: 0;
   }
 
   .opening-transition__copy p {
-    font-size: 1rem;
-    line-height: 1.7;
+    margin-bottom: 0.65rem;
+    font-size: 0.975rem;
+    line-height: 1.62;
+  }
+
+  .opening-transition .directional-link {
+    min-height: 2.625rem;
+    font-size: 0.84rem;
   }
 
   .mission-pillars {
     grid-template-columns: 1fr;
-    margin-top: 3.1rem;
+    margin-top: 2.35rem;
   }
 
   .mission-pillars li {
     display: grid;
     min-height: 0;
-    grid-template-columns: 2.25rem 1fr;
-    gap: 0 1rem;
-    padding: 1.45rem 0 1.65rem;
+    grid-template-columns: 2rem 1fr;
+    gap: 0 0.75rem;
+    padding: 1.05rem 0 1.2rem;
   }
 
   .mission-pillars li + li {
@@ -1342,22 +1387,25 @@ img {
 
   .mission-pillars__number {
     grid-row: 1 / span 2;
-    margin: 0.3rem 0 0;
+    margin: 0.22rem 0 0;
   }
 
   .mission-pillars h3 {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
+    line-height: 1.12;
   }
 
   .mission-pillars p {
     max-width: 34ch;
-    margin-top: 0.55rem;
+    margin-top: 0.35rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
   }
 }
 
 @keyframes hero-mask-in-mobile {
   from {
-    clip-path: inset(0 0 8% 0);
+    clip-path: inset(0 0 6% 0);
   }
   to {
     clip-path: inset(0);
@@ -1374,16 +1422,12 @@ img {
     font-size: 1.65rem;
   }
 
-  .hero-copy h1 {
-    font-size: clamp(2.65rem, 12.7vw, 3rem);
-  }
-
   .hero-lead {
-    font-size: 0.96rem;
+    font-size: 0.94rem;
   }
 
   .participant-copy strong {
-    font-size: 0.64rem;
+    font-size: 0.66rem;
   }
 }
 
