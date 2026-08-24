@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { AudiencePathways } from "@/components/audience-pathways";
+import { HomepageEnding } from "@/components/homepage-ending";
 import { RescuePreview } from "@/components/rescue-preview";
 
 const participants = [
@@ -144,6 +145,7 @@ export default function Home() {
 
       <AudiencePathways />
       <RescuePreview />
+      <HomepageEnding />
     </main>
   );
 }
