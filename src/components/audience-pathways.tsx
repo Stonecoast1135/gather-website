@@ -153,18 +153,30 @@ export function AudiencePathways() {
           id="audience-panel"
           role="tabpanel"
           aria-labelledby={`audience-tab-${activePath.id}`}
-          key={activePath.id}
         >
           <div className="audience-panel__media">
-            <Image
-              className={`audience-image audience-image--${activePath.id}`}
-              src={activePath.image}
-              alt={activePath.alt}
-              fill
-              sizes="(max-width: 767px) 100vw, (max-width: 1100px) 58vw, 62vw"
-            />
+            {audiencePaths.map((path, index) => {
+              const isActive = activeIndex === index;
+
+              return (
+                <div
+                  className="audience-image-layer"
+                  data-active={isActive}
+                  aria-hidden={!isActive}
+                  key={path.id}
+                >
+                  <Image
+                    className={`audience-image audience-image--${path.id}`}
+                    src={path.image}
+                    alt={isActive ? path.alt : ""}
+                    fill
+                    sizes="(max-width: 840px) 58vw, (max-width: 1100px) 61vw, 62vw"
+                  />
+                </div>
+              );
+            })}
           </div>
-          <div className="audience-panel__story">
+          <div className="audience-panel__story" key={activePath.id}>
             <div>
               <p className="audience-panel__number" aria-hidden="true">
                 Path {activePath.number}
