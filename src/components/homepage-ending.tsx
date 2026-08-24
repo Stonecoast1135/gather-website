@@ -73,9 +73,9 @@ export function HomepageEnding() {
           </div>
           <div className="impact-preview__copy">
             <p>
-              Gather will publish meaningful totals only when completed rescue
-              activity supports them. Until then, the early-stage state stays
-              clear and intentional.
+              Verified public totals will appear here as completed rescue
+              activity creates a meaningful record. Until then, the
+              early-stage state stays clear and intentional.
             </p>
             <Link className="directional-link" href="/impact">
               Explore our impact
@@ -92,14 +92,14 @@ export function HomepageEnding() {
             </p>
             <span className="impact-report__measure" aria-hidden="true" />
             <p className="impact-report__note">
-              No estimates. No placeholder totals. Public figures will reflect
-              real activity as it becomes available.
+              No estimates. No placeholder totals. Every published figure will
+              reflect real activity.
             </p>
           </div>
 
           <dl
             className="impact-instruments"
-            aria-label="Impact categories awaiting public data"
+            aria-label="Early-stage impact categories"
           >
             {impactInstruments.map((instrument) => (
               <div className="impact-instrument" key={instrument.label}>
@@ -120,7 +120,6 @@ export function HomepageEnding() {
                 </dd>
                 <dd className="impact-instrument__detail">
                   <p>{instrument.description}</p>
-                  <span>Awaiting public data</span>
                 </dd>
               </div>
             ))}
@@ -157,8 +156,8 @@ export function HomepageEnding() {
             {/* Temporary, non-Gather documentary photograph from Unsplash.
                 It can be replaced without changing the section structure. */}
             <Image
-              src="/images/audience-supporters-hands.webp"
-              alt="Several people hold their open hands together in a circle."
+              src="/images/audience-schools-service.webp"
+              alt="Volunteers work together to pack prepared food."
               fill
               sizes="(max-width: 840px) 100vw, 58vw"
             />

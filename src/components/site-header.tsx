@@ -59,9 +59,7 @@ export function SiteHeader() {
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const focusFrame = window.requestAnimationFrame(() => {
-      mobilePanelRef.current
-        ?.querySelector<HTMLElement>("[data-mobile-focus]")
-        ?.focus();
+      mobilePanelRef.current?.focus({ preventScroll: true });
     });
 
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -73,17 +71,23 @@ export function SiteHeader() {
 
       if (event.key !== "Tab" || !mobilePanelRef.current) return;
 
-      const focusable = Array.from(
+      const panelFocusable = Array.from(
         mobilePanelRef.current.querySelectorAll<HTMLElement>(
           'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
         ),
+      );
+      const focusable = [mobileTriggerRef.current, ...panelFocusable].filter(
+        (element): element is HTMLElement => element !== null,
       );
 
       if (focusable.length === 0) return;
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
 
-      if (event.shiftKey && document.activeElement === first) {
+      if (document.activeElement === mobilePanelRef.current) {
+        event.preventDefault();
+        (event.shiftKey ? last : panelFocusable[0] ?? first).focus();
+      } else if (event.shiftKey && document.activeElement === first) {
         event.preventDefault();
         last.focus();
       } else if (!event.shiftKey && document.activeElement === last) {
@@ -224,11 +228,11 @@ export function SiteHeader() {
           role="dialog"
           aria-modal="true"
           aria-label="Site navigation"
+          tabIndex={-1}
         >
           <nav className="mobile-menu__nav" aria-label="Mobile navigation">
             <Link
               href="/how-it-works"
-              data-mobile-focus
               onClick={() => closeMobile()}
             >
               <span>How It Works</span>
