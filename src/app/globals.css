@@ -311,6 +311,10 @@ img {
   color: var(--forest-950);
 }
 
+.site-header.is-light-page:not(.is-scrolled):not(.has-open-menu) {
+  color: var(--forest-950);
+}
+
 .site-header__inner {
   display: grid;
   height: 100%;
@@ -369,6 +373,10 @@ img {
   .header-utility-link:hover::after {
     transform: scaleX(1);
   }
+}
+
+.nav-link.is-active::after {
+  transform: scaleX(1);
 }
 
 .nav-dropdown {

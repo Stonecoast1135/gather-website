@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const primaryLinks = [
@@ -18,6 +19,7 @@ const involvedLinks = [
 ];
 
 export function SiteHeader() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -132,11 +134,14 @@ export function SiteHeader() {
     });
   };
 
+  const isCurrentRoute = (href: string) =>
+    pathname === href || pathname.startsWith(`${href}/`);
+
   return (
     <header
       className={`site-header${scrolled ? " is-scrolled" : ""}${
         mobileOpen ? " has-open-menu" : ""
-      }`}
+      }${pathname === "/how-it-works" ? " is-light-page" : ""}`}
     >
       <div className="site-container site-header__inner">
         <Link className="wordmark" href="/" aria-label="Gather home">
@@ -144,7 +149,11 @@ export function SiteHeader() {
         </Link>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
-          <Link className="nav-link" href={primaryLinks[0].href}>
+          <Link
+            className={`nav-link${isCurrentRoute(primaryLinks[0].href) ? " is-active" : ""}`}
+            href={primaryLinks[0].href}
+            aria-current={isCurrentRoute(primaryLinks[0].href) ? "page" : undefined}
+          >
             {primaryLinks[0].label}
           </Link>
 
@@ -186,7 +195,12 @@ export function SiteHeader() {
           </div>
 
           {primaryLinks.slice(1).map((link) => (
-            <Link className="nav-link" href={link.href} key={link.href}>
+            <Link
+              className={`nav-link${isCurrentRoute(link.href) ? " is-active" : ""}`}
+              href={link.href}
+              key={link.href}
+              aria-current={isCurrentRoute(link.href) ? "page" : undefined}
+            >
               {link.label}
             </Link>
           ))}
@@ -233,6 +247,7 @@ export function SiteHeader() {
           <nav className="mobile-menu__nav" aria-label="Mobile navigation">
             <Link
               href="/how-it-works"
+              aria-current={isCurrentRoute("/how-it-works") ? "page" : undefined}
               onClick={() => closeMobile()}
             >
               <span>How It Works</span>
@@ -256,6 +271,7 @@ export function SiteHeader() {
               <Link
                 href={link.href}
                 key={link.href}
+                aria-current={isCurrentRoute(link.href) ? "page" : undefined}
                 onClick={() => closeMobile()}
               >
                 <span>{link.label}</span>
