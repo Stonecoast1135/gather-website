@@ -536,12 +536,15 @@
 }
 
 .stepMarker {
+  position: relative;
+  z-index: 4;
   display: grid;
   width: 2rem;
   height: 2rem;
   place-items: center;
   border: 1px solid var(--sand-200);
   border-radius: 50%;
+  background: var(--ivory-50);
   color: var(--ink-500);
   font-size: 0.62rem;
   font-weight: 800;
@@ -554,6 +557,7 @@
 
 .chapterDark .stepMarker {
   border-color: rgb(255 255 255 / 28%);
+  background: var(--forest-900);
   color: rgb(255 255 255 / 66%);
 }
 

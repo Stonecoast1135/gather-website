@@ -174,6 +174,11 @@ const rescueChapters = [
   },
 ] as const;
 
+const routeMarkerCount = rescueChapters.reduce(
+  (count, chapter) => count + chapter.steps.length + 1,
+  0,
+);
+
 export function RescueStory() {
   const journeyRef = useRef<HTMLElement>(null);
   const routeMapRef = useRef<SVGSVGElement>(null);
@@ -191,6 +196,14 @@ export function RescueStory() {
     );
     const chapterAnchors = Array.from(
       journey.querySelectorAll<HTMLElement>("[data-journey-anchor]"),
+    );
+    const journeyMarkers = Array.from(
+      journey.querySelectorAll<HTMLElement>("[data-journey-marker]"),
+    );
+    const routeCutouts = Array.from(
+      routeMap.querySelectorAll<SVGEllipseElement>(
+        "[data-journey-route-cutout]",
+      ),
     );
 
     const revealTargets = Array.from(
@@ -231,6 +244,31 @@ export function RescueStory() {
         : buildJourneyRoute(anchorPositions);
 
       routePaths.forEach((path) => path.setAttribute("d", route));
+      routeCutouts.forEach((cutout, index) => {
+        const marker = journeyMarkers[index];
+        if (!marker) {
+          cutout.setAttribute("rx", "0");
+          cutout.setAttribute("ry", "0");
+          return;
+        }
+
+        const markerBounds = marker.getBoundingClientRect();
+        const centerX =
+          ((markerBounds.left + markerBounds.width / 2 - routeBounds.left) /
+            routeBounds.width) *
+          100;
+        const centerY =
+          ((markerBounds.top + markerBounds.height / 2 - routeBounds.top) /
+            routeBounds.height) *
+          100;
+        const radiusX = (markerBounds.width / 2 / routeBounds.width) * 100;
+        const radiusY = (markerBounds.height / 2 / routeBounds.height) * 100;
+
+        cutout.setAttribute("cx", centerX.toString());
+        cutout.setAttribute("cy", centerY.toString());
+        cutout.setAttribute("rx", radiusX.toString());
+        cutout.setAttribute("ry", radiusY.toString());
+      });
       routeLength = activeRoute ? measureRenderedRoute(activeRoute) : 1;
       paintRouteProgress();
     };
@@ -338,17 +376,50 @@ export function RescueStory() {
           preserveAspectRatio="none"
           aria-hidden="true"
         >
-          <path
-            className={styles.routeBase}
-            d={defaultRoute}
-            data-journey-route
-          />
-          <path
-            className={styles.routeActive}
-            d={defaultRoute}
-            data-journey-route
-            data-journey-route-active
-          />
+          <defs>
+            <mask
+              id="journey-route-marker-mask"
+              x="-10000"
+              y="-100"
+              width="20000"
+              height="300"
+              maskUnits="userSpaceOnUse"
+              maskContentUnits="userSpaceOnUse"
+            >
+              <rect
+                x="-10000"
+                y="-100"
+                width="20000"
+                height="300"
+                fill="white"
+              />
+              {Array.from({ length: routeMarkerCount }, (_, index) => (
+                <ellipse
+                  key={index}
+                  cx="0"
+                  cy="0"
+                  rx="0"
+                  ry="0"
+                  fill="black"
+                  data-journey-route-cutout
+                />
+              ))}
+            </mask>
+          </defs>
+
+          <g mask="url(#journey-route-marker-mask)">
+            <path
+              className={styles.routeBase}
+              d={defaultRoute}
+              data-journey-route
+            />
+            <path
+              className={styles.routeActive}
+              d={defaultRoute}
+              data-journey-route
+              data-journey-route-active
+            />
+          </g>
         </svg>
 
         <ol className={styles.chapterList}>
@@ -363,6 +434,7 @@ export function RescueStory() {
               <span
                 className={styles.chapterAnchor}
                 data-journey-anchor
+                data-journey-marker
                 aria-hidden="true"
               >
                 {chapter.number}
@@ -404,7 +476,11 @@ export function RescueStory() {
               <ol className={styles.chapterSteps}>
                 {chapter.steps.map((step) => (
                   <li data-journey-step key={step.number}>
-                    <span className={styles.stepMarker} aria-hidden="true">
+                    <span
+                      className={styles.stepMarker}
+                      data-journey-marker
+                      aria-hidden="true"
+                    >
                       {step.number}
                     </span>
                     <div>
