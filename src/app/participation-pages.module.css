@@ -849,6 +849,10 @@
   color: var(--white);
 }
 
+.serviceRecords :global(.directional-link) {
+  margin-top: 1rem;
+}
+
 .serviceRecordsGrid {
   display: grid;
   max-width: var(--content-max);
@@ -1349,6 +1353,10 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
+}
+
+.handoffCopy :global(.directional-link) {
+  margin-top: 1.25rem;
 }
 
 @media (max-width: 767px) {

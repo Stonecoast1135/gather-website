@@ -142,7 +142,9 @@ export function SiteHeader() {
     involvedLinks.some((link) => isCurrentRoute(link.href));
 
   const usesLightHeader =
-    pathname === "/how-it-works" || pathname === "/businesses";
+    pathname === "/how-it-works" ||
+    pathname === "/businesses" ||
+    pathname === "/schools";
 
   return (
     <header

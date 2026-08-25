@@ -128,6 +128,10 @@ export default function VolunteersPage() {
               Acceptance of service records depends on each school, chapter, or
               program&apos;s own policies.
             </p>
+            <Link className="directional-link" href="/schools">
+              Explore Gather for schools & programs
+              <span className="link-arrow" aria-hidden="true" />
+            </Link>
           </div>
           <div className={styles.recordInstrument} aria-label="Example early service record state">
             <p><span>Activity history</span><strong>Ready for your first completed rescue</strong></p>

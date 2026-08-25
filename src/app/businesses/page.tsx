@@ -149,6 +149,10 @@ export default function BusinessesPage() {
               Pickup is coordinated around the available details. Food is handed
               off during the agreed window, then delivery and completion can be confirmed.
             </p>
+            <Link className="directional-link" href="/organizations">
+              See the recipient organization pathway
+              <span className="link-arrow" aria-hidden="true" />
+            </Link>
             <ol>
               <li><span>Pickup</span><i aria-hidden="true" /></li>
               <li><span>Handoff</span><i aria-hidden="true" /></li>
