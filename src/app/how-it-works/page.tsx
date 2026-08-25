@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import { HowItWorksConclusion } from "@/components/how-it-works-conclusion";
 import { RescueStory } from "@/components/rescue-story";
 import styles from "./how-it-works.module.css";
 
@@ -94,6 +95,7 @@ export default function HowItWorksPage() {
       </section>
 
       <RescueStory />
+      <HowItWorksConclusion />
     </main>
   );
 }
