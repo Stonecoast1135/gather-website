@@ -271,7 +271,7 @@
   --journey-progress: 0;
 
   position: relative;
-  padding: clamp(6.5rem, 10vw, 10rem) 0 0;
+  padding: clamp(5.75rem, 8.75vw, 8.75rem) 0 0;
   background: var(--ivory-50);
 }
 
@@ -280,7 +280,7 @@
   grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
   align-items: end;
   gap: clamp(3rem, 8vw, 8rem);
-  padding-bottom: clamp(5rem, 8vw, 8rem);
+  padding-bottom: clamp(4.5rem, 7vw, 7rem);
 }
 
 .journeyIntro h2 {
@@ -884,7 +884,7 @@
     min-height: 0;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
-    padding-block: 5rem;
+    padding-block: 4rem;
   }
 
   .chapter:first-child {
@@ -912,11 +912,11 @@
 
   .chapterSteps {
     grid-row: 3;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
 
   .chapterAnchor {
-    top: 5rem;
+    top: 4rem;
     left: -2.5rem;
     width: 2.5rem;
     height: 2.5rem;
@@ -961,8 +961,10 @@
     left: auto;
   }
 
-  .motionReady .chapterEven .chapterMedia[data-journey-reveal],
-  .motionReady .chapterMedia[data-journey-reveal] {
+  .motionReady
+    .chapterEven
+    .chapterMedia[data-journey-reveal]:not(.isVisible),
+  .motionReady .chapterMedia[data-journey-reveal]:not(.isVisible) {
     clip-path: inset(0 0 100% 0);
   }
 }
