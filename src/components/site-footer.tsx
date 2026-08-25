@@ -12,13 +12,14 @@ const footerGroups = [
   {
     title: "Get Involved",
     links: [
+      { label: "Find Your Place", href: "/get-involved" },
       { label: "Volunteers", href: "/volunteers" },
       { label: "Businesses", href: "/businesses" },
       {
         label: "Recipient Organizations",
-        href: "/recipient-organizations",
+        href: "/organizations",
       },
-      { label: "Schools & Programs", href: "/schools-and-programs" },
+      { label: "Schools & Programs", href: "/schools" },
     ],
   },
   {

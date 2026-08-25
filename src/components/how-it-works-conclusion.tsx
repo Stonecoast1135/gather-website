@@ -23,7 +23,7 @@ const participantOutcomes = [
     description:
       "Review incoming rescue details, determine what fits your organization, and coordinate delivery around what you can use.",
     linkLabel: "Explore recipient organizations",
-    href: "/recipient-organizations",
+    href: "/organizations",
   },
   {
     number: "03",

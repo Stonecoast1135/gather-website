@@ -34,7 +34,7 @@ const audiencePaths = [
     description:
       "Set preferences, coordinate what works for your organization, and receive appropriate food that supports your mission.",
     cta: "Learn about receiving",
-    href: "/recipient-organizations",
+    href: "/organizations",
     image: "/images/audience-recipient-produce.webp",
     alt: "A person carries a box filled with fresh vegetables.",
   },
@@ -45,7 +45,7 @@ const audiencePaths = [
     description:
       "Connect students with meaningful community service and trustworthy records of completed activity, subject to each program's own policies.",
     cta: "Explore schools & programs",
-    href: "/schools-and-programs",
+    href: "/schools",
     image: "/images/audience-schools-service.webp",
     alt: "People work together to prepare packaged meals for distribution.",
   },

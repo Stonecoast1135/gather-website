@@ -14,8 +14,8 @@ const primaryLinks = [
 const involvedLinks = [
   { href: "/volunteers", label: "Volunteers" },
   { href: "/businesses", label: "Businesses" },
-  { href: "/recipient-organizations", label: "Recipient Organizations" },
-  { href: "/schools-and-programs", label: "Schools & Programs" },
+  { href: "/organizations", label: "Recipient Organizations" },
+  { href: "/schools", label: "Schools & Programs" },
 ];
 
 export function SiteHeader() {
@@ -137,11 +137,18 @@ export function SiteHeader() {
   const isCurrentRoute = (href: string) =>
     pathname === href || pathname.startsWith(`${href}/`);
 
+  const isInvolvedRoute =
+    isCurrentRoute("/get-involved") ||
+    involvedLinks.some((link) => isCurrentRoute(link.href));
+
+  const usesLightHeader =
+    pathname === "/how-it-works" || pathname === "/businesses";
+
   return (
     <header
       className={`site-header${scrolled ? " is-scrolled" : ""}${
         mobileOpen ? " has-open-menu" : ""
-      }${pathname === "/how-it-works" ? " is-light-page" : ""}`}
+      }${usesLightHeader ? " is-light-page" : ""}`}
     >
       <div className="site-container site-header__inner">
         <Link className="wordmark" href="/" aria-label="Gather home">
@@ -164,7 +171,7 @@ export function SiteHeader() {
           >
             <button
               ref={dropdownTriggerRef}
-              className="nav-link nav-dropdown__trigger"
+              className={`nav-link nav-dropdown__trigger${isInvolvedRoute ? " is-active" : ""}`}
               type="button"
               aria-expanded={dropdownOpen}
               aria-controls="get-involved-menu"
@@ -179,10 +186,19 @@ export function SiteHeader() {
               <div className="nav-dropdown__panel" id="get-involved-menu">
                 <p className="nav-dropdown__eyebrow">Choose your path</p>
                 <div className="nav-dropdown__links">
+                  <Link
+                    href="/get-involved"
+                    aria-current={isCurrentRoute("/get-involved") ? "page" : undefined}
+                    onClick={() => setDropdownOpen(false)}
+                  >
+                    <span>Get Involved overview</span>
+                    <span className="link-arrow" aria-hidden="true" />
+                  </Link>
                   {involvedLinks.map((link) => (
                     <Link
                       href={link.href}
                       key={link.href}
+                      aria-current={isCurrentRoute(link.href) ? "page" : undefined}
                       onClick={() => setDropdownOpen(false)}
                     >
                       <span>{link.label}</span>
@@ -255,11 +271,18 @@ export function SiteHeader() {
             </Link>
 
             <div className="mobile-menu__group">
-              <p>Get Involved</p>
+              <Link
+                href="/get-involved"
+                aria-current={isCurrentRoute("/get-involved") ? "page" : undefined}
+                onClick={() => closeMobile()}
+              >
+                Get Involved
+              </Link>
               {involvedLinks.map((link) => (
                 <Link
                   href={link.href}
                   key={link.href}
+                  aria-current={isCurrentRoute(link.href) ? "page" : undefined}
                   onClick={() => closeMobile()}
                 >
                   {link.label}
