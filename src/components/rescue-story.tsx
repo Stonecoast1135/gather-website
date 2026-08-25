@@ -5,6 +5,63 @@ import { useEffect, useRef } from "react";
 
 import styles from "@/app/how-it-works/how-it-works.module.css";
 
+const defaultRouteAnchors = [11.84, 36.24, 60.65, 86.62];
+
+function buildJourneyRoute(anchorPositions: readonly number[]) {
+  const points = [0, ...anchorPositions, 100];
+  let route = "M 50 0";
+
+  for (let index = 0; index < points.length - 1; index += 1) {
+    const start = points[index];
+    const end = points[index + 1];
+    const distance = end - start;
+
+    if (index === points.length - 2) {
+      route += ` C 50 ${start + distance * 0.32} 50 ${
+        start + distance * 0.68
+      } 50 ${end}`;
+      continue;
+    }
+
+    const curveX = index % 2 === 0 ? 44 : 56;
+    route += ` C 50 ${start + distance * 0.18} ${curveX} ${
+      start + distance * 0.28
+    } ${curveX} ${start + distance * 0.48}`;
+    route += ` C ${curveX} ${start + distance * 0.7} 50 ${
+      start + distance * 0.82
+    } 50 ${end}`;
+  }
+
+  return route;
+}
+
+function measureRenderedRoute(path: SVGPathElement) {
+  const intrinsicLength = path.getTotalLength();
+  const matrix = path.getScreenCTM();
+  if (!matrix) return intrinsicLength;
+
+  const sampleCount = 160;
+  let renderedLength = 0;
+  const firstPoint = path.getPointAtLength(0);
+  let previousX = firstPoint.x * matrix.a + firstPoint.y * matrix.c;
+  let previousY = firstPoint.x * matrix.b + firstPoint.y * matrix.d;
+
+  for (let index = 1; index <= sampleCount; index += 1) {
+    const point = path.getPointAtLength(
+      (intrinsicLength * index) / sampleCount,
+    );
+    const x = point.x * matrix.a + point.y * matrix.c;
+    const y = point.x * matrix.b + point.y * matrix.d;
+    renderedLength += Math.hypot(x - previousX, y - previousY);
+    previousX = x;
+    previousY = y;
+  }
+
+  return renderedLength;
+}
+
+const defaultRoute = buildJourneyRoute(defaultRouteAnchors);
+
 const rescueChapters = [
   {
     number: "01",
@@ -119,10 +176,22 @@ const rescueChapters = [
 
 export function RescueStory() {
   const journeyRef = useRef<HTMLElement>(null);
+  const routeMapRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
     const journey = journeyRef.current;
-    if (!journey) return;
+    const routeMap = routeMapRef.current;
+    if (!journey || !routeMap) return;
+
+    const routePaths = Array.from(
+      routeMap.querySelectorAll<SVGPathElement>("[data-journey-route]"),
+    );
+    const activeRoute = routeMap.querySelector<SVGPathElement>(
+      "[data-journey-route-active]",
+    );
+    const chapterAnchors = Array.from(
+      journey.querySelectorAll<HTMLElement>("[data-journey-anchor]"),
+    );
 
     const revealTargets = Array.from(
       journey.querySelectorAll<HTMLElement>("[data-journey-reveal]"),
@@ -136,11 +205,46 @@ export function RescueStory() {
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
+    let routeLength = 1;
+    let journeyProgress = reducedMotion ? 1 : 0;
+
+    const paintRouteProgress = () => {
+      if (!activeRoute) return;
+      activeRoute.style.strokeDasharray = `${
+        routeLength * journeyProgress
+      } ${routeLength}`;
+    };
+
+    const updateRouteGeometry = () => {
+      const routeBounds = routeMap.getBoundingClientRect();
+      if (!routeBounds.height) return;
+
+      const isMobile = window.matchMedia("(max-width: 767px)").matches;
+      const anchorPositions = chapterAnchors.map((anchor) => {
+        const anchorBounds = anchor.getBoundingClientRect();
+        const anchorCenter =
+          anchorBounds.top + anchorBounds.height / 2 - routeBounds.top;
+        return Math.min(Math.max((anchorCenter / routeBounds.height) * 100, 0), 100);
+      });
+      const route = isMobile
+        ? "M 50 0 L 50 100"
+        : buildJourneyRoute(anchorPositions);
+
+      routePaths.forEach((path) => path.setAttribute("d", route));
+      routeLength = activeRoute ? measureRenderedRoute(activeRoute) : 1;
+      paintRouteProgress();
+    };
+
+    const routeResizeObserver = new ResizeObserver(updateRouteGeometry);
+    routeResizeObserver.observe(journey);
+    updateRouteGeometry();
+
     if (reducedMotion) {
       journey.style.setProperty("--journey-progress", "1");
+      paintRouteProgress();
       revealTargets.forEach((target) => target.classList.add(styles.isVisible));
       stageTargets.forEach((target) => target.classList.add(styles.isActive));
-      return;
+      return () => routeResizeObserver.disconnect();
     }
 
     journey.classList.add(styles.motionReady);
@@ -182,7 +286,9 @@ export function RescueStory() {
       const start = viewportHeight * 0.72;
       const travel = Math.max(bounds.height - viewportHeight * 0.34, 1);
       const progress = Math.min(Math.max((start - bounds.top) / travel, 0), 1);
+      journeyProgress = progress;
       journey.style.setProperty("--journey-progress", progress.toFixed(4));
+      paintRouteProgress();
     };
 
     const requestProgressUpdate = () => {
@@ -198,6 +304,7 @@ export function RescueStory() {
       if (frame) window.cancelAnimationFrame(frame);
       revealObserver.disconnect();
       stageObserver.disconnect();
+      routeResizeObserver.disconnect();
       window.removeEventListener("scroll", requestProgressUpdate);
       window.removeEventListener("resize", requestProgressUpdate);
     };
@@ -225,6 +332,7 @@ export function RescueStory() {
 
       <div className={`site-container ${styles.journeyField}`}>
         <svg
+          ref={routeMapRef}
           className={styles.routeMap}
           viewBox="0 0 100 100"
           preserveAspectRatio="none"
@@ -232,13 +340,14 @@ export function RescueStory() {
         >
           <path
             className={styles.routeBase}
-            d="M50 0 C50 8 42 10 43 19 C44 28 58 27 57 37 C56 47 45 47 47 57 C49 67 59 68 57 78 C55 88 48 90 50 100"
-            pathLength="1"
+            d={defaultRoute}
+            data-journey-route
           />
           <path
             className={styles.routeActive}
-            d="M50 0 C50 8 42 10 43 19 C44 28 58 27 57 37 C56 47 45 47 47 57 C49 67 59 68 57 78 C55 88 48 90 50 100"
-            pathLength="1"
+            d={defaultRoute}
+            data-journey-route
+            data-journey-route-active
           />
         </svg>
 
@@ -251,7 +360,11 @@ export function RescueStory() {
               data-journey-chapter
               key={chapter.label}
             >
-              <span className={styles.chapterAnchor} aria-hidden="true">
+              <span
+                className={styles.chapterAnchor}
+                data-journey-anchor
+                aria-hidden="true"
+              >
                 {chapter.number}
               </span>
 

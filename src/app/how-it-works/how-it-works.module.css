@@ -317,6 +317,9 @@
 .routeBase,
 .routeActive {
   fill: none;
+  shape-rendering: geometricPrecision;
+  stroke-linecap: round;
+  stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
 }
 
@@ -327,9 +330,9 @@
 
 .routeActive {
   stroke: var(--leaf-600);
-  stroke-width: 2;
-  stroke-dasharray: 1;
-  stroke-dashoffset: calc(1 - var(--journey-progress));
+  stroke-width: 1.5;
+  stroke-dasharray: 0 999;
+  stroke-dashoffset: 0;
 }
 
 .chapterList {
@@ -681,11 +684,12 @@
 
 .whyRouteEntry {
   position: absolute;
-  top: 0;
+  top: -1px;
   left: 50%;
-  width: 1px;
-  height: clamp(6rem, 8vw, 8rem);
+  width: 1.5px;
+  height: calc(clamp(6rem, 8vw, 8rem) + 1px);
   background: var(--sand-200);
+  transform: translateX(-50%);
 }
 
 .whyRouteEntry::after {
@@ -740,10 +744,10 @@
 .whyParticipants::before,
 .whyParticipants::after {
   position: absolute;
-  top: 1.3rem;
+  top: calc(1.3rem - 0.75px);
   right: 16.66%;
   left: 16.66%;
-  height: 1px;
+  height: 1.5px;
   content: "";
 }
 
@@ -1254,31 +1258,15 @@
   }
 
   .routeMap {
-    display: none;
+    top: 0;
+    bottom: 0;
+    left: 1rem;
+    width: 1.5px;
+    height: 100%;
   }
 
   .chapterList {
     padding-left: 3.5rem;
-  }
-
-  .chapterList::before,
-  .chapterList::after {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 1rem;
-    display: block;
-    width: 1px;
-  }
-
-  .chapterList::before {
-    background: var(--sand-200);
-  }
-
-  .chapterList::after {
-    background: var(--leaf-600);
-    transform: scaleY(var(--journey-progress));
-    transform-origin: top center;
   }
 
   .chapter {
@@ -1375,7 +1363,7 @@
 
   .whyRouteEntry {
     left: calc(var(--site-gutter) + 1rem);
-    height: 5rem;
+    height: calc(5rem + 1px);
   }
 
   .whyHeader {
@@ -1400,8 +1388,8 @@
     top: 1.25rem;
     right: auto;
     bottom: 1.25rem;
-    left: 1rem;
-    width: 1px;
+    left: calc(1rem - 0.75px);
+    width: 1.5px;
     height: auto;
   }
 
@@ -1588,21 +1576,25 @@
 
 @media (prefers-reduced-motion: reduce) {
   .routeActive {
-    stroke-dashoffset: 0;
+    stroke-dasharray: none !important;
   }
 
-  .chapterList::after {
-    transform: scaleY(1);
-  }
-
-  .chapterAnchor,
-  .stepMarker,
   .chapterMedia > img,
   .journey [data-journey-reveal],
   .conclusion [data-conclusion-reveal] {
     clip-path: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .chapterAnchor {
+    transform: translate(-50%, -50%) !important;
+    transition: none !important;
+  }
+
+  .stepMarker {
+    transform: none !important;
+    transition: none !important;
   }
 
   .whyRouteEntry::after,
