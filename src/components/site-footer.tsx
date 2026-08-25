@@ -33,7 +33,6 @@ const footerGroups = [
     title: "Product",
     links: [
       { label: "Download Gather", href: "/download" },
-      { label: "Open Gather", href: "/open-gather" },
     ],
   },
 ] as const;

@@ -144,7 +144,9 @@ export function SiteHeader() {
   const usesLightHeader =
     pathname === "/how-it-works" ||
     pathname === "/businesses" ||
-    pathname === "/schools";
+    pathname === "/schools" ||
+    pathname === "/about" ||
+    pathname === "/contact";
 
   return (
     <header
@@ -225,8 +227,12 @@ export function SiteHeader() {
         </nav>
 
         <div className="header-utilities">
-          <Link className="header-utility-link" href="/open-gather">
-            Open Gather
+          <Link
+            className={`header-utility-link${isCurrentRoute("/download") ? " is-active" : ""}`}
+            href="/download"
+            aria-current={isCurrentRoute("/download") ? "page" : undefined}
+          >
+            Download Gather
           </Link>
           <Link className="button button--header" href="/get-involved">
             Get involved
@@ -306,8 +312,12 @@ export function SiteHeader() {
           </nav>
 
           <div className="mobile-menu__utilities">
-            <Link href="/open-gather" onClick={() => closeMobile()}>
-              Open Gather
+            <Link
+              href="/download"
+              aria-current={isCurrentRoute("/download") ? "page" : undefined}
+              onClick={() => closeMobile()}
+            >
+              Download Gather
             </Link>
             <Link
               className="button button--primary"

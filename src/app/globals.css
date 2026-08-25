@@ -379,6 +379,10 @@ img {
   transform: scaleX(1);
 }
 
+.header-utility-link.is-active::after {
+  transform: scaleX(1);
+}
+
 .nav-dropdown {
   position: relative;
 }
@@ -458,6 +462,7 @@ img {
   min-height: 2.8rem;
   padding-inline: 1.05rem;
   font-size: 0.76rem;
+  white-space: nowrap;
 }
 
 .site-header:not(.is-scrolled):not(.has-open-menu) .button--header {
