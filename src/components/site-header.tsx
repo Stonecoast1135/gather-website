@@ -141,6 +141,11 @@ export function SiteHeader() {
     isCurrentRoute("/get-involved") ||
     involvedLinks.some((link) => isCurrentRoute(link.href));
 
+  const involvementAction =
+    pathname === "/get-involved"
+      ? { href: "/get-involved#choose-your-path", label: "Choose your path" }
+      : { href: "/get-involved", label: "Get involved" };
+
   const usesLightHeader =
     pathname === "/how-it-works" ||
     pathname === "/businesses" ||
@@ -234,8 +239,8 @@ export function SiteHeader() {
           >
             Download Gather
           </Link>
-          <Link className="button button--header" href="/get-involved">
-            Get involved
+          <Link className="button button--header" href={involvementAction.href}>
+            {involvementAction.label}
             <span className="button-arrow" aria-hidden="true" />
           </Link>
         </div>
@@ -321,10 +326,10 @@ export function SiteHeader() {
             </Link>
             <Link
               className="button button--primary"
-              href="/get-involved"
+              href={involvementAction.href}
               onClick={() => closeMobile()}
             >
-              Get involved
+              {involvementAction.label}
               <span className="button-arrow" aria-hidden="true" />
             </Link>
           </div>

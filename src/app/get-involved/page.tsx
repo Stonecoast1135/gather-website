@@ -40,10 +40,10 @@ export default function GetInvolvedPage() {
             {/* Temporary, non-Gather documentary photography from Unsplash.
                 It does not depict a Gather operation. See TEMPORARY-IMAGERY.md. */}
             <Image
-              src="/images/audience-schools-service.webp"
-              alt="People work together to prepare packaged meals for distribution."
+              src="/images/community-sorting.webp"
+              alt="Volunteers sort shelf-stable food together at a community event."
               fill
-              loading="eager"
+              preload
               sizes="(max-width: 767px) 100vw, 58vw"
             />
             <span className={styles.heroPhotoLabel}>
@@ -77,11 +77,12 @@ export default function GetInvolvedPage() {
       </section>
 
       <ParticipationClose
-        eyebrow="Take the next step"
-        title="Bring what you can. Build something shared."
+        eyebrow="Your place in the system"
+        title="Choose the contribution that feels most like you."
         description="Choose the pathway that fits you, or start with the rescue journey to see how every role connects."
         primary={{ href: "/volunteers", label: "Explore volunteering" }}
         secondary={{ href: "/how-it-works", label: "See how Gather works" }}
+        variant="paper"
       />
     </main>
   );

@@ -49,7 +49,7 @@ export default function SchoolsPage() {
               src="/images/audience-schools-service.webp"
               alt="People work together to prepare packaged meals for distribution."
               fill
-              priority
+              preload
               sizes="(max-width: 767px) 100vw, 52vw"
             />
             <p><span>Local service</span><span>Completed activity</span><span>Community context</span></p>
@@ -158,10 +158,11 @@ export default function SchoolsPage() {
 
       <ParticipationClose
         eyebrow="Start with service"
-        title="Help students find meaningful work close to home."
+        title="Bring meaningful service closer to home."
         description="Explore the volunteer pathway or see how completed rescues fit into Gather's wider community system."
         primary={{ href: "/volunteers", label: "Explore volunteering" }}
-        secondary={{ href: "/how-it-works", label: "See how Gather works" }}
+        secondary={{ href: "/contact#schools", label: "Talk about your program" }}
+        variant="paper"
       />
     </main>
   );

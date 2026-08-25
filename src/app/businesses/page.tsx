@@ -42,12 +42,12 @@ export default function BusinessesPage() {
               available for coordinated rescue.
             </p>
             <div className={styles.businessHeroActions}>
-              <Link className="button button--primary" href="/contact">
-                Join as a business
+              <Link className="button button--primary" href="/contact#business">
+                Talk to Gather
                 <span className="button-arrow" aria-hidden="true" />
               </Link>
-              <Link className="directional-link" href="/contact">
-                Talk to Gather
+              <Link className="directional-link" href="#business-process">
+                See the business process
                 <span className="link-arrow" aria-hidden="true" />
               </Link>
             </div>
@@ -56,17 +56,17 @@ export default function BusinessesPage() {
           </div>
           <div className={styles.businessHeroMedia}>
             <Image
-              src="/images/audience-business-bakery.webp"
-              alt="A baker arranges fresh bread in a working kitchen."
+              src="/images/business-kitchen-service.webp"
+              alt="Restaurant staff prepare food during a working kitchen service."
               fill
-              loading="eager"
+              preload
               sizes="(max-width: 767px) 100vw, 52vw"
             />
           </div>
         </div>
       </section>
 
-      <section className={styles.businessProcess} aria-labelledby="business-process-title">
+      <section className={styles.businessProcess} id="business-process" aria-labelledby="business-process-title">
         <div className={`site-container ${styles.businessProcessIntro}`}>
           <div>
             <p className="eyebrow">A simple operational flow</p>
@@ -114,8 +114,8 @@ export default function BusinessesPage() {
             </p>
             <div className={styles.businessNeedsMedia}>
               <Image
-                src="/images/hero-community-tomatoes.webp"
-                alt="Several people hold a bowl of freshly harvested tomatoes."
+                src="/images/audience-business-bakery.webp"
+                alt="A baker arranges fresh bread in a working kitchen."
                 fill
                 sizes="(max-width: 767px) 100vw, 32vw"
               />
@@ -187,11 +187,11 @@ export default function BusinessesPage() {
       </section>
 
       <ParticipationClose
-        eyebrow="Start a conversation"
-        title="Share good food without unnecessary complexity."
+        eyebrow="A practical next step"
+        title="Have appropriate surplus to share?"
         description="Tell Gather about your business and the kind of appropriate surplus you may have available."
-        primary={{ href: "/contact", label: "Join as a business" }}
-        secondary={{ href: "/contact", label: "Talk to Gather" }}
+        primary={{ href: "/contact#business", label: "Talk to Gather" }}
+        secondary={{ href: "#business-process", label: "Review the process" }}
       />
     </main>
   );

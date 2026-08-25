@@ -25,7 +25,7 @@
   padding: clamp(5.5rem, 9vw, 8rem) clamp(2.75rem, 6vw, 6.75rem) clamp(5rem, 8vw, 7rem) 0;
 }
 
-.routerHeroCopy .eyebrow {
+.routerHeroCopy :global(.eyebrow) {
   color: var(--leaf-400);
 }
 
@@ -33,14 +33,14 @@
   max-width: 9ch;
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(4.2rem, 6vw, 5.4rem);
+  font-size: clamp(3.8rem, 5.25vw, 4.85rem);
   font-weight: 430;
   letter-spacing: -0.045em;
   line-height: 0.96;
   text-wrap: balance;
 }
 
-.routerHeroCopy > p:not(.eyebrow) {
+.routerHeroCopy > p:not(:global(.eyebrow)) {
   max-width: 35rem;
   margin: 1.65rem 0 0;
   color: rgb(255 255 255 / 78%);
@@ -370,6 +370,98 @@
   display: none;
 }
 
+.pathwayRows {
+  max-width: var(--content-max);
+  margin-top: clamp(3.5rem, 6vw, 5.5rem);
+  border-top: 1px solid var(--forest-800);
+}
+
+.pathwayRow {
+  position: relative;
+  display: grid;
+  min-height: 8.5rem;
+  grid-template-columns: 3rem minmax(15rem, 0.9fr) minmax(16rem, 1fr) minmax(12rem, auto);
+  align-items: center;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  border-bottom: 1px solid var(--sand-200);
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.pathwayRow::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: var(--forest-700);
+  content: "";
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.pathwayNumber {
+  color: var(--leaf-600);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.pathwayStatement p {
+  margin: 0 0 0.35rem;
+  color: var(--forest-700);
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.pathwayStatement h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 2.3vw, 2.1rem);
+  font-weight: 480;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+
+.pathwayNext {
+  max-width: 31rem;
+  margin: 0;
+  color: var(--ink-700);
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+.pathwayRow :global(.directional-link) {
+  justify-self: end;
+  text-align: right;
+}
+
+@media (hover: hover) {
+  .pathwayRow:hover,
+  .pathwayRow:focus-within {
+    background: rgb(255 255 255 / 52%);
+  }
+
+  .pathwayRow:hover::after,
+  .pathwayRow:focus-within::after {
+    transform: scaleX(1);
+  }
+
+  .pathwayRow:hover :global(.link-arrow)::before {
+    transform: scaleX(1);
+  }
+
+  .pathwayRow:hover :global(.link-arrow)::after {
+    transform: translateX(0.16rem) rotate(45deg);
+  }
+}
+
+.pathwayRow:focus-within::after {
+  transform: scaleX(1);
+}
+
 .roleIndex {
   padding: clamp(6.5rem, 9vw, 9rem) 0;
   background: var(--oat-100);
@@ -490,7 +582,7 @@
   align-items: end;
 }
 
-.participationClose .eyebrow {
+.participationClose :global(.eyebrow) {
   color: var(--leaf-400);
 }
 
@@ -510,6 +602,47 @@
   margin: 0;
   color: rgb(255 255 255 / 76%);
   line-height: 1.7;
+}
+
+.participationClose--paper {
+  background:
+    linear-gradient(120deg, rgb(198 123 63 / 7%), transparent 42%),
+    var(--oat-100);
+  color: var(--ink-950);
+}
+
+.participationClose--paper::before {
+  background: var(--forest-700);
+}
+
+.participationClose--paper :global(.eyebrow) {
+  color: var(--forest-700);
+}
+
+.participationClose--paper .participationCloseInner > div:last-child > p {
+  color: var(--ink-700);
+}
+
+.participationClose--paper :global(.button--light) {
+  background: var(--forest-800);
+  color: var(--white);
+}
+
+.participationClose--paper :global(.directional-link) {
+  color: var(--forest-800);
+}
+
+.participationClose--compact {
+  padding-block: clamp(4.75rem, 7vw, 6.5rem);
+  background: var(--forest-900);
+}
+
+.participationClose--compact .participationCloseInner {
+  max-width: var(--content-narrow);
+}
+
+.participationClose--compact h2 {
+  font-size: clamp(2.9rem, 4.2vw, 3.85rem);
 }
 
 .closeActions {
@@ -566,7 +699,7 @@
   align-self: center;
 }
 
-.volunteerHeroCopy .eyebrow {
+.volunteerHeroCopy :global(.eyebrow) {
   color: var(--leaf-400);
 }
 
@@ -574,14 +707,14 @@
   max-width: 12ch;
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(4rem, 6vw, 5.35rem);
+  font-size: clamp(3.8rem, 5.25vw, 4.85rem);
   font-weight: 430;
   letter-spacing: -0.045em;
   line-height: 0.96;
   text-wrap: balance;
 }
 
-.volunteerHeroCopy > p:not(.eyebrow) {
+.volunteerHeroCopy > p:not(:global(.eyebrow)) {
   max-width: 38rem;
   margin: 1.55rem 0 0;
   color: rgb(255 255 255 / 82%);
@@ -659,7 +792,7 @@
   max-width: 16ch;
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(3rem, 4.5vw, 4rem);
+  font-size: clamp(2.75rem, 4vw, 3.7rem);
   font-weight: 430;
   letter-spacing: -0.04em;
   line-height: 1;
@@ -772,7 +905,7 @@
   line-height: 0.98;
 }
 
-.flexibilityCopy > p:not(.eyebrow) {
+.flexibilityCopy > p:not(:global(.eyebrow)) {
   margin: 1.5rem 0 0;
   color: var(--ink-700);
   line-height: 1.75;
@@ -851,6 +984,7 @@
 
 .serviceRecords :global(.directional-link) {
   margin-top: 1rem;
+  color: var(--white);
 }
 
 .serviceRecordsGrid {
@@ -861,7 +995,7 @@
   align-items: center;
 }
 
-.serviceRecords .eyebrow { color: var(--leaf-400); }
+.serviceRecords :global(.eyebrow) { color: var(--leaf-400); }
 
 .serviceRecords h2 {
   max-width: 13ch;
@@ -873,7 +1007,7 @@
   line-height: 1;
 }
 
-.serviceRecordsGrid > div:first-child > p:not(.eyebrow) {
+.serviceRecordsGrid > div:first-child > p:not(:global(.eyebrow)) {
   margin: 1.5rem 0 0;
   color: rgb(255 255 255 / 75%);
   line-height: 1.75;
@@ -986,14 +1120,14 @@
   max-width: 11ch;
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(4rem, 5.7vw, 5.1rem);
+  font-size: clamp(3.8rem, 5.15vw, 4.75rem);
   font-weight: 430;
   letter-spacing: -0.045em;
   line-height: 0.96;
   text-wrap: balance;
 }
 
-.businessHeroCopy > p:not(.eyebrow):not(.businessHeroNote) {
+.businessHeroCopy > p:not(:global(.eyebrow)):not(.businessHeroNote) {
   max-width: 35rem;
   margin: 1.55rem 0 0;
   color: var(--ink-700);
@@ -1065,7 +1199,7 @@
   max-width: 13ch;
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(3.1rem, 4.6vw, 4.15rem);
+  font-size: clamp(2.8rem, 4vw, 3.7rem);
   font-weight: 430;
   letter-spacing: -0.04em;
   line-height: 1;
@@ -1127,7 +1261,7 @@
   gap: clamp(4rem, 9vw, 9rem);
 }
 
-.respectOperations .eyebrow { color: var(--leaf-400); }
+.respectOperations :global(.eyebrow) { color: var(--leaf-400); }
 .respectOperations h2 { max-width: 10ch; margin: 0; font-family: var(--font-display); font-size: clamp(3.2rem, 4.8vw, 4.35rem); font-weight: 430; letter-spacing: -0.04em; line-height: 1; }
 .operationsLedger { border-top: 1px solid rgb(255 255 255 / 22%); }
 .operationsLedger article { display: grid; grid-template-columns: 2.5rem minmax(12rem, 0.65fr) 1fr; gap: 1.5rem; align-items: start; padding: 1.4rem 0; border-bottom: 1px solid rgb(255 255 255 / 18%); }
@@ -1149,7 +1283,7 @@
 }
 
 .businessNeedsIntro h2 { max-width: 13ch; margin: 0; font-family: var(--font-display); font-size: clamp(3rem, 4.2vw, 3.9rem); font-weight: 430; letter-spacing: -0.04em; line-height: 1; }
-.businessNeedsIntro > p:not(.eyebrow) { margin: 1.4rem 0 0; color: var(--ink-700); line-height: 1.72; }
+.businessNeedsIntro > p:not(:global(.eyebrow)) { margin: 1.4rem 0 0; color: var(--ink-700); line-height: 1.72; }
 .businessNeedsMedia { position: relative; min-height: 19rem; margin-top: 2.25rem; overflow: hidden; }
 .businessNeedsMedia img { object-fit: cover; object-position: center 53%; }
 .requirementsLedger { margin: 0; border-top: 1px solid var(--sand-200); }
@@ -1172,7 +1306,7 @@
 .handoffMedia img { object-fit: cover; object-position: center 58%; }
 .handoffCopy { display: flex; flex-direction: column; justify-content: center; padding: clamp(5rem, 8vw, 8rem) 0 clamp(5rem, 8vw, 8rem) clamp(3rem, 7vw, 7rem); }
 .handoffCopy h2 { max-width: 12ch; margin: 0; font-family: var(--font-display); font-size: clamp(3.1rem, 4.5vw, 4.1rem); font-weight: 430; letter-spacing: -0.04em; line-height: 1; }
-.handoffCopy > p:not(.eyebrow) { margin: 1.4rem 0 0; color: var(--ink-700); line-height: 1.72; }
+.handoffCopy > p:not(:global(.eyebrow)) { margin: 1.4rem 0 0; color: var(--ink-700); line-height: 1.72; }
 .handoffCopy ol { display: grid; grid-template-columns: repeat(4, 1fr); margin: 2.4rem 0 0; padding: 1.25rem 0 0; border-top: 1px solid var(--sand-200); list-style: none; }
 .handoffCopy li { position: relative; display: flex; align-items: center; gap: 0.7rem; color: var(--forest-800); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
 .handoffCopy li i { width: 1.2rem; height: 1px; background: var(--leaf-600); }
@@ -1246,6 +1380,19 @@
   .pathPanel {
     min-height: 36rem;
     grid-template-rows: minmax(20rem, 1fr) auto;
+  }
+
+  .pathwayRow {
+    grid-template-columns: 2.5rem minmax(14rem, 0.9fr) minmax(15rem, 1.1fr);
+    gap: 1.5rem;
+    padding-block: 1.5rem;
+  }
+
+  .pathwayRow :global(.directional-link) {
+    grid-column: 2 / -1;
+    justify-self: start;
+    margin-top: -0.5rem;
+    text-align: left;
   }
 
   .pathCopy {
@@ -1378,10 +1525,10 @@
 
   .routerHeroCopy h1 {
     max-width: 10ch;
-    font-size: clamp(3.2rem, 13vw, 4rem);
+    font-size: clamp(3rem, 12vw, 3.65rem);
   }
 
-  .routerHeroCopy > p:not(.eyebrow) {
+  .routerHeroCopy > p:not(:global(.eyebrow)) {
     font-size: 1rem;
   }
 
@@ -1437,6 +1584,62 @@
 
   .pathwaysDesktop {
     display: none;
+  }
+
+  .pathwayRows {
+    position: relative;
+    margin-top: 3rem;
+    border-top-color: var(--forest-800);
+  }
+
+  .pathwayRows::before {
+    position: absolute;
+    top: 2.4rem;
+    bottom: 2.4rem;
+    left: 1.16rem;
+    width: 1px;
+    background: var(--sand-200);
+    content: "";
+  }
+
+  .pathwayRow {
+    position: relative;
+    min-height: 0;
+    grid-template-columns: 2.35rem minmax(0, 1fr);
+    gap: 0 1.1rem;
+    padding: 1.75rem 0 2rem;
+  }
+
+  .pathwayNumber {
+    z-index: 1;
+    display: grid;
+    width: 2.35rem;
+    height: 2.35rem;
+    grid-row: 1 / span 3;
+    place-items: center;
+    border: 1px solid var(--forest-800);
+    border-radius: 50%;
+    background: var(--ivory-50);
+    color: var(--forest-800);
+  }
+
+  .pathwayStatement,
+  .pathwayNext,
+  .pathwayRow :global(.directional-link) {
+    grid-column: 2;
+  }
+
+  .pathwayStatement h3 {
+    font-size: clamp(1.75rem, 8vw, 2.2rem);
+  }
+
+  .pathwayNext {
+    margin-top: 0.8rem;
+    font-size: 0.84rem;
+  }
+
+  .pathwayRow :global(.directional-link) {
+    margin-top: 0.45rem;
   }
 
   .pathwaysMobile {
@@ -1617,10 +1820,10 @@
 
   .volunteerHeroCopy h1 {
     max-width: 10ch;
-    font-size: clamp(3.15rem, 13vw, 4rem);
+    font-size: clamp(3rem, 12vw, 3.65rem);
   }
 
-  .volunteerHeroCopy > p:not(.eyebrow) {
+  .volunteerHeroCopy > p:not(:global(.eyebrow)) {
     font-size: 0.98rem;
   }
 
@@ -1799,7 +2002,7 @@
 
   .businessHeroCopy h1 {
     max-width: 10ch;
-    font-size: clamp(3.15rem, 13vw, 4rem);
+    font-size: clamp(3rem, 12vw, 3.65rem);
   }
 
   .businessHeroMedia {

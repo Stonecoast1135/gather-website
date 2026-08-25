@@ -60,17 +60,17 @@ export default function SupportPage() {
               and operational capacity needed to coordinate more food rescue responsibly.
             </p>
             <div className={styles.heroActions}>
-              <Link className="button button--light" href="#support-pathways">
-                Support Gather
+              <Link className="button button--light" href="#ways-to-support">
+                Explore ways to support
                 <span className="button-arrow" aria-hidden="true" />
               </Link>
-              <Link className="button button--ghost" href="/contact">
+              <Link className="button button--ghost" href="/contact#support">
                 Partner with Gather
                 <span className="button-arrow" aria-hidden="true" />
               </Link>
             </div>
             <p className={styles.supportAvailability}>
-              A live contribution destination is not configured yet.
+              Online giving is coming soon.
             </p>
           </div>
 
@@ -86,10 +86,9 @@ export default function SupportPage() {
               {/* Temporary, non-Gather documentary photography from Unsplash.
                   It does not depict a Gather operation or supporter. */}
               <Image
-                src="/images/audience-business-bakery.webp"
+                src="/images/market-produce.webp"
                 alt=""
                 fill
-                priority
                 sizes="(max-width: 767px) 72vw, 24vw"
               />
             </div>
@@ -97,10 +96,12 @@ export default function SupportPage() {
         </div>
       </section>
 
-      <section className={styles.supportPaths} id="support-pathways" aria-labelledby="support-pathways-title">
+      <section className={styles.supportPaths} id="ways-to-support" aria-labelledby="support-pathways-title">
         <div className={`site-container ${styles.supportPathsIntro}`}>
-          <p className="eyebrow">Ways to stand behind the work</p>
-          <h2 id="support-pathways-title">Different relationships. One shared direction.</h2>
+          <div>
+            <p className="eyebrow">Ways to stand behind the work</p>
+            <h2 id="support-pathways-title">Different relationships. One shared direction.</h2>
+          </div>
           <p>
             Explore the pathway closest to you. These are conversation routes,
             not live payment options.
@@ -118,8 +119,16 @@ export default function SupportPage() {
                 </summary>
                 <div>
                   <p>{pathway.description}</p>
-                  <Link className="directional-link" href="/contact">
-                    Start this conversation
+                  <Link className="directional-link" href="/contact#support">
+                    {index === 0
+                      ? "Ask about individual support"
+                      : index === 1
+                        ? "Discuss company support"
+                        : index === 2
+                          ? "Explore sponsorship"
+                          : index === 3
+                            ? "Discuss mission alignment"
+                            : "Explore community partnership"}
                     <span className="link-arrow" aria-hidden="true" />
                   </Link>
                 </div>
@@ -212,12 +221,12 @@ export default function SupportPage() {
             Begin with a conversation, or find another way to take part in the movement.
           </p>
           <div className={styles.closeActions}>
-            <Link className="button button--primary" href="/contact">
+            <Link className="button button--primary" href="/contact#support">
               Talk to Gather
               <span className="button-arrow" aria-hidden="true" />
             </Link>
-            <Link className="directional-link" href="/get-involved">
-              Join the movement
+            <Link className="directional-link" href="/impact">
+              See the impact approach
               <span className="link-arrow" aria-hidden="true" />
             </Link>
           </div>

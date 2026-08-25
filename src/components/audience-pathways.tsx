@@ -57,8 +57,8 @@ const audiencePaths = [
       "Help enable more rescues and responsible growth through individual support, sponsorship, foundation funding, or community partnership.",
     cta: "Support Gather",
     href: "/support",
-    image: "/images/audience-supporters-hands.webp",
-    alt: "A group of people hold their open hands together in a circle.",
+    image: "/images/community-garden.webp",
+    alt: "Community volunteers work together in a garden.",
   },
 ] as const;
 

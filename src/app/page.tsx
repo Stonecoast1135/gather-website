@@ -53,7 +53,7 @@ export default function Home() {
             src="/images/hero-community-tomatoes.webp"
             alt="Several people hold a bowl filled with freshly harvested tomatoes."
             fill
-            priority
+            preload
             sizes="100vw"
           />
           <span className="hero-photo-veil" aria-hidden="true" />

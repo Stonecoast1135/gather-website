@@ -73,10 +73,10 @@ export default function AboutPage() {
               {/* Temporary, non-Gather documentary photography from Unsplash.
                   It does not depict a Gather operation. See TEMPORARY-IMAGERY.md. */}
               <Image
-                src="/images/hero-community-tomatoes.webp"
-                alt="Several people hold a bowl of freshly harvested tomatoes together."
+                src="/images/audience-business-bakery.webp"
+                alt="A baker arranges fresh bread in a working kitchen."
                 fill
-                priority
+                preload
                 sizes="(max-width: 767px) 78vw, 36vw"
               />
               <figcaption>Food</figcaption>
@@ -92,8 +92,8 @@ export default function AboutPage() {
             </figure>
             <figure className={styles.aboutMosaicTertiary}>
               <Image
-                src="/images/audience-business-bakery.webp"
-                alt="A baker arranges fresh bread in a working kitchen."
+                src="/images/market-produce.webp"
+                alt="A market worker stands behind a display of fresh produce."
                 fill
                 sizes="(max-width: 767px) 42vw, 16vw"
               />
@@ -223,7 +223,7 @@ export default function AboutPage() {
         <div className={`site-container ${styles.aboutCloseGrid}`}>
           <div>
             <p className="eyebrow">The next part is shared</p>
-            <h2 id="about-close-title">A connected idea becomes real through participation.</h2>
+            <h2 id="about-close-title">Be part of what comes next.</h2>
           </div>
           <div>
             <p>
@@ -232,7 +232,7 @@ export default function AboutPage() {
             </p>
             <div className={styles.closeActions}>
               <Link className="button button--light" href="/get-involved">
-                Join the movement
+                Find your place
                 <span className="button-arrow" aria-hidden="true" />
               </Link>
               <Link className="button button--ghost" href="/how-it-works">

@@ -11,39 +11,39 @@ export const metadata: Metadata = {
 
 const contactPaths = [
   {
+    id: "business",
     number: "01",
     title: "Join as a business",
-    description: "Learn how businesses can make appropriate surplus food available.",
-    href: "/businesses",
-    action: "Explore the business pathway",
+    description: "Tell us what kind of appropriate surplus may be available and how pickup usually works at your location.",
+    details: ["Food type and approximate quantity", "Pickup window and location", "Best handoff contact"],
   },
   {
+    id: "organizations",
     number: "02",
     title: "Become a recipient organization",
-    description: "See how receiving preferences, coordination, and confirmation fit together.",
-    href: "/organizations",
-    action: "Explore the organization pathway",
+    description: "Share the receiving preferences, timing, and capacity that shape what is genuinely useful to your organization.",
+    details: ["Foods you can use or need to avoid", "Storage, quantity, and timing context", "Best receiving contact"],
   },
   {
+    id: "schools",
     number: "03",
     title: "Schools & programs",
-    description: "Understand the role Gather may play for students, advisors, and service programs.",
-    href: "/schools",
-    action: "Explore schools and programs",
+    description: "Describe your students, service context, and the policies or questions that matter to your program.",
+    details: ["School, club, or program context", "Student participation needs", "Record-acceptance policies or questions"],
   },
   {
+    id: "support",
     number: "04",
     title: "Support or sponsorship",
-    description: "Review future support relationships and what they may help enable.",
-    href: "/support",
-    action: "Explore support pathways",
+    description: "Introduce the kind of support relationship you want to explore and what draws you to Gather's mission.",
+    details: ["Individual, company, sponsor, or foundation", "Mission alignment or resources", "Preferred timing and next step"],
   },
   {
+    id: "general",
     number: "05",
     title: "General questions",
-    description: "Check the current availability of a direct public contact route.",
-    href: "#contact-status",
-    action: "View contact status",
+    description: "Give us enough context to understand where your question belongs once the direct channel is available.",
+    details: ["Your question or topic", "The Gather role it relates to", "Any practical context we should know"],
   },
 ] as const;
 
@@ -70,23 +70,23 @@ export default function ContactPage() {
             <p className="eyebrow">Choose a direction</p>
             <h2 id="contact-pathways-title">The clearest place to begin.</h2>
           </div>
-          <nav aria-label="Contact pathways">
-            <ul>
+          <div className={styles.contactPathList} aria-label="Contact pathways">
               {contactPaths.map((path) => (
-                <li key={path.number}>
-                  <span>{path.number}</span>
+                <article id={path.id} key={path.number}>
+                  <span aria-hidden="true">{path.number}</span>
                   <div>
                     <h3>{path.title}</h3>
                     <p>{path.description}</p>
                   </div>
-                  <Link href={path.href} aria-label={`${path.action}: ${path.title}`}>
-                    <span>{path.action}</span>
-                    <i className="link-arrow" aria-hidden="true" />
-                  </Link>
-                </li>
+                  <div className={styles.contactPathDetails}>
+                    <strong>Helpful details to share</strong>
+                    <ul>
+                      {path.details.map((detail) => <li key={detail}>{detail}</li>)}
+                    </ul>
+                  </div>
+                </article>
               ))}
-            </ul>
-          </nav>
+          </div>
         </div>
       </section>
 
@@ -97,12 +97,12 @@ export default function ContactPage() {
             <i />
           </div>
           <div>
-            <p className="eyebrow">Direct contact status</p>
-            <h2 id="contact-status-title">A public contact destination is still being prepared.</h2>
+            <p className="eyebrow">How to reach Gather</p>
+            <h2 id="contact-status-title">Direct contact details are coming soon.</h2>
             <p>
-              No approved email address, phone number, office address, or form
-              destination has been supplied. Gather will publish a direct route here
-              when it is ready; until then, the dedicated pages above are the clearest starting points.
+              Gather will publish the appropriate email or form here as the public
+              contact channel is finalized. The prompts above can help you prepare
+              the useful context for that first conversation.
             </p>
           </div>
         </div>

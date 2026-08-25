@@ -45,8 +45,8 @@ export default function HowItWorksPage() {
                 depict a Gather rescue and can be replaced without changing layout. */}
             <div className={styles.heroPrimaryImage}>
               <Image
-                src="/images/hero-community-tomatoes.webp"
-                alt="Several people pass a bowl filled with freshly harvested tomatoes."
+                src="/images/community-handoff.webp"
+                alt="Volunteers prepare bags of food at an outdoor distribution table."
                 fill
                 preload
                 sizes="(max-width: 767px) 100vw, (max-width: 1100px) 56vw, 58vw"

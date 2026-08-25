@@ -24,6 +24,11 @@
   --site-gutter: clamp(1.5rem, 4.5vw, 4.5rem);
   --site-max: 95rem;
   --content-max: 84rem;
+  --content-narrow: 68rem;
+  --text-wide: 42rem;
+  --text-measure: 36rem;
+  --hero-copy-max: 39rem;
+  --section-heading-max: 16ch;
   --header-height: 5rem;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
@@ -63,6 +68,10 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-height) + 1rem);
   text-rendering: optimizeLegibility;
+}
+
+:where(section, article)[id] {
+  scroll-margin-top: calc(var(--header-height) + 1rem);
 }
 
 body {
@@ -145,11 +154,11 @@ img {
 }
 
 .eyebrow {
-  margin: 0 0 1.25rem;
+  margin: 0 0 0.8rem;
   color: var(--forest-700);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 750;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   line-height: 1.3;
   text-transform: uppercase;
 }
@@ -307,7 +316,7 @@ img {
 .site-header.is-scrolled,
 .site-header.has-open-menu {
   border-bottom-color: var(--sand-200);
-  background: rgb(250 248 242 / 97%);
+  background: var(--ivory-50);
   color: var(--forest-950);
 }
 
@@ -465,7 +474,7 @@ img {
   white-space: nowrap;
 }
 
-.site-header:not(.is-scrolled):not(.has-open-menu) .button--header {
+.site-header:not(.is-light-page):not(.is-scrolled):not(.has-open-menu) .button--header {
   border-color: rgb(255 255 255 / 45%);
   background: rgb(11 36 27 / 58%);
 }
@@ -526,7 +535,7 @@ img {
 }
 
 .hero-copy {
-  width: min(100%, 39rem);
+  width: min(100%, var(--hero-copy-max));
   align-self: center;
   padding-bottom: 2.75rem;
 }
@@ -1237,7 +1246,7 @@ img {
 
 .audience-rail__choice[aria-selected="true"] .audience-rail__line,
 .audience-rail__choice:is(:hover, :focus-visible) .audience-rail__line {
-  width: calc(100% + var(--audience-gap) + 0.85rem);
+  width: calc(100% + var(--audience-gap) - 1.25rem);
 }
 
 .audience-rail__choice:is(:hover, :focus-visible) {
@@ -2565,7 +2574,7 @@ img {
 
   .audience-rail__choice[aria-selected="true"] .audience-rail__line,
   .audience-rail__choice:is(:hover, :focus-visible) .audience-rail__line {
-    width: 100%;
+    width: calc(100% + var(--audience-gap) - 1.25rem);
   }
 
   .audience-panel {
@@ -2730,6 +2739,12 @@ img {
     --header-height: 4rem;
     --site-gutter: clamp(1.25rem, 5.5vw, 1.5rem);
     --space-section: clamp(4rem, 14vw, 4.5rem);
+  }
+
+  .eyebrow {
+    margin-bottom: 0.7rem;
+    font-size: 0.69rem;
+    letter-spacing: 0.17em;
   }
 
   .wordmark {

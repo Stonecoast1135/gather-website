@@ -8,6 +8,7 @@ type ParticipationCloseProps = {
   description: string;
   primary: { href: string; label: string };
   secondary: { href: string; label: string };
+  variant?: "forest" | "paper" | "compact";
 };
 
 export function ParticipationClose({
@@ -16,9 +17,16 @@ export function ParticipationClose({
   description,
   primary,
   secondary,
+  variant = "forest",
 }: ParticipationCloseProps) {
+  const variantClass =
+    variant === "forest" ? "" : styles[`participationClose--${variant}`];
+
   return (
-    <section className={styles.participationClose} aria-labelledby={`${eyebrow.toLowerCase().replaceAll(" ", "-")}-title`}>
+    <section
+      className={`${styles.participationClose} ${variantClass}`}
+      aria-labelledby={`${eyebrow.toLowerCase().replaceAll(" ", "-")}-title`}
+    >
       <div className={`site-container ${styles.participationCloseInner}`}>
         <div>
           <p className="eyebrow">{eyebrow}</p>

@@ -57,10 +57,10 @@ export default function ImpactPage() {
               {/* Temporary, non-Gather documentary photography from Unsplash.
                   It does not depict a Gather operation. See TEMPORARY-IMAGERY.md. */}
               <Image
-                src="/images/hero-community-tomatoes.webp"
-                alt="Several people hold a bowl of freshly harvested tomatoes together."
+                src="/images/community-garden.webp"
+                alt="People carry harvested produce through a working community garden."
                 fill
-                priority
+                preload
                 sizes="(max-width: 767px) 100vw, 42vw"
               />
             </div>
@@ -70,8 +70,10 @@ export default function ImpactPage() {
 
       <section className={styles.metricsSection} id="what-we-measure" aria-labelledby="metrics-title">
         <div className={`site-container ${styles.metricsHeading}`}>
-          <p className="eyebrow">What Gather measures</p>
-          <h2 id="metrics-title">The public record will start with what can be verified.</h2>
+          <div>
+            <p className="eyebrow">What Gather measures</p>
+            <h2 id="metrics-title">The public record will start with what can be verified.</h2>
+          </div>
           <p>One honest early-stage state now. Meaningful figures when the underlying activity is ready.</p>
         </div>
         <dl className={`site-container ${styles.metricRows}`}>
@@ -131,8 +133,10 @@ export default function ImpactPage() {
       <section className={styles.publicReporting} aria-labelledby="reporting-title">
         <div className={`site-container ${styles.publicReportingGrid}`}>
           <div className={styles.publicReportingIntro}>
-            <p className="eyebrow">Public reporting</p>
-            <h2 id="reporting-title">A reporting system designed before the numbers arrive.</h2>
+            <div>
+              <p className="eyebrow">Public reporting</p>
+              <h2 id="reporting-title">A reporting system designed before the numbers arrive.</h2>
+            </div>
             <p>
               Definitions, status, and the basis for each figure should remain visible
               so future reporting can be understood—not just admired.
@@ -186,10 +190,11 @@ export default function ImpactPage() {
 
       <ParticipationClose
         eyebrow="Build the next chapter"
-        title="Help create an impact story worth reporting."
+        title="Help build the first verified chapter."
         description="Join Gather's connected rescue system and help real community activity become the record."
-        primary={{ href: "/get-involved", label: "Join the movement" }}
-        secondary={{ href: "/get-involved#choose-your-path", label: "Support Gather" }}
+        primary={{ href: "/get-involved", label: "Find your place" }}
+        secondary={{ href: "/support", label: "Support Gather" }}
+        variant="compact"
       />
     </main>
   );

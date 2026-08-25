@@ -38,8 +38,8 @@ export default function OrganizationsPage() {
               rescued food while respecting their needs, preferences, and capacity.
             </p>
             <div className={styles.heroActions}>
-              <Link className="button button--light" href="/get-involved#choose-your-path">
-                Join as a recipient organization
+              <Link className="button button--light" href="/contact#organizations">
+                Talk to Gather
                 <span className="button-arrow" aria-hidden="true" />
               </Link>
               <Link className="button button--ghost" href="#receiving-fit">
@@ -61,7 +61,7 @@ export default function OrganizationsPage() {
               src="/images/audience-recipient-produce.webp"
               alt="A person carries a box filled with fresh vegetables."
               fill
-              priority
+              preload
               sizes="(max-width: 767px) 100vw, 56vw"
             />
             <div className={styles.heroRoute} aria-hidden="true">
@@ -88,8 +88,8 @@ export default function OrganizationsPage() {
         <div className={`site-container ${styles.fitGrid}`}>
           <div className={styles.fitMedia}>
             <Image
-              src="/images/hero-community-tomatoes.webp"
-              alt="Several people steady a bowl of freshly harvested tomatoes together."
+              src="/images/market-produce.webp"
+              alt="A market worker stands behind a display of fresh produce."
               fill
               sizes="(max-width: 767px) 100vw, 42vw"
             />
@@ -150,8 +150,8 @@ export default function OrganizationsPage() {
         <div className={`site-container ${styles.dignityGrid}`}>
           <div className={styles.dignityMedia}>
             <Image
-              src="/images/audience-schools-service.webp"
-              alt="People work together to prepare packaged meals for distribution."
+              src="/images/community-handoff.webp"
+              alt="Volunteers prepare food bags together at an outdoor distribution table."
               fill
               sizes="(max-width: 767px) 100vw, 52vw"
             />
@@ -191,11 +191,12 @@ export default function OrganizationsPage() {
       </section>
 
       <ParticipationClose
-        eyebrow="A better receiving path"
-        title="Make rescued food clearer, more useful, and easier to coordinate."
-        description="Explore where recipient organizations fit in Gather's connected rescue system."
-        primary={{ href: "/get-involved#choose-your-path", label: "Join as a recipient organization" }}
-        secondary={{ href: "/how-it-works", label: "See how Gather works" }}
+        eyebrow="A thoughtful receiving path"
+        title="Could Gather fit your organization?"
+        description="Share what matters for your programs, capacity, and receiving context."
+        primary={{ href: "/contact#organizations", label: "Talk to Gather" }}
+        secondary={{ href: "#receiving-fit", label: "See the receiving process" }}
+        variant="paper"
       />
     </main>
   );

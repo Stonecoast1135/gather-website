@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 };
 
 const platforms = [
-  ["iPhone", "Coming soon", "Public App Store destination not yet configured"],
-  ["Android", "Coming soon", "Public Google Play destination not yet configured"],
-  ["Web", "Coming soon", "Authenticated web destination not yet configured"],
+  ["iPhone", "Coming soon", "The iPhone app is not publicly available yet"],
+  ["Android", "Coming soon", "The Android app is not publicly available yet"],
+  ["Web", "Coming soon", "The Gather web app is not publicly available yet"],
 ] as const;
 
 const productSteps = [
@@ -64,8 +64,8 @@ export default function DownloadPage() {
               Coming soon to iPhone and Android
             </div>
             <div className={styles.heroActions}>
-              <Link className="button button--light" href="#platforms">
-                View availability
+              <Link className="button button--light" href="#availability">
+                See platform availability
                 <span className="button-arrow" aria-hidden="true" />
               </Link>
               <Link className="button button--ghost" href="/get-involved">
@@ -80,17 +80,17 @@ export default function DownloadPage() {
               {/* Temporary, non-Gather documentary photography from Unsplash.
                   It does not depict a Gather rescue. */}
               <Image
-                src="/images/audience-volunteers-service.webp"
-                alt="Volunteers work together to organize packaged food."
+                src="/images/produce-in-motion.webp"
+                alt="A person carries fresh produce along a city street."
                 fill
-                priority
+                preload
                 sizes="(max-width: 767px) 88vw, 35vw"
               />
             </div>
             <div className={styles.productFrame} aria-label="Conceptual Gather rescue flow">
               <div className={styles.productFrameTop}>
                 <strong>Gather</strong>
-                <span>Concept preview</span>
+                <span>Product preview</span>
               </div>
               <div className={styles.productOpportunity}>
                 <span>Available rescue</span>
@@ -109,14 +109,14 @@ export default function DownloadPage() {
         </div>
       </section>
 
-      <section className={styles.platformSection} id="platforms" aria-labelledby="platform-title">
+      <section className={styles.platformSection} id="availability" aria-labelledby="platform-title">
         <div className={`site-container ${styles.platformGrid}`}>
           <div className={styles.platformIntro}>
             <p className="eyebrow">Platform availability</p>
             <h2 id="platform-title">Ready in design. Honest about release.</h2>
             <p>
-              Public download and sign-in destinations have not been supplied.
-              They can be connected here when each platform is genuinely available.
+              Gather is not yet available for public download or sign-in. Each
+              platform will be linked here when it is genuinely ready.
             </p>
           </div>
           <dl className={styles.platformRows}>
@@ -134,8 +134,10 @@ export default function DownloadPage() {
       <section className={styles.productStory} aria-labelledby="product-story-title">
         <div className={`site-container ${styles.productStoryGrid}`}>
           <div className={styles.productStoryHeading}>
-            <p className="eyebrow">One rescue, clearly connected</p>
-            <h2 id="product-story-title">Built around the work, not around more screen time.</h2>
+            <div>
+              <p className="eyebrow">One rescue, clearly connected</p>
+              <h2 id="product-story-title">Built around the work, not around more screen time.</h2>
+            </div>
           </div>
           <ol className={styles.productSteps}>
             {productSteps.map((step) => (
@@ -157,11 +159,11 @@ export default function DownloadPage() {
             <i />
           </div>
           <div className={styles.qrCopy}>
-            <p className="eyebrow">Future quick access</p>
+            <p className="eyebrow">Quick access</p>
             <h2 id="qr-title">One scan, when the destination is real.</h2>
             <p>
-              QR access will appear here when Gather is publicly available.
-              No placeholder code is shown because there is not yet a confirmed destination.
+              A real QR destination will appear with the public release. Until
+              then, this marker stays intentionally non-scannable.
             </p>
           </div>
         </div>
@@ -170,8 +172,8 @@ export default function DownloadPage() {
       <section className={styles.downloadClose} aria-labelledby="download-close-title">
         <div className={`site-container ${styles.downloadCloseGrid}`}>
           <div>
-            <p className="eyebrow">The work starts before the listing</p>
-            <h2 id="download-close-title">While the app gets ready, the movement is already beginning.</h2>
+            <p className="eyebrow">Coming with public release</p>
+            <h2 id="download-close-title">Coming soon. The movement is already starting.</h2>
           </div>
           <div>
             <p>Explore your role now, or see how a rescue moves from surplus to completed activity.</p>

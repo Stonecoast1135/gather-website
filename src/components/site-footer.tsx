@@ -37,12 +37,6 @@ const footerGroups = [
   },
 ] as const;
 
-const legalLinks = [
-  { label: "Privacy", href: "/privacy" },
-  { label: "Terms", href: "/terms" },
-  { label: "Accessibility", href: "/accessibility" },
-] as const;
-
 export function SiteFooter() {
   return (
     <footer className="site-footer">
@@ -72,13 +66,6 @@ export function SiteFooter() {
 
       <div className="site-container site-footer__bottom">
         <p>© Gather</p>
-        <nav aria-label="Legal">
-          {legalLinks.map((link) => (
-            <Link href={link.href} key={link.href}>
-              {link.label}
-            </Link>
-          ))}
-        </nav>
       </div>
     </footer>
   );

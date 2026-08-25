@@ -36,7 +36,7 @@ export default function VolunteersPage() {
           src="/images/audience-volunteers-service.webp"
           alt="Volunteers work together to organize packaged food."
           fill
-          loading="eager"
+          preload
           sizes="100vw"
         />
         <span className={styles.volunteerHeroVeil} aria-hidden="true" />
@@ -102,8 +102,8 @@ export default function VolunteersPage() {
           </div>
           <div className={styles.flexibilityMedia}>
             <Image
-              src="/images/hero-community-tomatoes.webp"
-              alt="Several people steady a bowl of freshly harvested tomatoes together."
+              src="/images/produce-in-motion.webp"
+              alt="A person carries fresh produce along a city street."
               fill
               sizes="(max-width: 767px) 100vw, 50vw"
             />
@@ -176,10 +176,11 @@ export default function VolunteersPage() {
 
       <ParticipationClose
         eyebrow="Ready to help"
-        title="Join the movement."
+        title="Ready when you are."
         description="Choose available rescues that fit your life and help good food move through your community."
         primary={{ href: "/download", label: "Download Gather" }}
         secondary={{ href: "/how-it-works", label: "See how Gather works" }}
+        variant="compact"
       />
     </main>
   );
