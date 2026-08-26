@@ -13,13 +13,13 @@ const participants = [
   },
   {
     number: "02",
-    title: "Recipient organizations",
-    description: "Receive food they can use",
+    title: "Volunteers",
+    description: "Help move each rescue",
   },
   {
     number: "03",
-    title: "Volunteers",
-    description: "Help move each rescue",
+    title: "Recipient organizations",
+    description: "Receive food they can use",
   },
 ];
 

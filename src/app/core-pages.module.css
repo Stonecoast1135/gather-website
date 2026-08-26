@@ -1832,11 +1832,7 @@
   }
 
   .contactPaths nav a:hover :global(.link-arrow)::before {
-    transform: scaleX(1);
-  }
-
-  .contactPaths nav a:hover :global(.link-arrow)::after {
-    transform: translateX(0.16rem) rotate(45deg);
+    transform: translateY(-50%) scaleX(1);
   }
 }
 
@@ -1846,11 +1842,7 @@
 }
 
 .contactPaths nav a:focus-visible :global(.link-arrow)::before {
-  transform: scaleX(1);
-}
-
-.contactPaths nav a:focus-visible :global(.link-arrow)::after {
-  transform: translateX(0.16rem) rotate(45deg);
+  transform: translateY(-50%) scaleX(1);
 }
 
 .contactPathList {

@@ -450,11 +450,7 @@
   }
 
   .pathwayRow:hover :global(.link-arrow)::before {
-    transform: scaleX(1);
-  }
-
-  .pathwayRow:hover :global(.link-arrow)::after {
-    transform: translateX(0.16rem) rotate(45deg);
+    transform: translateY(-50%) scaleX(1);
   }
 }
 
@@ -539,11 +535,7 @@
   }
 
   .roleIndexRows a:hover :global(.link-arrow)::before {
-    transform: scaleX(1);
-  }
-
-  .roleIndexRows a:hover :global(.link-arrow)::after {
-    transform: translateX(0.16rem) rotate(45deg);
+    transform: translateY(-50%) scaleX(1);
   }
 }
 

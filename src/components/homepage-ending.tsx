@@ -9,19 +9,19 @@ const impactInstruments = [
     number: "01",
     label: "Food rescued",
     description:
-      "Future reporting will reflect appropriate surplus moved through completed rescues.",
+      "Verified totals will track appropriate surplus moved through completed rescues.",
   },
   {
     number: "02",
     label: "Rescues completed",
     description:
-      "Activity will be reported only after a rescue is confirmed as complete.",
+      "Completed rescues will be added as confirmation data becomes available.",
   },
   {
     number: "03",
     label: "Volunteer hours",
     description:
-      "Public totals will grow from time recorded through completed service activity.",
+      "Volunteer hours will grow from time recorded through completed service activity.",
   },
 ] as const;
 
@@ -69,13 +69,13 @@ export function HomepageEnding() {
         <div className="site-container impact-preview__intro">
           <div>
             <p className="eyebrow">Our impact</p>
-            <h2 id="impact-preview-title">Real change, measured honestly.</h2>
+            <h2 id="impact-preview-title">Building impact together.</h2>
           </div>
           <div className="impact-preview__copy">
             <p>
-              Verified public totals will appear here as completed rescue
-              activity creates a meaningful record. Until then, the
-              early-stage state stays clear and intentional.
+              Gather is building a clear picture of food rescued, service
+              completed, and communities involved. Verified public metrics
+              will appear here as completed activity grows.
             </p>
             <Link className="directional-link" href="/impact">
               Explore our impact
@@ -92,8 +92,8 @@ export function HomepageEnding() {
             </p>
             <span className="impact-report__measure" aria-hidden="true" />
             <p className="impact-report__note">
-              No estimates. No placeholder totals. Every published figure will
-              reflect real activity.
+              Published figures will reflect verified rescue and service
+              activity as Gather grows.
             </p>
           </div>
 
@@ -115,7 +115,7 @@ export function HomepageEnding() {
                 <dd className="impact-instrument__value">
                   <span aria-hidden="true">—</span>
                   <span className="visually-hidden">
-                    No approved public total yet
+                    Verified public total coming as activity grows
                   </span>
                 </dd>
                 <dd className="impact-instrument__detail">

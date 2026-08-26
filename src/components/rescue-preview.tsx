@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const rescueChapters = [
   {
@@ -11,7 +11,6 @@ const rescueChapters = [
     image: "/images/audience-business-bakery.webp",
     alt: "A baker arranges fresh loaves on a tray.",
     steps: ["Appropriate surplus is shared", "An opportunity becomes available"],
-    connector: "down",
   },
   {
     number: "02",
@@ -19,7 +18,6 @@ const rescueChapters = [
     image: "/images/audience-volunteers-service.webp",
     alt: "Volunteers organize packaged food for distribution.",
     steps: ["A volunteer claims it", "Pickup is coordinated"],
-    connector: "up",
   },
   {
     number: "03",
@@ -27,12 +25,14 @@ const rescueChapters = [
     image: "/images/audience-recipient-produce.webp",
     alt: "A person carries a box filled with fresh vegetables.",
     steps: ["Delivery is confirmed", "Impact and service activity are recorded"],
-    connector: null,
   },
 ] as const;
 
 export function RescuePreview() {
   const sectionRef = useRef<HTMLElement>(null);
+  const journeyRef = useRef<HTMLOListElement>(null);
+  const markerRefs = useRef<Array<HTMLSpanElement | null>>([]);
+  const [route, setRoute] = useState({ path: "", width: 0, height: 0 });
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -55,6 +55,56 @@ export function RescuePreview() {
 
     observer.observe(section);
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const journey = journeyRef.current;
+    if (!journey) return;
+
+    const updateRoute = () => {
+      const journeyBounds = journey.getBoundingClientRect();
+      const points = markerRefs.current.slice(0, 6).map((marker) => {
+        const markerBounds = marker?.getBoundingClientRect();
+        return markerBounds
+          ? {
+              x: markerBounds.left - journeyBounds.left + markerBounds.width / 2,
+              y: markerBounds.top - journeyBounds.top + markerBounds.height / 2,
+            }
+          : null;
+      });
+
+      if (points.some((point) => point === null)) return;
+
+      const resolvedPoints = points as Array<{ x: number; y: number }>;
+      const commands = [`M ${resolvedPoints[0].x} ${resolvedPoints[0].y}`];
+
+      resolvedPoints.slice(1).forEach((point, index) => {
+        const previous = resolvedPoints[index];
+        const isChapterTransition = (index + 1) % 2 === 0;
+
+        if (isChapterTransition) {
+          const controlOffset = (point.x - previous.x) * 0.38;
+          commands.push(
+            `C ${previous.x + controlOffset} ${previous.y}, ${point.x - controlOffset} ${point.y}, ${point.x} ${point.y}`,
+          );
+          return;
+        }
+
+        commands.push(`L ${point.x} ${point.y}`);
+      });
+
+      setRoute({
+        path: commands.join(" "),
+        width: journeyBounds.width,
+        height: journeyBounds.height,
+      });
+    };
+
+    updateRoute();
+    const resizeObserver = new ResizeObserver(updateRoute);
+    resizeObserver.observe(journey);
+
+    return () => resizeObserver.disconnect();
   }, []);
 
   return (
@@ -82,8 +132,8 @@ export function RescuePreview() {
         </div>
       </div>
 
-      <ol className="site-container rescue-journey">
-        {rescueChapters.map((chapter) => (
+      <ol className="site-container rescue-journey" ref={journeyRef}>
+        {rescueChapters.map((chapter, chapterIndex) => (
           <li className="rescue-chapter" key={chapter.label}>
             <div className="rescue-chapter__media">
               <Image
@@ -102,7 +152,13 @@ export function RescuePreview() {
               <ol className="rescue-chapter__steps">
                 {chapter.steps.map((step, index) => (
                   <li key={step}>
-                    <span className="rescue-step__marker" aria-hidden="true">
+                    <span
+                      className="rescue-step__marker"
+                      ref={(element) => {
+                        markerRefs.current[chapterIndex * 2 + index] = element;
+                      }}
+                      aria-hidden="true"
+                    >
                       {String((Number(chapter.number) - 1) * 2 + index + 1).padStart(
                         2,
                         "0",
@@ -112,15 +168,25 @@ export function RescuePreview() {
                   </li>
                 ))}
               </ol>
-              {chapter.connector ? (
-                <span
-                  className={`rescue-chapter__connector rescue-chapter__connector--${chapter.connector}`}
-                  aria-hidden="true"
-                />
-              ) : null}
             </div>
           </li>
         ))}
+
+        {route.path ? (
+          <svg
+            className="rescue-journey__route-map"
+            viewBox={`0 0 ${route.width} ${route.height}`}
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <path className="rescue-journey__route-base" d={route.path} />
+            <path
+              className="rescue-journey__route-progress"
+              d={route.path}
+              pathLength="1"
+            />
+          </svg>
+        ) : null}
       </ol>
     </section>
   );
