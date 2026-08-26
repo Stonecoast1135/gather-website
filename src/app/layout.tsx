@@ -21,11 +21,7 @@ export const metadata: Metadata = {
   description:
     "Gather connects surplus food with local organizations and the volunteers who help move it.",
   icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.png?v=2", type: "image/png", sizes: "1254x1254" },
-    ],
-    shortcut: "/favicon.ico",
+    icon: [{ url: "/icon.png?v=3", type: "image/png", sizes: "1254x1254" }],
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
 };
