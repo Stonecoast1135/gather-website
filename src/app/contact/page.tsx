@@ -42,7 +42,7 @@ const contactPaths = [
     id: "general",
     number: "05",
     title: "General questions",
-    description: "Give us enough context to understand where your question belongs once the direct channel is available.",
+    description: "Give us enough context to understand your question and which Gather role it concerns.",
     details: ["Your question or topic", "The Gather role it relates to", "Any practical context we should know"],
   },
 ] as const;
@@ -98,11 +98,9 @@ export default function ContactPage() {
           </div>
           <div>
             <p className="eyebrow">How to reach Gather</p>
-            <h2 id="contact-status-title">Direct contact details are coming soon.</h2>
+            <h2 id="contact-status-title">Email the Gather team.</h2>
             <p>
-              Gather will publish the appropriate email or form here as the public
-              contact channel is finalized. The prompts above can help you prepare
-              the useful context for that first conversation.
+              Email <a href="mailto:help@gatherforward.org">help@gatherforward.org</a> for account, participation, or privacy questions. Signed-in users can also submit a tracked request from Help &amp; support. Gather support is not an emergency service.
             </p>
           </div>
         </div>

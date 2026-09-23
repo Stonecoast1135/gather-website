@@ -32,7 +32,10 @@ const footerGroups = [
   {
     title: "Product",
     links: [
-      { label: "Download Gather", href: "/download" },
+      { label: "Open Gather", href: "https://my.gatherforward.org/" },
+      { label: "App availability", href: "/download" },
+      { label: "Privacy", href: "https://my.gatherforward.org/privacy" },
+      { label: "Terms", href: "https://my.gatherforward.org/terms" },
     ],
   },
 ] as const;

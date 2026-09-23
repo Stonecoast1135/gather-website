@@ -5,15 +5,15 @@ import Link from "next/link";
 import styles from "../core-pages.module.css";
 
 export const metadata: Metadata = {
-  title: "Download Gather",
+  title: "Open Gather",
   description:
-    "See Gather's planned iPhone, Android, and web availability and explore the product flow while public destinations are coming soon.",
+    "Create a Gather account on the web, set your area, and get ready for eligible local rescue opportunities.",
 };
 
 const platforms = [
   ["iPhone", "Coming soon", "The iPhone app is not publicly available yet"],
   ["Android", "Coming soon", "The Android app is not publicly available yet"],
-  ["Web", "Coming soon", "The Gather web app is not publicly available yet"],
+  ["Web", "Registration open", "Use Gather in your browser at my.gatherforward.org"],
 ] as const;
 
 const productSteps = [
@@ -53,19 +53,20 @@ export default function DownloadPage() {
       <section className={styles.downloadHero} aria-labelledby="download-title">
         <div className={`site-container ${styles.downloadHeroGrid}`}>
           <div className={styles.downloadHeroCopy}>
-            <p className="eyebrow">Download Gather</p>
-            <h1 id="download-title">Your next rescue starts here.</h1>
+            <p className="eyebrow">Open Gather</p>
+            <h1 id="download-title">Your Gather account starts here.</h1>
             <p>
-              Discover opportunities, review rescue details, complete pickups
-              and deliveries, and stay connected to your completed activity.
+              Create and verify your account, choose your area, and finish your profile.
+              We are recruiting local food partners. Eligible rescues appear only
+              when approved partner operations are open and food is available.
             </p>
             <div className={styles.downloadStatus}>
               <span aria-hidden="true" />
-              Coming soon to iPhone and Android
+              Web registration is open · Native apps are not released
             </div>
             <div className={styles.heroActions}>
-              <Link className="button button--light" href="#availability">
-                See platform availability
+              <Link className="button button--light" href="https://my.gatherforward.org/">
+                Open Gather / create an account
                 <span className="button-arrow" aria-hidden="true" />
               </Link>
               <Link className="button button--ghost" href="/get-involved">
@@ -113,17 +114,18 @@ export default function DownloadPage() {
         <div className={`site-container ${styles.platformGrid}`}>
           <div className={styles.platformIntro}>
             <p className="eyebrow">Platform availability</p>
-            <h2 id="platform-title">Ready in design. Honest about release.</h2>
+            <h2 id="platform-title">Start on the web.</h2>
             <p>
-              Gather is not yet available for public download or sign-in. Each
-              platform will be linked here when it is genuinely ready.
+              Web signup is open to volunteers, businesses, and recipient organizations.
+              Partners remain pending until Operations approves them. Account
+              creation does not authorize live food pickups or earn service hours.
             </p>
           </div>
           <dl className={styles.platformRows}>
             {platforms.map(([name, state, note], index) => (
               <div key={name}>
                 <dt><span>{String(index + 1).padStart(2, "0")}</span>{name}</dt>
-                <dd><strong>{state}</strong><small>{note}</small></dd>
+                <dd><strong>{state}</strong><small>{note}</small>{name === "Web" && <Link className="directional-link" href="https://my.gatherforward.org/">Open Gather</Link>}</dd>
                 <i aria-hidden="true" />
               </div>
             ))}
@@ -152,34 +154,17 @@ export default function DownloadPage() {
         </div>
       </section>
 
-      <section className={styles.qrSection} aria-labelledby="qr-title">
-        <div className={`site-container ${styles.qrGrid}`}>
-          <div className={styles.qrPlaceholder} aria-hidden="true">
-            <span /><span /><span />
-            <i />
-          </div>
-          <div className={styles.qrCopy}>
-            <p className="eyebrow">Quick access</p>
-            <h2 id="qr-title">One scan, when the destination is real.</h2>
-            <p>
-              A real QR destination will appear with the public release. Until
-              then, this marker stays intentionally non-scannable.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section className={styles.downloadClose} aria-labelledby="download-close-title">
         <div className={`site-container ${styles.downloadCloseGrid}`}>
           <div>
-            <p className="eyebrow">Coming with public release</p>
-            <h2 id="download-close-title">Coming soon. The movement is already starting.</h2>
+            <p className="eyebrow">Join Gather on the web</p>
+            <h2 id="download-close-title">Make your account. Stay ready.</h2>
           </div>
           <div>
-            <p>Explore your role now, or see how a rescue moves from surplus to completed activity.</p>
+            <p>Use a current browser to create an account. If a social app’s embedded browser cannot request permissions, open my.gatherforward.org in Safari or Chrome. On iPhone or iPad, add Gather to your Home Screen to enable web push.</p>
             <div className={styles.closeActions}>
-              <Link className="button button--primary" href="/get-involved">
-                Get involved
+              <Link className="button button--primary" href="https://my.gatherforward.org/">
+                Open Gather
                 <span className="button-arrow" aria-hidden="true" />
               </Link>
               <Link className="directional-link" href="/how-it-works">

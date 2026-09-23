@@ -233,11 +233,10 @@ export function SiteHeader() {
 
         <div className="header-utilities">
           <Link
-            className={`header-utility-link${isCurrentRoute("/download") ? " is-active" : ""}`}
-            href="/download"
-            aria-current={isCurrentRoute("/download") ? "page" : undefined}
+            className="header-utility-link"
+            href="https://my.gatherforward.org/"
           >
-            Download Gather
+            Open Gather
           </Link>
           <Link className="button button--header" href={involvementAction.href}>
             {involvementAction.label}
@@ -318,11 +317,10 @@ export function SiteHeader() {
 
           <div className="mobile-menu__utilities">
             <Link
-              href="/download"
-              aria-current={isCurrentRoute("/download") ? "page" : undefined}
-              onClick={() => closeMobile()}
+              href="https://my.gatherforward.org/"
+                onClick={() => closeMobile()}
             >
-              Download Gather
+              Open Gather
             </Link>
             <Link
               className="button button--primary"

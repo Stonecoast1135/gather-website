@@ -49,8 +49,8 @@ export default function VolunteersPage() {
               and help move appropriate surplus food where it can be used.
             </p>
             <div className={styles.heroActions}>
-              <Link className="button button--light" href="/download">
-                Download Gather
+              <Link className="button button--light" href="https://my.gatherforward.org/">
+                Create a Gather account
                 <span className="button-arrow" aria-hidden="true" />
               </Link>
               <Link className="button button--ghost" href="#volunteer-process">
@@ -178,7 +178,7 @@ export default function VolunteersPage() {
         eyebrow="Ready to help"
         title="Ready when you are."
         description="Choose available rescues that fit your life and help good food move through your community."
-        primary={{ href: "/download", label: "Download Gather" }}
+        primary={{ href: "https://my.gatherforward.org/", label: "Create a Gather account" }}
         secondary={{ href: "/how-it-works", label: "See how Gather works" }}
         variant="compact"
       />
