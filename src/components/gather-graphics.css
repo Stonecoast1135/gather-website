@@ -1,0 +1,259 @@
+:where(.gather-illustration) {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  overflow: visible;
+  color: var(--graphic-forest, var(--forest, #043c32));
+}
+.gather-illustration__wash {
+  fill: var(--graphic-wash, #e8e9d9);
+  stroke: none;
+}
+.gather-illustration__paper {
+  fill: var(--graphic-cream, var(--cream, #faf6ec));
+}
+.gather-illustration__sage {
+  fill: var(--graphic-sage, #cdd6b6);
+}
+.gather-illustration__tan {
+  fill: var(--graphic-tan, #d5b38b);
+}
+.gather-illustration__forest {
+  fill: var(--graphic-forest, var(--forest, #043c32));
+}
+.gather-illustration__line-soft {
+  stroke: var(--graphic-line, #91a087);
+}
+
+.rescue-route {
+  --route-gap: clamp(30px, 6vw, 86px);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--route-gap);
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+.rescue-route__stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+.rescue-route__stage > .gather-illustration {
+  width: 100%;
+  max-width: 280px;
+}
+.rescue-route__copy {
+  margin: 11px 0 0;
+  font-size: 17px;
+  line-height: 1.45;
+  text-align: center;
+}
+.rescue-route__copy strong,
+.rescue-route__copy span {
+  display: block;
+}
+.rescue-route__copy strong {
+  margin-bottom: 1px;
+  font-weight: 650;
+}
+.rescue-route__connector {
+  position: absolute;
+  left: calc(50% + 98px);
+  top: 76px;
+  width: calc(100% + var(--route-gap) - 196px);
+  height: auto;
+  overflow: visible;
+  color: var(--forest, #043c32);
+}
+.rescue-route__connector-base,
+.rescue-route__connector-draw {
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.rescue-route__connector-base {
+  stroke: #a8b69d;
+}
+.rescue-route__connector-draw {
+  stroke: currentColor;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+.rescue-route__connector--vertical {
+  display: none;
+}
+
+.gather-mission-graphic {
+  display: grid;
+  grid-template-columns: 1fr 22px 1fr 22px 1fr;
+  gap: 0;
+  align-items: center;
+  max-width: 700px;
+  width: 100%;
+}
+.gather-mission-graphic > .gather-illustration {
+  width: 100%;
+  min-width: 0;
+}
+.gather-mission-graphic__link {
+  position: relative;
+  display: block;
+  height: 32px;
+}
+.gather-mission-graphic__link .rescue-route__connector {
+  top: 0;
+  left: -14px;
+  width: 50px;
+}
+
+/* Text and artwork remain fully opaque; only the route's emphasis and position animate. */
+:is([data-visible="true"], .is-revealed) .gather-illustration__foreground {
+  animation: gather-graphic-arrive 520ms var(--ease, ease-out) both;
+}
+:is([data-visible="true"], .is-revealed) .rescue-route__connector-draw {
+  animation: gather-route-draw 620ms var(--ease, ease-out) both;
+}
+:is([data-visible="true"], .is-revealed)
+  .rescue-route__stage:nth-child(2)
+  .gather-illustration__foreground {
+  animation-delay: 80ms;
+}
+:is([data-visible="true"], .is-revealed)
+  .rescue-route__stage:nth-child(3)
+  .gather-illustration__foreground {
+  animation-delay: 160ms;
+}
+:is([data-visible="true"], .is-revealed)
+  .rescue-route__stage:nth-child(2)
+  .rescue-route__connector-draw {
+  animation-delay: 110ms;
+}
+
+@keyframes gather-graphic-arrive {
+  from {
+    transform: translateY(7px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes gather-route-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (max-width: 1000px) and (min-width: 701px) {
+  .rescue-route {
+    --route-gap: 26px;
+  }
+  .rescue-route__connector {
+    left: calc(50% + 80px);
+    top: 61px;
+    width: calc(100% + var(--route-gap) - 160px);
+  }
+  .rescue-route__copy {
+    font-size: 16px;
+  }
+}
+@media (max-width: 700px) {
+  .rescue-route {
+    grid-template-columns: 1fr;
+    gap: 29px;
+    width: min(100%, 380px);
+  }
+  .rescue-route__stage {
+    display: grid;
+    grid-template-columns: minmax(120px, 155px) minmax(0, 1fr);
+    gap: 17px;
+    align-items: center;
+  }
+  .rescue-route__stage > .gather-illustration {
+    width: 100%;
+  }
+  .rescue-route__copy {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.45;
+    text-align: left;
+  }
+  .rescue-route__connector {
+    display: none;
+  }
+  .rescue-route__connector--vertical {
+    display: block;
+    left: 65px;
+    top: calc(100% - 2px);
+    width: 18px;
+    height: 32px;
+  }
+  .gather-mission-graphic {
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 115px 115px;
+    max-width: 380px;
+  }
+  .gather-mission-graphic > .gather-illustration:nth-of-type(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .gather-mission-graphic > .gather-illustration:nth-of-type(2) {
+    grid-column: 2;
+    grid-row: 1 / 3;
+  }
+  .gather-mission-graphic > .gather-illustration:nth-of-type(3) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .gather-mission-graphic__link {
+    position: absolute;
+    top: 62px;
+    left: 43%;
+    width: 40px;
+    height: 18px;
+    transform: rotate(15deg);
+  }
+  .gather-mission-graphic__link:nth-of-type(2) {
+    top: 151px;
+    transform: rotate(155deg);
+  }
+  .gather-mission-graphic__link .rescue-route__connector {
+    display: block;
+    width: 40px;
+    left: 0;
+  }
+  :is([data-visible="true"], .is-revealed) .gather-illustration__foreground {
+    animation-duration: 380ms;
+    animation-delay: 0ms !important;
+  }
+  :is([data-visible="true"], .is-revealed) .rescue-route__connector-draw {
+    animation-duration: 450ms;
+    animation-delay: 0ms !important;
+  }
+}
+@media (max-width: 374px) {
+  .rescue-route__stage {
+    grid-template-columns: 132px minmax(0, 1fr);
+    gap: 12px;
+  }
+  .rescue-route__copy {
+    font-size: 15px;
+  }
+  .rescue-route__connector--vertical {
+    left: 57px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :is([data-visible="true"], .is-revealed) .gather-illustration__foreground,
+  :is([data-visible="true"], .is-revealed) .rescue-route__connector-draw {
+    animation: none;
+  }
+}

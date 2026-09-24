@@ -6,6 +6,7 @@ import { LaunchAnnouncement } from "@/components/launch-announcement";
 import { isIndexable, siteOrigin } from "@/lib/site-config";
 import "./globals.css";
 import "@/components/interactions.css";
+import "./finishing.css";
 const sans = Manrope({
   variable: "--font-sans",
   subsets: ["latin"],
@@ -46,7 +47,9 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <SiteFooter />
-        <LaunchAnnouncement />
+        <LaunchAnnouncement
+          allowPreviewReset={process.env.VERCEL_ENV === "preview"}
+        />
       </body>
     </html>
   );

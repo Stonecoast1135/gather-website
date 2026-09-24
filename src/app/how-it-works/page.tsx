@@ -3,6 +3,7 @@ import { Accordion } from "@/components/accordion";
 import { Reveal } from "@/components/reveal";
 import { pageMetadata } from "@/lib/metadata";
 import { destinations } from "@/lib/site-config";
+import { GatherIllustration } from "@/components/gather-graphics";
 export const metadata = pageMetadata(
   "How It Works",
   "From extra food to a confirmed delivery: see how businesses, volunteers and organizations connect through Gather.",
@@ -12,20 +13,20 @@ const stages = [
   {
     title: "Businesses share extra food.",
     copy: "A business posts food available for pickup.",
-    photo: "launch-market",
-    alt: "Fresh produce outside a neighborhood grocery store.",
+    photo: "finish-bakery",
+    alt: "A baker preparing bread in a working bakery.",
   },
   {
     title: "Students help move it.",
     copy: "A volunteer picks it up and delivers it to a participating organization.",
-    photo: "launch-student",
-    alt: "A student carrying a box of vegetables.",
+    photo: "finish-transport",
+    alt: "A volunteer loading a box of food into a van.",
   },
   {
     title: "The delivery is confirmed.",
     copy: "Completed rescues contribute to service records and impact.",
-    photo: "launch-community",
-    alt: "A volunteer passing a box of produce to a community worker.",
+    photo: "finish-sorting",
+    alt: "People organizing food at a community destination.",
   },
 ];
 const faqs = [
@@ -80,6 +81,19 @@ export default function HowItWorks() {
         <p>A simple process. A real impact.</p>
       </div>
       <Reveal className="stages container">
+        <svg
+          className="process-rail"
+          viewBox="0 0 1440 120"
+          preserveAspectRatio="none"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            className="route-draw"
+            pathLength="1"
+            d="M24 91C176-33 304 91 497 66S768 6 949 67S1229 120 1418 18"
+          />
+        </svg>
         <ol>
           {stages.map((stage, i) => (
             <li key={stage.title}>
@@ -117,12 +131,15 @@ export default function HowItWorks() {
             <h2>Frequently asked questions</h2>
             <Accordion items={faqs} />
           </div>
-          <Photo
-            className="faq-photo"
-            src="launch-produce"
-            alt="Leafy greens and fresh vegetables packed in a produce crate."
-            sizes="(max-width:700px) 100vw, 38vw"
-          />
+          <div className="faq-visual">
+            <Photo
+              className="faq-photo"
+              src="finish-bread"
+              alt="Loaves of fresh bread."
+              sizes="(max-width:700px) 75vw, 34vw"
+            />
+            <GatherIllustration kind="food-box" className="faq-graphic" />
+          </div>
         </div>
       </section>
     </main>

@@ -6,7 +6,7 @@ export const launchCampaign = {
   delayMs: 4_000,
 } as const;
 export const launchStorageKey = `gather:launch:${launchCampaign.id}`;
-const seenCampaigns = new Set<string>();
+const dismissedCampaigns = new Set<string>();
 type CampaignStorage = Pick<Storage, "getItem" | "setItem" | "removeItem">;
 
 function browserStorage(
@@ -19,12 +19,14 @@ function browserStorage(
   }
 }
 
-export function hasSeenLaunchCampaign() {
-  if (seenCampaigns.has(launchStorageKey)) return true;
+export function hasDismissedLaunchCampaign() {
+  if (dismissedCampaigns.has(launchStorageKey)) return true;
   for (const name of ["localStorage", "sessionStorage"] as const) {
     try {
-      if (browserStorage(name)?.getItem(launchStorageKey)) {
-        seenCampaigns.add(launchStorageKey);
+      // Earlier builds wrote "seen" before opening. Display is not dismissal;
+      // retain that value untouched until the visitor makes an intentional choice.
+      if (browserStorage(name)?.getItem(launchStorageKey) === "dismissed") {
+        dismissedCampaigns.add(launchStorageKey);
         return true;
       }
     } catch {
@@ -34,16 +36,37 @@ export function hasSeenLaunchCampaign() {
   return false;
 }
 
-export function rememberLaunchCampaign(
-  state: "seen" | "dismissed" = "dismissed",
-) {
-  seenCampaigns.add(launchStorageKey);
+/** Check that a future dismissal can persist without marking the campaign seen. */
+export function canPersistLaunchDismissal() {
+  const probeKey = `${launchStorageKey}:storage-check`;
+  for (const name of ["localStorage", "sessionStorage"] as const) {
+    try {
+      const storage = browserStorage(name);
+      if (!storage) continue;
+      const previous = storage.getItem(probeKey);
+      try {
+        storage.setItem(probeKey, "available");
+        if (storage.getItem(probeKey) === "available") return true;
+      } finally {
+        if (previous === null) storage.removeItem(probeKey);
+        else storage.setItem(probeKey, previous);
+      }
+    } catch {
+      /* Try session storage when local storage is unavailable or read-only. */
+    }
+  }
+  return false;
+}
+
+/** Called only by an explicit dismiss action, never by display or effect cleanup. */
+export function rememberLaunchDismissal() {
+  dismissedCampaigns.add(launchStorageKey);
   for (const name of ["localStorage", "sessionStorage"] as const) {
     try {
       const storage = browserStorage(name);
       if (storage) {
-        storage.setItem(launchStorageKey, state);
-        if (storage.getItem(launchStorageKey) === state) return true;
+        storage.setItem(launchStorageKey, "dismissed");
+        if (storage.getItem(launchStorageKey) === "dismissed") return true;
       }
     } catch {
       /* Keep the memory guard while checking the session-storage fallback. */
@@ -53,7 +76,7 @@ export function rememberLaunchCampaign(
 }
 
 export function resetLaunchCampaign() {
-  seenCampaigns.delete(launchStorageKey);
+  dismissedCampaigns.delete(launchStorageKey);
   for (const name of ["localStorage", "sessionStorage"] as const) {
     try {
       browserStorage(name)?.removeItem(launchStorageKey);

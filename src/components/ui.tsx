@@ -118,16 +118,3 @@ export function ProcessArrow({ className = "" }: { className?: string }) {
     </svg>
   );
 }
-export function JoinSection({ compact = false }: { compact?: boolean }) {
-  return (
-    <section
-      className={`join-section ${compact ? "join-section--compact" : ""}`}
-      aria-labelledby="join-heading"
-    >
-      <div className="container">
-        <h2 id="join-heading">Join the movement.</h2>
-        <ActionLink light />
-      </div>
-    </section>
-  );
-}

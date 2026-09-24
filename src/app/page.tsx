@@ -1,11 +1,7 @@
 import Link from "next/link";
-import {
-  ActionLink,
-  JoinSection,
-  Photo,
-  ProcessArrow,
-  RouteIcon,
-} from "@/components/ui";
+import { ActionLink, Photo } from "@/components/ui";
+import { JoinSection } from "@/components/join-section";
+import { GatherIllustration, RescueRoute } from "@/components/gather-graphics";
 import { Reveal } from "@/components/reveal";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
@@ -52,48 +48,25 @@ export default function Home() {
       <Reveal className="journey-section">
         <div className="container">
           <h2>Good food, passed forward.</h2>
-          <div className="mini-journey">
-            <div>
-              <span className="icon-disc">
-                <RouteIcon kind="business" />
-              </span>
-              <p>
-                <strong>Businesses</strong>
-                <br />
-                share extra food
-              </p>
-            </div>
-            <ProcessArrow />
-            <div>
-              <span className="icon-disc">
-                <RouteIcon kind="people" />
-              </span>
-              <p>
-                <strong>Students</strong>
-                <br />
-                help move it
-              </p>
-            </div>
-            <ProcessArrow />
-            <div>
-              <span className="icon-disc">
-                <RouteIcon kind="home" />
-              </span>
-              <p>
-                <strong>Organizations</strong>
-                <br />
-                receive it
-              </p>
-            </div>
-          </div>
+          <RescueRoute />
         </div>
       </Reveal>
       <Reveal className="student-section container">
-        <Photo
-          src="launch-student"
-          alt="A student carrying a box of produce along a neighborhood street."
-          className="student-section__photo"
-        />
+        <div className="student-collage">
+          <Photo
+            src="finish-teamwork"
+            alt="Volunteers working together to prepare food for their community."
+            className="student-collage__main"
+            sizes="(max-width:700px) 90vw, 52vw"
+          />
+          <Photo
+            src="finish-bread"
+            alt="Fresh bread ready to be shared."
+            className="student-collage__detail"
+            sizes="(max-width:700px) 36vw, 20vw"
+          />
+          <span className="student-collage__line" aria-hidden="true" />
+        </div>
         <div className="student-section__copy">
           <h2>
             Your time <br />
@@ -104,6 +77,10 @@ export default function Home() {
             your completed service.
           </p>
           <ActionLink />
+          <GatherIllustration
+            kind="service"
+            className="student-service-graphic"
+          />
         </div>
       </Reveal>
       <JoinSection />

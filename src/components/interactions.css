@@ -415,11 +415,9 @@
 }
 @keyframes announcement-arrive {
   from {
-    opacity: 0;
     transform: translateY(12px) scale(0.98);
   }
   to {
-    opacity: 1;
     transform: none;
   }
 }

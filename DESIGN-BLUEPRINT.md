@@ -2,6 +2,8 @@
 
 ## Authority
 
+The subsequent owner-approved finishing brief (`docs/FINISHING-BRIEF.md`) preserves this design and develops its graphics, photography, compositions and motion. Read `docs/FINISHING-PLAN.md` for the implemented refinements, `docs/GRAPHIC-SYSTEM.md` for SVGs, and `docs/FINISHING-ASSETS.md` for new licensed photography. The five-page concepts below describe the starting board; the finishing plan supplies their current richer compositions.
+
 The September 23, 2026 user-supplied approved design board and rebuild brief supersede earlier visual directions, cinematic layouts, and page inventories. The reference is preserved in `docs/approved-launch-design.png`; the brief is in `docs/APPROVED-REBUILD-BRIEF.md`. `AGENTS.md` continues to govern truthfulness, scope, accessibility, performance, and protecting the separate authenticated app. Historic `design-references:` compositions are not the current target.
 
 ## Visual system
@@ -9,7 +11,7 @@ The September 23, 2026 user-supplied approved design board and rebuild brief sup
 - Warm ivory `#faf6ec`, near-black green `#062c2c`, forest `#043c32`, sage `#e5e5d6`.
 - Newsreader for confident editorial headings; Manrope for legible functional text. Both are Google Fonts, SIL Open Font License, optimized and self-hosted by Next at build time.
 - The original lowercase G and three leaves is the only mark. `public/brand/gather-mark.png` is a deterministic cleanup of the supplied original, with white export residue and detached speckles removed. Its connected silhouette and aspect ratio remain intact. No AI redraw or reference-board crop is used. `scripts/prepare-brand.mjs` records the reproducible derivation; icon, apple icon, favicon and share graphic use this same derivative.
-- Full viewport backgrounds; content max-width 1280px; deliberate responsive gutters.
+- Full viewport backgrounds; content max-width 1440px after the finishing pass; deliberate responsive gutters.
 - Curved cream/photo boundaries and natural photography supply visual character. No decorative slogans, invented brand scenes, fake metrics, or app mockups.
 - Buttons are rounded, forest-filled with a moving directional arrow. Focus must remain clearly visible.
 
@@ -41,7 +43,7 @@ All essential content renders as HTML and remains available with no JavaScript. 
 ## Shared behavior
 
 - One native-dialog mobile menu and one native-dialog launch announcement. Native top-layer modality plus focus trapping, Escape, focus return, scroll lock and route-change close.
-- Launch campaign is configured in `src/lib/launch-campaign.ts`. Display follows a four-second delay and defers while a dialog or active text input is in use. Campaign persistence prevents repeats. Development-only reset is documented in the handoff.
+- Launch campaign is configured in `src/lib/launch-campaign.ts`. Display follows a stable four-second deadline and defers while a dialog or active text input is in use. Only intentional dismissal persists. Development and protected-preview reset are documented in `docs/POPUP-DIAGNOSIS.md`.
 - `src/lib/site-config.ts` centralizes signup/contact/Instagram/legal links. No invented role URLs.
 - `src/lib/impact.ts` accepts only the three aggregate keys, validates nonnegative numbers, distinguishes missing from measured zero and returns missing values on failure. No database connection or private records.
 - Legacy role URLs redirect to Get Involved anchors; Download redirects to the real web app. Contact and Support retain compact email pathways. Published app policies are linked directly.
@@ -49,4 +51,4 @@ All essential content renders as HTML and remains available with no JavaScript. 
 
 ## Review
 
-Review every page at desktop and mobile sizes against the board, then test intermediate widths, short/landscape screens, zoom, keyboard/focus, reduced motion, popup persistence and delay conflicts, links, metadata, redirects and null/zero metrics. Screenshot evidence belongs in gitignored `artifacts/launch`. A working build is not visual acceptance. Owner approval is required before any production promotion.
+Review every page at desktop and mobile sizes against the board, then test intermediate widths, short/landscape screens, zoom, keyboard/focus, reduced motion, popup persistence and delay conflicts, links, metadata, redirects and null/zero metrics. Finishing-pass evidence belongs in gitignored `artifacts/finishing`; the original build’s evidence remains in `artifacts/launch`. A working build is not visual acceptance. Owner approval is required before any production promotion.

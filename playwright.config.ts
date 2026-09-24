@@ -8,11 +8,11 @@ export default defineConfig({
   workers: process.env.CI ? 2 : 2,
   retries: 0,
   forbidOnly: Boolean(process.env.CI),
-  outputDir: "artifacts/launch/test-results",
+  outputDir: "artifacts/finishing/test-results",
   reporter: [
     ["list"],
-    ["html", { outputFolder: "artifacts/launch/report", open: "never" }],
-    ["json", { outputFile: "artifacts/launch/test-results.json" }],
+    ["html", { outputFolder: "artifacts/finishing/report", open: "never" }],
+    ["json", { outputFile: "artifacts/finishing/test-results.json" }],
   ],
   use: {
     baseURL: process.env.PLAYWRIGHT_BASE_URL ?? "http://127.0.0.1:3001",

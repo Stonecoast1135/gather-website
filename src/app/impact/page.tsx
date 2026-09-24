@@ -3,6 +3,7 @@ import { Accordion } from "@/components/accordion";
 import { Reveal } from "@/components/reveal";
 import { getImpactTotals, formatImpact } from "@/lib/impact";
 import { pageMetadata } from "@/lib/metadata";
+import { GatherIllustration } from "@/components/gather-graphics";
 export const metadata = pageMetadata(
   "Our measured impact",
   "Food rescued, completed rescues and volunteer hours. Follow Gather’s community impact.",
@@ -11,9 +12,22 @@ export const metadata = pageMetadata(
 export default async function Impact() {
   const totals = await getImpactTotals();
   const metrics = [
-    { label: "Food rescued", unit: "(lb)", value: totals.foodRescuedLb },
-    { label: "Rescues completed", value: totals.rescuesCompleted },
-    { label: "Volunteer hours", value: totals.volunteerHours },
+    {
+      label: "Food rescued",
+      unit: "(lb)",
+      value: totals.foodRescuedLb,
+      icon: "food-box" as const,
+    },
+    {
+      label: "Rescues completed",
+      value: totals.rescuesCompleted,
+      icon: "service" as const,
+    },
+    {
+      label: "Volunteer hours",
+      value: totals.volunteerHours,
+      icon: "clock" as const,
+    },
   ];
   return (
     <main id="main-content" className="impact-page">
@@ -26,8 +40,14 @@ export default async function Impact() {
             {metrics.map((metric) => (
               <div className="metric" key={metric.label}>
                 <dt>
-                  {metric.label}
-                  {metric.unit && <span>{metric.unit}</span>}
+                  <GatherIllustration
+                    kind={metric.icon}
+                    className="metric-graphic"
+                  />
+                  <span className="metric-label">
+                    {metric.label}
+                    {metric.unit && <span>{metric.unit}</span>}
+                  </span>
                 </dt>
                 <dd
                   aria-label={
@@ -64,8 +84,8 @@ export default async function Impact() {
       </section>
       <Reveal className="brighter-section">
         <Photo
-          src="launch-community"
-          alt="Neighbors passing fresh food forward outside a community building."
+          src="finish-community"
+          alt="People sharing time and food together in a community setting."
         />
         <svg
           className="brighter-curve"
@@ -86,6 +106,7 @@ export default async function Impact() {
               Together, we can reduce food waste, strengthen communities, and
               create opportunities for good.
             </p>
+            <GatherIllustration kind="community" className="brighter-graphic" />
           </div>
         </div>
       </Reveal>

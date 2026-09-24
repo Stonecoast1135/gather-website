@@ -3,7 +3,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const baseURL = process.env.PLAYWRIGHT_BASE_URL ?? "http://127.0.0.1:3001";
-const root = path.resolve("artifacts/launch");
+const root = path.resolve(process.env.CAPTURE_DIR ?? "artifacts/finishing");
 const campaignKey = "gather:launch:student-signups-2026-09";
 const pages = [
   ["home", "/"],
@@ -61,6 +61,8 @@ try {
   for (const [mode, viewport] of [
     ["desktop", { width: 1440, height: 1000 }],
     ["mobile", { width: 390, height: 844 }],
+    ["tablet", { width: 768, height: 1024 }],
+    ["wide", { width: 1920, height: 1080 }],
   ]) {
     const context = await browser.newContext({
       baseURL,

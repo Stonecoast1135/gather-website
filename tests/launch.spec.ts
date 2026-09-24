@@ -376,6 +376,8 @@ test.describe("launch announcement", () => {
     await expect(popup).not.toBeVisible();
     await page.clock.runFor(2000);
     await expect(popup).toBeVisible({ timeout: 5000 });
+    expect(await page.evaluate((key) => localStorage.getItem(key), campaignKey)).toBeNull();
+    expect(await page.evaluate((key) => sessionStorage.getItem(key), campaignKey)).toBeNull();
     await page.clock.resume();
     await expect(
       popup.getByRole("link", { name: "Join Gather", exact: true }),
@@ -387,6 +389,7 @@ test.describe("launch announcement", () => {
     await expectFocusTrapped(page, popup);
     await page.keyboard.press("Escape");
     await expect(popup).not.toBeVisible();
+    expect(await page.evaluate((key) => localStorage.getItem(key), campaignKey)).toBe("dismissed");
     await expect(returnTarget).toBeFocused();
     await returnTarget.click();
     await page.waitForTimeout(4300);
@@ -394,6 +397,95 @@ test.describe("launch announcement", () => {
     await page.reload();
     await page.waitForTimeout(4300);
     await expect(popup).not.toBeVisible();
+  });
+
+  test("client navigation before four seconds preserves the original deadline", async ({ page }) => {
+    const clockStart = new Date("2026-09-24T05:00:00Z");
+    await page.clock.install({ time: clockStart });
+    await page.clock.pauseAt(new Date(clockStart.getTime() + 1000));
+    await page.goto("/");
+    await page.waitForTimeout(300);
+    const popup = page.getByRole("dialog", { name: "Gather just launched!" });
+    await page.clock.runFor(2000);
+    await expect(popup).not.toBeVisible();
+    await page.locator("header").getByRole("link", { name: "About", exact: true }).click();
+    await expect(page).toHaveURL(/\/about$/);
+    await page.clock.runFor(2100);
+    await expect(popup).toBeVisible();
+    expect(await page.evaluate((key) => localStorage.getItem(key), campaignKey)).toBeNull();
+  });
+
+  test("legacy seen state is not an intentional dismissal", async ({ page }) => {
+    await page.addInitScript((key) => localStorage.setItem(key, "seen"), campaignKey);
+    await page.goto("/");
+    const popup = page.getByRole("dialog", { name: "Gather just launched!" });
+    await expect(popup).toBeVisible({ timeout: 7000 });
+    expect(await page.evaluate((key) => localStorage.getItem(key), campaignKey)).toBe("seen");
+    await popup.getByRole("button", { name: "Keep exploring", exact: true }).click();
+    expect(await page.evaluate((key) => localStorage.getItem(key), campaignKey)).toBe("dismissed");
+  });
+
+  test("a programmatic close does not persist a visitor choice", async ({ page }) => {
+    await page.goto("/");
+    const popup = page.getByRole("dialog", { name: "Gather just launched!" });
+    await expect(popup).toBeVisible({ timeout: 7000 });
+    await popup.evaluate((dialog) => (dialog as HTMLDialogElement).close());
+    await expect(popup).not.toBeVisible();
+    expect(await page.evaluate((key) => localStorage.getItem(key), campaignKey)).toBeNull();
+    expect(await page.evaluate((key) => sessionStorage.getItem(key), campaignKey)).toBeNull();
+    await page.reload();
+    await expect(popup).toBeVisible({ timeout: 7000 });
+  });
+
+  test("an existing intentional dismissal survives navigation and reload", async ({ page }) => {
+    await dismissCampaignBeforeLoad(page);
+    await page.goto("/");
+    const popup = page.getByRole("dialog", { name: "Gather just launched!" });
+    await page.waitForTimeout(4300);
+    await expect(popup).not.toBeVisible();
+    await page.locator("header").getByRole("link", { name: "About", exact: true }).click();
+    await page.reload();
+    await page.waitForTimeout(4300);
+    await expect(popup).not.toBeVisible();
+  });
+
+  test("session storage remembers an intentional dismissal when local storage is blocked", async ({ page }) => {
+    await page.addInitScript(() => {
+      Object.defineProperty(window, "localStorage", {
+        configurable: true,
+        get() { throw new DOMException("QA blocked local storage", "SecurityError"); },
+      });
+    });
+    await page.goto("/");
+    const popup = page.getByRole("dialog", { name: "Gather just launched!" });
+    await expect(popup).toBeVisible({ timeout: 7000 });
+    expect(await page.evaluate((key) => sessionStorage.getItem(key), campaignKey)).toBeNull();
+    await popup.getByRole("button", { name: "Keep exploring", exact: true }).click();
+    expect(await page.evaluate((key) => sessionStorage.getItem(key), campaignKey)).toBe("dismissed");
+    await page.reload();
+    await page.waitForTimeout(4300);
+    await expect(popup).not.toBeVisible();
+  });
+
+  test("protected-preview reset clears only this campaign and restores the first visit", async ({ page }) => {
+    test.skip(process.env.PLAYWRIGHT_PREVIEW_RESET !== "true", "Requires a VERCEL_ENV=preview build with the server-approved reset prop.");
+    await page.goto("/");
+    const popup = page.getByRole("dialog", { name: "Gather just launched!" });
+    await expect(popup).toBeVisible({ timeout: 7000 });
+    await popup.getByRole("button", { name: "Keep exploring", exact: true }).click();
+    await page.evaluate(() => {
+      localStorage.setItem("qa:unrelated-preference", "preserve-me");
+      sessionStorage.setItem("qa:other-campaign", "preserve-me-too");
+    });
+    expect(await page.evaluate(() => typeof window.resetGatherLaunch)).toBe("function");
+    await Promise.all([
+      page.waitForEvent("load"),
+      page.evaluate(() => window.resetGatherLaunch!()),
+    ]);
+    expect(await page.evaluate((key) => localStorage.getItem(key), campaignKey)).toBeNull();
+    expect(await page.evaluate(() => localStorage.getItem("qa:unrelated-preference"))).toBe("preserve-me");
+    expect(await page.evaluate(() => sessionStorage.getItem("qa:other-campaign"))).toBe("preserve-me-too");
+    await expect(popup).toBeVisible({ timeout: 7000 });
   });
 
   test("Keep exploring closes the announcement on a narrow short screen", async ({
@@ -469,10 +561,7 @@ test.describe("launch announcement", () => {
     await page.goto("/");
     const popup = page.getByRole("dialog", { name: "Gather just launched!" });
     await page.waitForTimeout(4600);
-    if (await popup.isVisible())
-      await popup
-        .getByRole("button", { name: "Keep exploring", exact: true })
-        .click();
+    await expect(popup).not.toBeVisible();
     await page
       .locator("header")
       .getByRole("link", { name: "About", exact: true })

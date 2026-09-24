@@ -2,6 +2,7 @@ import { ActionLink, Photo } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
 import { pageMetadata } from "@/lib/metadata";
 import { destinations } from "@/lib/site-config";
+import { GatherIllustration } from "@/components/gather-graphics";
 export const metadata = pageMetadata(
   "Get Involved",
   "Join Gather as a student volunteer or business, or get in touch about receiving food for your organization.",
@@ -13,8 +14,8 @@ const roles = [
     title: "Students",
     lead: "Make your next hours count.",
     copy: "Help your community through food rescue and keep track of your completed service.",
-    photo: "launch-student",
-    alt: "A student with a box of fresh food on a neighborhood street.",
+    photo: "finish-teamwork",
+    alt: "Volunteers preparing food together.",
     action: "Join Gather",
     href: destinations.signup,
   },
@@ -23,8 +24,8 @@ const roles = [
     title: "Businesses",
     lead: "Have extra food? Put it to good use.",
     copy: "Connect your surplus with local organizations through Gather.",
-    photo: "launch-produce",
-    alt: "Fresh vegetables ready to be shared.",
+    photo: "finish-bakery",
+    alt: "Bread being prepared in a neighborhood bakery.",
     action: "Join as a business",
     href: destinations.signup,
   },
@@ -33,8 +34,8 @@ const roles = [
     title: "Organizations",
     lead: "Help good food reach your community.",
     copy: "Get in touch about receiving food through Gather.",
-    photo: "launch-community",
-    alt: "A community worker receiving a produce box from a volunteer.",
+    photo: "finish-sorting",
+    alt: "Food being sorted at a community destination.",
     action: "Contact us",
     href: destinations.email,
   },
@@ -72,20 +73,30 @@ export default function GetInvolved() {
           </article>
         ))}
       </Reveal>
-      <div className="container participation-notes">
-        <p className="launch-status">
-          Signups are open. Local rescue opportunities are coming.
-        </p>
-        <p>
-          Accounts are for ages 13 and up. Adults are welcome, too. Businesses
-          and organizations need Gather approval before participating.
-        </p>
-        <p id="schools">
-          Schools &amp; programs:{" "}
-          <a href={destinations.email}>talk to Gather</a> about student service.
-          Each program sets its own requirements for accepting hours.
-        </p>
-      </div>
+      <Reveal className="participation-section">
+        <div className="container participation-composition">
+          <GatherIllustration
+            kind="community"
+            className="participation-graphic"
+          />
+          <div className="participation-notes">
+            <p className="launch-status">
+              Signups are open. Local rescue opportunities are coming.
+            </p>
+            <p>
+              Accounts are for ages 13 and up. Adults are welcome, too.
+              Businesses and organizations need Gather approval before
+              participating.
+            </p>
+            <p id="schools">
+              Schools &amp; programs:{" "}
+              <a href={destinations.email}>talk to Gather</a> about student
+              service. Each program sets its own requirements for accepting
+              hours.
+            </p>
+          </div>
+        </div>
+      </Reveal>
     </main>
   );
 }

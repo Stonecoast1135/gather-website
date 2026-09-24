@@ -5,9 +5,10 @@ import { ActionLink, Logo } from "@/components/ui";
 import { CloseIcon } from "@/components/site-header";
 import { closeDialog, openDialog, trapDialogFocus } from "@/components/dialog";
 import {
-  hasSeenLaunchCampaign,
+  canPersistLaunchDismissal,
+  hasDismissedLaunchCampaign,
   launchCampaign,
-  rememberLaunchCampaign,
+  rememberLaunchDismissal,
   resetLaunchCampaign,
 } from "@/lib/launch-campaign";
 
@@ -17,20 +18,27 @@ declare global {
   }
 }
 
-export function LaunchAnnouncement() {
+export function LaunchAnnouncement({
+  allowPreviewReset = false,
+}: {
+  allowPreviewReset?: boolean;
+}) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const eligibleAtRef = useRef<number | null>(null);
   useEffect(() => {
     const dialog = dialogRef.current;
     let timer: ReturnType<typeof setTimeout> | undefined;
     let disposed = false;
-    if (process.env.NODE_ENV === "development") {
+    const canReset =
+      process.env.NODE_ENV === "development" || allowPreviewReset;
+    if (canReset) {
       window.resetGatherLaunch = () => {
         resetLaunchCampaign();
         window.location.reload();
       };
     }
     function tryOpening() {
-      if (disposed || !dialog || hasSeenLaunchCampaign()) return;
+      if (disposed || !dialog || hasDismissedLaunchCampaign()) return;
       const focused = document.activeElement;
       const isTyping =
         focused instanceof HTMLElement &&
@@ -43,24 +51,28 @@ export function LaunchAnnouncement() {
         timer = setTimeout(tryOpening, 750);
         return;
       }
-      // Persist before display to prevent reload loops. If both stores are denied,
-      // skip the automatic announcement; the page's signup links remain available.
-      if (!rememberLaunchCampaign("seen")) return;
+      // If dismissal cannot survive reload, skip automatic display instead of
+      // repeatedly interrupting a visitor. Never persist "seen" on their behalf.
+      if (!canPersistLaunchDismissal()) return;
       openDialog(dialog, dialog.querySelector<HTMLElement>("h2"));
     }
-    if (launchCampaign.enabled && !hasSeenLaunchCampaign())
-      timer = setTimeout(tryOpening, launchCampaign.delayMs);
+    if (launchCampaign.enabled && !hasDismissedLaunchCampaign()) {
+      eligibleAtRef.current ??= Date.now() + launchCampaign.delayMs;
+      timer = setTimeout(
+        tryOpening,
+        Math.max(0, eligibleAtRef.current - Date.now()),
+      );
+    }
     return () => {
       disposed = true;
       if (timer) clearTimeout(timer);
       if (dialog) closeDialog(dialog);
-      if (process.env.NODE_ENV === "development")
-        delete window.resetGatherLaunch;
+      if (canReset) delete window.resetGatherLaunch;
     };
-  }, []);
+  }, [allowPreviewReset]);
 
   function dismiss() {
-    rememberLaunchCampaign();
+    rememberLaunchDismissal();
     if (dialogRef.current) closeDialog(dialogRef.current);
   }
   if (!launchCampaign.enabled) return null;
@@ -70,7 +82,10 @@ export function LaunchAnnouncement() {
       className="launch-announcement"
       aria-labelledby="launch-title"
       aria-describedby="launch-description"
-      onClose={() => rememberLaunchCampaign()}
+      onCancel={(event) => {
+        event.preventDefault();
+        dismiss();
+      }}
       onKeyDown={trapDialogFocus}
       onClick={(event) => {
         if (event.target === event.currentTarget) dismiss();
