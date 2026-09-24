@@ -1,11 +1,7 @@
-# Gather public-site launch blockers
+# Gather launch release notes
 
-The following public routes must be supplied with approved content before the
-website is treated as launch-ready:
+The approved redesign is for Preview review only. Production release requires the owner's explicit approval and a fresh check of the existing live deployment. See [the handoff](docs/LAUNCH-REBUILD-HANDOFF.md).
 
-- Privacy policy
-- Terms of use
-- Accessibility statement
+Published Privacy and Terms destinations were verified at the real app and are linked in the website. Their content is unchanged. No separate accessibility statement has been supplied; none is fabricated.
 
-These routes are intentionally not linked or scaffolded until their content is
-approved. They must be added to the footer when the real destinations exist.
+Impact totals intentionally remain unavailable until an approved aggregate-only source exists. This is a designed missing-data state, not a fake reporting backend. Student signups are open; local opportunities depend on approved partner onboarding.

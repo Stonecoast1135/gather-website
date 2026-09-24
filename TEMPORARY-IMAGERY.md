@@ -1,8 +1,8 @@
-# Gather temporary imagery register
+# Gather prior-design imagery register (historical)
 
-The public website currently uses documentary-style stock photography as a layout and crop placeholder. None of these images depict a Gather operation, partner, volunteer, business, recipient organization, or event. Replace them with approved Gather photography when it becomes available.
+These stock assets belong to the previous public website design and are no longer rendered by the approved launch rebuild. Their source records remain here for provenance. Current illustrative assets and review notes are documented in [docs/LAUNCH-ASSETS.md](docs/LAUNCH-ASSETS.md). None of the historical images depict a Gather operation, partner, volunteer, business, recipient organization, or event.
 
-| Local asset | Current use | Source record | Replacement direction |
+| Local asset | Previous use | Source record | Replacement direction |
 | --- | --- | --- | --- |
 | `public/images/hero-community-tomatoes.webp` | Homepage hero | Unsplash photo `qgHGDbbSNm8`: <https://unsplash.com/photos/qgHGDbbSNm8> | An active food handoff or cooperative food-movement moment with clear permission and no fabricated branding |
 | `public/images/audience-volunteers-service.webp` | Homepage audience path and Volunteers hero | Unsplash; inherited local asset. The original photo-page URL was not retained in the repository. | Volunteers actively collecting, carrying, or handing off food rather than a posed group |

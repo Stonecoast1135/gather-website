@@ -1,0 +1,18 @@
+# Deploy only application inputs; preserve local review evidence on disk.
+.git
+.next
+.next-*
+node_modules
+.vercel
+.env*
+*.pem
+*.tsbuildinfo
+artifacts
+test-results
+playwright-report
+coverage
+design-references:
+docs
+scripts
+tests
+**/.DS_Store

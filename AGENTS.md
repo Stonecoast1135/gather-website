@@ -1,5 +1,10 @@
 # Gather Public Website
 
+## Current approved implementation direction
+
+The September 23, 2026 approved launch board and user rebuild brief supersede the older visual layouts and page inventory below. Read `DESIGN-BLUEPRINT.md` and `docs/APPROVED-REBUILD-BRIEF.md` for the five-page launch design, exact G logo, curved cream/photo compositions, direct web signup and launch announcement. Existing scope, truthfulness, accessibility, performance and operational protections remain valid. The authenticated Gather app must remain untouched.
+
+
 This repository contains the public website for **Gather**, a food-rescue and volunteer-impact platform initially focused on Colorado.
 
 The authenticated Gather application is a separate product. This repository is for the public-facing website and marketing/web experience.
@@ -615,9 +620,7 @@ Do not assume the first coded version is final.
 
 ## Current state
 
-The repository has only the clean application foundation.
-
-Do not begin independently designing or building the full website until explicit implementation instructions and visual references are provided.
+The approved five-page launch redesign is implemented on a non-production review branch. Do not redesign approved areas during unrelated work. Production release requires explicit owner approval of the preview.
 
 <!-- BEGIN:nextjs-agent-rules -->
 

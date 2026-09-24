@@ -2,337 +2,157 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
-
-const primaryLinks = [
-  { href: "/how-it-works", label: "How It Works" },
-  { href: "/impact", label: "Impact" },
-  { href: "/about", label: "About" },
-  { href: "/support", label: "Support" },
-];
-
-const involvedLinks = [
-  { href: "/volunteers", label: "Volunteers" },
-  { href: "/businesses", label: "Businesses" },
-  { href: "/organizations", label: "Recipient Organizations" },
-  { href: "/schools", label: "Schools & Programs" },
-];
+import { useEffect, useRef, useState } from "react";
+import { ActionLink, Logo } from "@/components/ui";
+import { closeDialog, openDialog, trapDialogFocus } from "@/components/dialog";
+import { destinations, primaryLinks } from "@/lib/site-config";
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const dropdownTriggerRef = useRef<HTMLButtonElement>(null);
-  const mobilePanelRef = useRef<HTMLDivElement>(null);
-  const mobileTriggerRef = useRef<HTMLButtonElement>(null);
-
-  const closeMobile = useCallback((restoreFocus = false) => {
-    setMobileOpen(false);
-    if (restoreFocus) {
-      window.requestAnimationFrame(() => mobileTriggerRef.current?.focus());
-    }
-  }, []);
+  const menuRef = useRef<HTMLDialogElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const updateHeader = () => setScrolled(window.scrollY > 28);
-    updateHeader();
-    window.addEventListener("scroll", updateHeader, { passive: true });
-    return () => window.removeEventListener("scroll", updateHeader);
-  }, []);
+    const menu = menuRef.current;
+    if (menu) closeDialog(menu);
+  }, [pathname]);
 
   useEffect(() => {
-    if (!dropdownOpen) return;
-
-    const handlePointerDown = (event: PointerEvent) => {
-      if (!dropdownRef.current?.contains(event.target as Node)) {
-        setDropdownOpen(false);
-      }
+    const menu = menuRef.current;
+    const desktop = window.matchMedia("(min-width: 901px)");
+    const closeOnDesktop = () => {
+      if (desktop.matches && menu) closeDialog(menu);
     };
-
-    document.addEventListener("pointerdown", handlePointerDown);
-    return () => document.removeEventListener("pointerdown", handlePointerDown);
-  }, [dropdownOpen]);
-
-  useEffect(() => {
-    if (!mobileOpen) return;
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    const focusFrame = window.requestAnimationFrame(() => {
-      mobilePanelRef.current?.focus({ preventScroll: true });
-    });
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        event.preventDefault();
-        closeMobile(true);
-        return;
-      }
-
-      if (event.key !== "Tab" || !mobilePanelRef.current) return;
-
-      const panelFocusable = Array.from(
-        mobilePanelRef.current.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
-        ),
-      );
-      const focusable = [mobileTriggerRef.current, ...panelFocusable].filter(
-        (element): element is HTMLElement => element !== null,
-      );
-
-      if (focusable.length === 0) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-
-      if (document.activeElement === mobilePanelRef.current) {
-        event.preventDefault();
-        (event.shiftKey ? last : panelFocusable[0] ?? first).focus();
-      } else if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    };
-
-    const handleResize = () => {
-      if (window.innerWidth > 980) closeMobile();
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("resize", handleResize);
-
+    desktop.addEventListener("change", closeOnDesktop);
     return () => {
-      window.cancelAnimationFrame(focusFrame);
-      document.body.style.overflow = previousOverflow;
-      document.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("resize", handleResize);
+      desktop.removeEventListener("change", closeOnDesktop);
+      if (menu) closeDialog(menu);
     };
-  }, [closeMobile, mobileOpen]);
+  }, []);
 
-  const handleDropdownKeyDown = (
-    event: React.KeyboardEvent<HTMLDivElement>,
-  ) => {
-    if (event.key === "Escape") {
-      event.preventDefault();
-      setDropdownOpen(false);
-      dropdownTriggerRef.current?.focus();
-    }
-  };
+  function closeMenu() {
+    if (menuRef.current) closeDialog(menuRef.current);
+  }
 
-  const openDropdownFromKeyboard = (
-    event: React.KeyboardEvent<HTMLButtonElement>,
-  ) => {
-    if (event.key !== "ArrowDown") return;
-    event.preventDefault();
-    setDropdownOpen(true);
-    window.requestAnimationFrame(() => {
-      dropdownRef.current?.querySelector<HTMLElement>("a")?.focus();
-    });
-  };
-
-  const isCurrentRoute = (href: string) =>
-    pathname === href || pathname.startsWith(`${href}/`);
-
-  const isInvolvedRoute =
-    isCurrentRoute("/get-involved") ||
-    involvedLinks.some((link) => isCurrentRoute(link.href));
-
-  const involvementAction =
-    pathname === "/get-involved"
-      ? { href: "/get-involved#choose-your-path", label: "Choose your path" }
-      : { href: "/get-involved", label: "Get involved" };
-
-  const usesLightHeader =
-    pathname === "/how-it-works" ||
-    pathname === "/businesses" ||
-    pathname === "/schools" ||
-    pathname === "/about" ||
-    pathname === "/contact";
+  function showMenu() {
+    const menu = menuRef.current;
+    // Safari does not focus buttons on pointer click. Set the return target
+    // before the dialog records the currently focused element.
+    triggerRef.current?.focus({ preventScroll: true });
+    if (menu && openDialog(menu, menu.querySelector<HTMLElement>("nav a")))
+      setMenuOpen(true);
+  }
 
   return (
-    <header
-      className={`site-header${scrolled ? " is-scrolled" : ""}${
-        mobileOpen ? " has-open-menu" : ""
-      }${usesLightHeader ? " is-light-page" : ""}`}
-    >
-      <div className="site-container site-header__inner">
-        <Link className="wordmark" href="/" aria-label="Gather home">
-          Gather
+    <header className="site-header">
+      <div className="site-header__inner">
+        <Link className="site-header__brand" href="/" aria-label="Gather home">
+          <Logo />
         </Link>
-
         <nav className="desktop-nav" aria-label="Primary navigation">
-          <Link
-            className={`nav-link${isCurrentRoute(primaryLinks[0].href) ? " is-active" : ""}`}
-            href={primaryLinks[0].href}
-            aria-current={isCurrentRoute(primaryLinks[0].href) ? "page" : undefined}
-          >
-            {primaryLinks[0].label}
-          </Link>
-
-          <div
-            className="nav-dropdown"
-            ref={dropdownRef}
-            onKeyDown={handleDropdownKeyDown}
-          >
-            <button
-              ref={dropdownTriggerRef}
-              className={`nav-link nav-dropdown__trigger${isInvolvedRoute ? " is-active" : ""}`}
-              type="button"
-              aria-expanded={dropdownOpen}
-              aria-controls="get-involved-menu"
-              onClick={() => setDropdownOpen((current) => !current)}
-              onKeyDown={openDropdownFromKeyboard}
-            >
-              Get Involved
-              <span className="nav-chevron" aria-hidden="true" />
-            </button>
-
-            {dropdownOpen ? (
-              <div className="nav-dropdown__panel" id="get-involved-menu">
-                <p className="nav-dropdown__eyebrow">Choose your path</p>
-                <div className="nav-dropdown__links">
-                  <Link
-                    href="/get-involved"
-                    aria-current={isCurrentRoute("/get-involved") ? "page" : undefined}
-                    onClick={() => setDropdownOpen(false)}
-                  >
-                    <span>Get Involved overview</span>
-                    <span className="link-arrow" aria-hidden="true" />
-                  </Link>
-                  {involvedLinks.map((link) => (
-                    <Link
-                      href={link.href}
-                      key={link.href}
-                      aria-current={isCurrentRoute(link.href) ? "page" : undefined}
-                      onClick={() => setDropdownOpen(false)}
-                    >
-                      <span>{link.label}</span>
-                      <span className="link-arrow" aria-hidden="true" />
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ) : null}
-          </div>
-
-          {primaryLinks.slice(1).map((link) => (
+          {primaryLinks.map(({ href, label }) => (
             <Link
-              className={`nav-link${isCurrentRoute(link.href) ? " is-active" : ""}`}
-              href={link.href}
-              key={link.href}
-              aria-current={isCurrentRoute(link.href) ? "page" : undefined}
+              key={href}
+              href={href}
+              aria-current={pathname === href ? "page" : undefined}
             >
-              {link.label}
+              {label}
             </Link>
           ))}
         </nav>
-
-        <div className="header-utilities">
-          <Link
-            className="header-utility-link"
-            href="https://my.gatherforward.org/"
-          >
-            Open Gather
-          </Link>
-          <Link className="button button--header" href={involvementAction.href}>
-            {involvementAction.label}
-            <span className="button-arrow" aria-hidden="true" />
-          </Link>
-        </div>
-
+        <ActionLink className="site-header__join" />
         <button
-          ref={mobileTriggerRef}
-          className="menu-trigger"
+          ref={triggerRef}
+          className="menu-trigger icon-button"
           type="button"
-          aria-expanded={mobileOpen}
+          aria-label="Open navigation menu"
+          aria-haspopup="dialog"
           aria-controls="mobile-menu"
-          onClick={() => setMobileOpen((current) => !current)}
+          aria-expanded={menuOpen}
+          onClick={showMenu}
         >
-          <span className="menu-trigger__label">
-            {mobileOpen ? "Close" : "Menu"}
-          </span>
-          <span className="menu-trigger__lines" aria-hidden="true">
-            <span />
-            <span />
-          </span>
+          <svg width="25" height="22" viewBox="0 0 25 22" aria-hidden="true">
+            <path
+              d="M3 5h19M3 11h19M3 17h19"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+            />
+          </svg>
         </button>
       </div>
-
-      {mobileOpen ? (
-        <div
-          ref={mobilePanelRef}
-          className="mobile-menu"
-          id="mobile-menu"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Site navigation"
-          tabIndex={-1}
-        >
-          <nav className="mobile-menu__nav" aria-label="Mobile navigation">
-            <Link
-              href="/how-it-works"
-              aria-current={isCurrentRoute("/how-it-works") ? "page" : undefined}
-              onClick={() => closeMobile()}
-            >
-              <span>How It Works</span>
-              <span className="link-arrow" aria-hidden="true" />
+      <dialog
+        ref={menuRef}
+        id="mobile-menu"
+        className="mobile-menu"
+        aria-label="Site navigation"
+        onClose={() => setMenuOpen(false)}
+        onKeyDown={trapDialogFocus}
+        onClick={(event) => {
+          if (event.target === event.currentTarget) closeMenu();
+        }}
+      >
+        <div className="mobile-menu__content">
+          <div className="mobile-menu__top">
+            <Link href="/" aria-label="Gather home" onClick={closeMenu}>
+              <Logo />
             </Link>
-
-            <div className="mobile-menu__group">
+            <button
+              className="icon-button"
+              type="button"
+              aria-label="Close navigation menu"
+              onClick={closeMenu}
+            >
+              <CloseIcon />
+            </button>
+          </div>
+          <nav className="mobile-menu__nav" aria-label="Mobile navigation">
+            {primaryLinks.map(({ href, label }) => (
               <Link
-                href="/get-involved"
-                aria-current={isCurrentRoute("/get-involved") ? "page" : undefined}
-                onClick={() => closeMobile()}
+                key={href}
+                href={href}
+                aria-current={pathname === href ? "page" : undefined}
+                onClick={closeMenu}
               >
-                Get Involved
-              </Link>
-              {involvedLinks.map((link) => (
-                <Link
-                  href={link.href}
-                  key={link.href}
-                  aria-current={isCurrentRoute(link.href) ? "page" : undefined}
-                  onClick={() => closeMobile()}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-
-            {primaryLinks.slice(1).map((link) => (
-              <Link
-                href={link.href}
-                key={link.href}
-                aria-current={isCurrentRoute(link.href) ? "page" : undefined}
-                onClick={() => closeMobile()}
-              >
-                <span>{link.label}</span>
-                <span className="link-arrow" aria-hidden="true" />
+                {label}
               </Link>
             ))}
           </nav>
-
-          <div className="mobile-menu__utilities">
-            <Link
-              href="https://my.gatherforward.org/"
-                onClick={() => closeMobile()}
-            >
-              Open Gather
-            </Link>
-            <Link
-              className="button button--primary"
-              href={involvementAction.href}
-              onClick={() => closeMobile()}
-            >
-              {involvementAction.label}
-              <span className="button-arrow" aria-hidden="true" />
-            </Link>
-          </div>
+          <ActionLink className="mobile-menu__join" onClick={closeMenu} />
+          <nav
+            className="mobile-menu__secondary"
+            aria-label="Contact and policies"
+          >
+            <a href={destinations.email} onClick={closeMenu}>
+              Contact
+            </a>
+            <a href={destinations.instagram} onClick={closeMenu}>
+              Instagram
+            </a>
+            <a href={destinations.privacy} onClick={closeMenu}>
+              Privacy
+            </a>
+            <a href={destinations.terms} onClick={closeMenu}>
+              Terms
+            </a>
+          </nav>
         </div>
-      ) : null}
+      </dialog>
     </header>
+  );
+}
+
+export function CloseIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="m6 6 12 12M18 6 6 18"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
   );
 }

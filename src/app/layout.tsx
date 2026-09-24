@@ -1,34 +1,44 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Manrope, Newsreader } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { LaunchAnnouncement } from "@/components/launch-announcement";
+import { isIndexable, siteOrigin } from "@/lib/site-config";
 import "./globals.css";
-
-const manrope = Manrope({
-  variable: "--font-manrope",
+import "@/components/interactions.css";
+const sans = Manrope({
+  variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
 });
-
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
+const display = Newsreader({
+  variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
 });
-
 export const metadata: Metadata = {
-  title: "Gather | Good food. Good people.",
+  metadataBase: new URL(siteOrigin),
+  title: {
+    default: "Gather | Less waste. More good.",
+    template: "%s | Gather",
+  },
   description:
-    "Gather connects surplus food with local organizations and the volunteers who help move it.",
+    "Help rescue food for local organizations and track your volunteer hours with Gather.",
+  robots: { index: isIndexable, follow: isIndexable },
 };
-
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export const viewport: Viewport = {
+  themeColor: "#faf6ec",
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html
-      lang="en"
-      data-scroll-behavior="smooth"
-      className={`${manrope.variable} ${newsreader.variable}`}
-    >
+    <html lang="en" className={`${sans.variable} ${display.variable}`}>
       <body>
         <a className="skip-link" href="#main-content">
           Skip to content
@@ -36,6 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SiteHeader />
         {children}
         <SiteFooter />
+        <LaunchAnnouncement />
       </body>
     </html>
   );

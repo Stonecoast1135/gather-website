@@ -1,101 +1,130 @@
-import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-
-import { HowItWorksConclusion } from "@/components/how-it-works-conclusion";
-import { RescueStory } from "@/components/rescue-story";
-import styles from "./how-it-works.module.css";
-
-export const metadata: Metadata = {
-  title: "How It Works | Gather",
-  description:
-    "Follow how appropriate surplus food moves from a business to a recipient organization with a volunteer helping complete the rescue.",
-};
-
-export default function HowItWorksPage() {
+import { Photo, ProcessArrow } from "@/components/ui";
+import { Accordion } from "@/components/accordion";
+import { Reveal } from "@/components/reveal";
+import { pageMetadata } from "@/lib/metadata";
+import { destinations } from "@/lib/site-config";
+export const metadata = pageMetadata(
+  "How It Works",
+  "From extra food to a confirmed delivery: see how businesses, volunteers and organizations connect through Gather.",
+  "/how-it-works",
+);
+const stages = [
+  {
+    title: "Businesses share extra food.",
+    copy: "A business posts food available for pickup.",
+    photo: "launch-market",
+    alt: "Fresh produce outside a neighborhood grocery store.",
+  },
+  {
+    title: "Students help move it.",
+    copy: "A volunteer picks it up and delivers it to a participating organization.",
+    photo: "launch-student",
+    alt: "A student carrying a box of vegetables.",
+  },
+  {
+    title: "The delivery is confirmed.",
+    copy: "Completed rescues contribute to service records and impact.",
+    photo: "launch-community",
+    alt: "A volunteer passing a box of produce to a community worker.",
+  },
+];
+const faqs = [
+  {
+    question: "How do I get started?",
+    answer: (
+      <p>
+        <a href={destinations.signup}>Join Gather</a> and choose your role.
+        Accounts are available to people 13 and older. Physical pickups and
+        deliveries have separate participation requirements; review the{" "}
+        <a href={destinations.terms}>Terms of Use</a> before taking part.
+      </p>
+    ),
+  },
+  {
+    question: "Do I need a car?",
+    answer: (
+      <p>
+        Choose opportunities that fit your transportation and the food being
+        moved. Review pickup and delivery instructions before claiming a rescue.
+        Drivers must be legally authorized to drive and use a suitable vehicle.
+      </p>
+    ),
+  },
+  {
+    question: "How do service hours work?",
+    answer: (
+      <p>
+        Recipient confirmation completes the rescue and supports your service
+        record. Your school or program decides which activities and records it
+        accepts, so check with your advisor first.
+      </p>
+    ),
+  },
+  {
+    question: "What happens after I sign up?",
+    answer: (
+      <p>
+        Set up your profile while local partners are being onboarded. Businesses
+        and recipient organizations need Gather approval. Eligible opportunities
+        appear as approved partners make food available; signing up alone does
+        not authorize a pickup.
+      </p>
+    ),
+  },
+];
+export default function HowItWorks() {
   return (
-    <main className={styles.page} id="main-content">
-      <section className={styles.hero} aria-labelledby="how-hero-title">
-        <div className={`site-container ${styles.heroGrid}`}>
-          <div className={styles.heroCopy}>
-            <p className="eyebrow">How Gather works</p>
-            <h1 id="how-hero-title">How a rescue comes to life</h1>
-            <p className={styles.heroLead}>
-              Gather helps appropriate surplus food move from businesses to
-              recipient organizations, with volunteers helping complete each
-              rescue.
-            </p>
-            <div className={styles.heroActions}>
-              <Link className="button button--primary" href="/get-involved">
-                Join the movement
-                <span className="button-arrow" aria-hidden="true" />
-              </Link>
-              <Link className="directional-link" href="#rescue-journey">
-                Explore the journey
-                <span className="link-arrow" aria-hidden="true" />
-              </Link>
-            </div>
-            <p className={styles.heroNote}>
-              Clear coordination. Confirmed completion.
-            </p>
-          </div>
-
-          <div className={styles.heroMedia}>
-            {/* Temporary, non-Gather editorial photography. The image does not
-                depict a Gather rescue and can be replaced without changing layout. */}
-            <div className={styles.heroPrimaryImage}>
-              <Image
-                src="/images/community-handoff.webp"
-                alt="Volunteers prepare bags of food at an outdoor distribution table."
-                fill
-                preload
-                sizes="(max-width: 767px) 100vw, (max-width: 1100px) 56vw, 58vw"
-              />
-            </div>
-            <div className={styles.heroInsetDetail} aria-hidden="true">
-              <span>One coordinated route</span>
-              <strong>Business</strong>
-              <i />
-              <strong>Recipient</strong>
-              <i />
-              <strong>Volunteer</strong>
-            </div>
-            <p className={styles.heroCaption}>Food in motion / one shared route</p>
-          </div>
-        </div>
-        <span className={styles.heroRoute} aria-hidden="true" />
-      </section>
-
-      <section className={styles.mission} aria-labelledby="mission-title">
-        <div className={`site-container ${styles.missionIntro}`}>
-          <p className="eyebrow">A coordinated chain</p>
-          <h2 id="mission-title">One mission. Many hands.</h2>
+    <main id="main-content" className="how-page">
+      <div className="page-heading container">
+        <h1>How It Works</h1>
+        <p>A simple process. A real impact.</p>
+      </div>
+      <Reveal className="stages container">
+        <ol>
+          {stages.map((stage, i) => (
+            <li key={stage.title}>
+              <div className="stage-image">
+                <Photo
+                  src={stage.photo}
+                  alt={stage.alt}
+                  sizes="(max-width:700px) 90vw, 30vw"
+                  priority={i === 0}
+                />
+                <span className="stage-number">{i + 1}</span>
+                {i < 2 && <ProcessArrow />}
+              </div>
+              <h2>{stage.title}</h2>
+              <p>{stage.copy}</p>
+            </li>
+          ))}
+        </ol>
+        <div className="process-note">
           <p>
-            A rescue works because businesses, recipient organizations, and
-            volunteers each carry one part of the journey forward.
+            Food is matched with an eligible recipient before a volunteer picks
+            it up.
+          </p>
+          <p>
+            Accounts are for ages 13 and up. Drivers must be legally authorized
+            to drive. Review the{" "}
+            <a href={destinations.terms}>participation requirements</a> before
+            claiming a rescue.
           </p>
         </div>
-        <ol className={`site-container ${styles.participants}`}>
-          <li>
-            <span aria-hidden="true">01</span>
-            <strong>Businesses</strong>
-            <p>Share appropriate surplus details.</p>
-          </li>
-          <li>
-            <span aria-hidden="true">02</span>
-            <strong>Recipient organizations</strong>
-            <p>Determine what fits their needs.</p>
-          </li>
-          <li>
-            <span aria-hidden="true">03</span>
-            <strong>Volunteers</strong>
-            <p>Help complete pickup and delivery.</p>
-          </li>
-        </ol>
+      </Reveal>
+      <section className="faq-section">
+        <div className="container faq-section__inner">
+          <div className="faq-panel">
+            <h2>Frequently asked questions</h2>
+            <Accordion items={faqs} />
+          </div>
+          <Photo
+            className="faq-photo"
+            src="launch-produce"
+            alt="Leafy greens and fresh vegetables packed in a produce crate."
+            sizes="(max-width:700px) 100vw, 38vw"
+          />
+        </div>
       </section>
-
-      <RescueStory />
-      <HowItWorksConclusion />
     </main>
   );
 }
