@@ -4,6 +4,9 @@ import { JoinSection } from "@/components/join-section";
 import { GatherIllustration, RescueRoute } from "@/components/gather-graphics";
 import { Reveal } from "@/components/reveal";
 import { pageMetadata } from "@/lib/metadata";
+import { FindYourPlace } from "@/components/find-your-place";
+import { StudentStory } from "@/components/student-story";
+import "@/components/home-refinement.css";
 export const metadata = pageMetadata(
   "Less waste. More good.",
   "Help rescue food for local organizations and track your volunteer hours with Gather.",
@@ -83,6 +86,8 @@ export default function Home() {
           />
         </div>
       </Reveal>
+      <FindYourPlace />
+      <StudentStory />
       <JoinSection />
     </main>
   );

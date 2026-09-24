@@ -8,32 +8,26 @@ function Storefront() {
     <>
       <path
         className="gather-illustration__wash"
-        d="M29 137C12 115 21 67 48 43C72 22 116 31 150 23C190 14 220 37 222 78C225 118 202 157 160 158H65C49 158 36 150 29 137Z"
+        d="M28 102C28 54 70 25 121 27S211 52 212 101C213 140 175 157 120 157S28 142 28 102Z"
       />
       <g className="gather-illustration__foreground">
-        <path className="gather-illustration__paper" d="M48 75H190V149H48Z" />
-        <path
-          className="gather-illustration__sage"
-          d="M49 41H188L203 73H34L49 41Z"
-        />
-        <path d="m75 41-7 32m36-32-2 32m30-32 2 32m27-32 8 32" />
+        <path className="gather-illustration__paper" d="M53 77h134v73H53Z" />
+        <path className="gather-illustration__sage" d="M56 43h128l13 33H43Z" />
+        <path d="m92 43-5 33m61-33 5 33" />
         <path
           className="gather-illustration__paper"
-          d="M34 73h34v5a17 17 0 0 1-34 0v-5Zm34 0h34v5a17 17 0 0 1-34 0v-5Zm34 0h33v5a16.5 16.5 0 0 1-33 0v-5Zm33 0h34v5a17 17 0 0 1-34 0v-5Zm34 0h34v5a17 17 0 0 1-34 0v-5Z"
+          d="M43 76h44v4a22 16 0 0 1-44 0Zm44 0h66v4a33 16 0 0 1-66 0Zm66 0h44v4a22 16 0 0 1-44 0Z"
         />
-        <path className="gather-illustration__sage" d="M61 102h74v32H61Z" />
-        <path d="M98 102v32M61 119h74" />
-        <path className="gather-illustration__paper" d="M150 102h25v47h-25Z" />
-        <path d="M167 124v5" />
-        <path
-          className="gather-illustration__tan"
-          d="M66 130c0-9 9-13 14-6 5-7 14-3 14 6H66Zm39 0c0-10 10-15 15-6 5-6 10-2 10 6h-25Z"
+        <rect
+          className="gather-illustration__sage"
+          x="69"
+          y="108"
+          width="53"
+          height="26"
+          rx="1"
         />
-        <path d="M41 150h158M80 32h77" />
-        <path
-          className="gather-illustration__line-soft"
-          d="M24 150h9m173 0h10"
-        />
+        <path className="gather-illustration__paper" d="M144 150v-42h26v42" />
+        <path d="M162 127v3M47 150h146" />
       </g>
     </>
   );
@@ -87,43 +81,36 @@ function Volunteer() {
     <>
       <path
         className="gather-illustration__wash"
-        d="M44 133C23 110 29 70 54 43C79 16 126 17 162 35C198 53 223 83 210 117C197 151 160 159 122 157C85 155 62 153 44 133Z"
+        d="M28 102C28 54 70 25 121 27S211 52 212 101C213 140 175 157 120 157S28 142 28 102Z"
       />
       <g className="gather-illustration__foreground">
-        <path
+        <circle
           className="gather-illustration__paper"
-          d="M100 66v13l17 13 16-13V64Z"
-        />
-        <path
-          className="gather-illustration__paper"
-          d="M140 43c0 19-9 31-23 31S94 62 94 43c0-15 10-25 24-25s22 10 22 25Z"
-        />
-        <path
-          className="gather-illustration__forest"
-          d="M94 43c-7-14 2-29 16-28 14-7 33 4 32 19l-5 10-5-13c-11 8-26 10-38 8Z"
+          cx="120"
+          cy="49"
+          r="22"
         />
         <path
           className="gather-illustration__sage"
-          d="m99 77 18 9 17-9 26 11 17 40-24 10-7-25 3 41H88l3-41-8 25-25-11 18-39 23-11Z"
+          d="M70 150v-33c0-22 20-36 50-36s50 14 50 36v33Z"
         />
         <path
           className="gather-illustration__paper"
-          d="m83 107-8 22 27 8-5 13-39-13 15-34m79 4 9 23-29 8 5 13 40-13-16-35"
+          d="m96 116 3-20a9 9 0 0 1 18 2l-2 18Z"
         />
-        <path className="gather-illustration__tan" d="M89 110h59v37H89Z" />
         <path
           className="gather-illustration__sage"
-          d="M99 110c-7-9-7-18 3-18 4-10 15-5 16 3 11-5 18 3 13 15Z"
+          d="M128 116c-8-15-1-25 13-21 10 3 11 13 4 21Z"
         />
-        <path
-          className="gather-illustration__paper"
-          d="m128 110 4-17c2-8 13-7 13 1l-2 16Z"
+        <rect
+          className="gather-illustration__tan"
+          x="84"
+          y="116"
+          width="72"
+          height="34"
+          rx="2"
         />
-        <path d="M113 121h12M98 154l-3 9m44-9 4 9" />
-        <path
-          className="gather-illustration__line-soft"
-          d="M62 163h23m69 0h26"
-        />
+        <path d="M113 128h14" />
       </g>
     </>
   );
@@ -134,47 +121,20 @@ function Community() {
     <>
       <path
         className="gather-illustration__wash"
-        d="M24 110C23 77 55 51 87 32C119 13 161 26 188 50C215 74 226 111 204 136C182 162 142 151 106 154C69 157 25 144 24 110Z"
+        d="M28 102C28 54 70 25 121 27S211 52 212 101C213 140 175 157 120 157S28 142 28 102Z"
       />
       <g className="gather-illustration__foreground">
-        <path className="gather-illustration__paper" d="M66 69h113v82H66Z" />
+        <path className="gather-illustration__paper" d="M59 77h122v73H59Z" />
+        <path className="gather-illustration__sage" d="m43 77 77-45 77 45Z" />
         <path
           className="gather-illustration__sage"
-          d="m50 74 72-44 74 44H50Z"
-        />
-        <path d="M104 60h36" />
-        <path
-          className="gather-illustration__sage"
-          d="M83 91h19v22H83Zm61 0h19v22h-19Z"
+          d="M76 97h20v24H76Zm68 0h20v24h-20Z"
         />
         <path
           className="gather-illustration__paper"
-          d="M110 151v-34a12 12 0 0 1 24 0v34Z"
+          d="M109 150v-33a11 11 0 0 1 22 0v33"
         />
-        <path d="M65 151h118m-82 6h43" />
-        <circle className="gather-illustration__paper" cx="39" cy="113" r="9" />
-        <path
-          className="gather-illustration__sage"
-          d="M24 152v-12a15 15 0 0 1 30 0v12H24Z"
-        />
-        <circle
-          className="gather-illustration__paper"
-          cx="201"
-          cy="111"
-          r="9"
-        />
-        <path
-          className="gather-illustration__sage"
-          d="M185 151v-11a16 16 0 0 1 32 0v11Z"
-        />
-        <path
-          className="gather-illustration__tan"
-          d="M167 127h25v23h-25Zm9 0v7h8v-7"
-        />
-        <path
-          className="gather-illustration__line-soft"
-          d="M22 158h36m129 0h30"
-        />
+        <path d="M53 150h134" />
       </g>
     </>
   );
@@ -326,10 +286,10 @@ export function RescueRoute({ className = "" }: { className?: string }) {
             <span>{stage.description}</span>
           </p>
           {index < rescueStages.length - 1 && (
-            <>
+            <span className="rescue-route__connector-slot" aria-hidden="true">
               <RouteConnector />
               <RouteConnector vertical />
-            </>
+            </span>
           )}
         </li>
       ))}

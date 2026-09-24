@@ -1,5 +1,8 @@
 import { defineConfig, devices } from "@playwright/test";
 
+const artifactDirectory =
+  process.env.PLAYWRIGHT_ARTIFACT_DIR ?? "artifacts/finishing";
+
 export default defineConfig({
   testDir: "./tests",
   timeout: 45_000,
@@ -8,11 +11,11 @@ export default defineConfig({
   workers: process.env.CI ? 2 : 2,
   retries: 0,
   forbidOnly: Boolean(process.env.CI),
-  outputDir: "artifacts/finishing/test-results",
+  outputDir: `${artifactDirectory}/test-results`,
   reporter: [
     ["list"],
-    ["html", { outputFolder: "artifacts/finishing/report", open: "never" }],
-    ["json", { outputFile: "artifacts/finishing/test-results.json" }],
+    ["html", { outputFolder: `${artifactDirectory}/report`, open: "never" }],
+    ["json", { outputFile: `${artifactDirectory}/test-results.json` }],
   ],
   use: {
     baseURL: process.env.PLAYWRIGHT_BASE_URL ?? "http://127.0.0.1:3001",

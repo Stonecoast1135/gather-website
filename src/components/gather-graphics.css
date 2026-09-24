@@ -27,7 +27,7 @@
 }
 
 .rescue-route {
-  --route-gap: clamp(30px, 6vw, 86px);
+  --route-gap: clamp(54px, 6vw, 90px);
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--route-gap);
@@ -61,18 +61,27 @@
   margin-bottom: 1px;
   font-weight: 650;
 }
-.rescue-route__connector {
+.rescue-route__connector-slot {
   position: absolute;
-  left: calc(50% + 98px);
-  top: 76px;
-  width: calc(100% + var(--route-gap) - 196px);
+  left: 100%;
+  top: clamp(46px, 6vw, 82px);
+  width: var(--route-gap);
+  height: 48px;
+  padding-inline: 12px;
+  display: grid;
+  align-items: center;
+}
+.rescue-route__connector {
+  display: block;
+  position: static;
+  width: 100%;
   height: auto;
-  overflow: visible;
   color: var(--forest, #043c32);
 }
 .rescue-route__connector-base,
 .rescue-route__connector-draw {
-  stroke-width: 1.8;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -153,12 +162,11 @@
 
 @media (max-width: 1000px) and (min-width: 701px) {
   .rescue-route {
-    --route-gap: 26px;
+    --route-gap: 48px;
   }
-  .rescue-route__connector {
-    left: calc(50% + 80px);
-    top: 61px;
-    width: calc(100% + var(--route-gap) - 160px);
+  .rescue-route__connector-slot {
+    top: 42px;
+    padding-inline: 8px;
   }
   .rescue-route__copy {
     font-size: 16px;
@@ -167,13 +175,14 @@
 @media (max-width: 700px) {
   .rescue-route {
     grid-template-columns: 1fr;
-    gap: 29px;
+    gap: 0;
     width: min(100%, 380px);
   }
   .rescue-route__stage {
     display: grid;
     grid-template-columns: minmax(120px, 155px) minmax(0, 1fr);
-    gap: 17px;
+    column-gap: 17px;
+    row-gap: 0;
     align-items: center;
   }
   .rescue-route__stage > .gather-illustration {
@@ -188,12 +197,19 @@
   .rescue-route__connector {
     display: none;
   }
+  .rescue-route__connector-slot {
+    position: static;
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: center;
+    width: 24px;
+    height: 56px;
+    padding: 8px 3px;
+  }
   .rescue-route__connector--vertical {
     display: block;
-    left: 65px;
-    top: calc(100% - 2px);
     width: 18px;
-    height: 32px;
+    height: 40px;
   }
   .gather-mission-graphic {
     position: relative;
@@ -242,13 +258,10 @@
 @media (max-width: 374px) {
   .rescue-route__stage {
     grid-template-columns: 132px minmax(0, 1fr);
-    gap: 12px;
+    column-gap: 12px;
   }
   .rescue-route__copy {
     font-size: 15px;
-  }
-  .rescue-route__connector--vertical {
-    left: 57px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
