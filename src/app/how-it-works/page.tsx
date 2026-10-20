@@ -25,7 +25,7 @@ const stages = [
   {
     title: "The delivery is confirmed.",
     copy: "Completed rescues contribute to service records and impact.",
-    photo: "finish-sorting",
+    photo: "gather-confirmed-phone",
     alt: "People organizing food at a community destination.",
   },
 ];

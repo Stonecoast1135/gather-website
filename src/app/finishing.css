@@ -45,7 +45,7 @@
   border-radius: 9px 38% 12px 12px / 9px 20% 12px 12px;
 }
 .student-collage__main img {
-  object-position: 48% 0%;
+  object-position: 45% 50%;
 }
 .student-collage__detail {
   position: absolute;
@@ -1040,4 +1040,10 @@
   .role-card:active {
     transform: none;
   }
+}
+
+/* Preserve faces and Gather branding in the Organizations photo. */
+.place-panel__content--organizations img,
+.role-card#organizations img {
+  object-position: 50% 20%;
 }

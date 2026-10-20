@@ -57,7 +57,7 @@ export default function Home() {
       <Reveal className="student-section container">
         <div className="student-collage">
           <Photo
-            src="finish-teamwork"
+            src="denver-skyline"
             alt="Volunteers working together to prepare food for their community."
             className="student-collage__main"
             sizes="(max-width:700px) 90vw, 52vw"
