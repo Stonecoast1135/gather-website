@@ -73,7 +73,7 @@
 }
 .why-gather__photo img {
   object-fit: cover;
-  object-position: 56% center;
+  object-position: 50% 55%;
 }
 .why-gather__detail {
   grid-area: detail;

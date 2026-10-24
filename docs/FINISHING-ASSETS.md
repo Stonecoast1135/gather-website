@@ -98,3 +98,12 @@ The square teamwork and bakery crops deliberately retain extra vertical context 
 Rejected candidates are not included in the project: an otherwise suitable bakery view with prominent commercial signage; a very staged clothing-donation table; and a handcart scene whose visible contents did not establish food transport. The final transport selection more clearly matches the requested food journey.
 
 Existing generated image provenance remains in [LAUNCH-ASSETS.md](./LAUNCH-ASSETS.md). This document covers only the eight newly sourced photographs and makes no claim about page test results.
+
+## Why We Gather photo replacement — October 24, 2026
+
+- Asset: `public/images/why-food-sharing.webp`, used only in the Home page's Why We Gather section.
+- Photographer: cottonbro studio. Original: [Handing Over Food in a Community Service Event — Pexels 6590933](https://www.pexels.com/photo/vegetables-cabbage-faceless-fruits-6590933/).
+- Download: `https://images.pexels.com/photos/6590933/pexels-photo-6590933.jpeg?auto=compress&cs=tinysrgb&w=1800`.
+- The original photo page and [Pexels license](https://www.pexels.com/license/) were checked on October 24. Free website use and cropping are permitted; no endorsement or Gather affiliation is implied.
+- Processing: original downloaded at 1800 × 2700; square crop at left 0, top 600, width 1800, height 1800; WebP quality 85, effort 6. Responsive cover framing keeps the passing hands and groceries visible. No generative changes or added branding.
+- This authentic stock photo illustrates food sharing. It does not document Gather participants, a Gather rescue, or an endorsed organization. It replaces `community-handoff.webp` in this section only; the previous asset is preserved.

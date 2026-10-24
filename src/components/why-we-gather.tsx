@@ -36,8 +36,8 @@ export function WhyWeGather() {
         </div>
         <div className="why-gather__photo">
           <Image
-            src="/images/community-handoff.webp"
-            alt="Volunteers packing bags of groceries together at an outdoor food distribution table."
+            src="/images/why-food-sharing.webp"
+            alt="Hands passing wrapped food above a box of fresh vegetables and groceries."
             fill
             sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1000px) 90vw, (max-width: 1600px) 46vw, 710px"
           />
