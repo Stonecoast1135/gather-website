@@ -6,6 +6,7 @@ import { Reveal } from "@/components/reveal";
 import { pageMetadata } from "@/lib/metadata";
 import { FindYourPlace } from "@/components/find-your-place";
 import { StudentStory } from "@/components/student-story";
+import { WhyWeGather } from "@/components/why-we-gather";
 import "@/components/home-refinement.css";
 import "@/components/home-hero.css";
 export const metadata = pageMetadata(
@@ -105,6 +106,7 @@ export default function Home() {
         </div>
       </Reveal>
       <FindYourPlace />
+      <WhyWeGather />
       <StudentStory />
       <JoinSection />
     </main>

@@ -1,0 +1,223 @@
+.why-gather {
+  padding-block: 24px 96px;
+  background: var(--cream);
+}
+.why-gather__inner {
+  display: grid;
+  grid-template-columns: 1fr 1.04fr;
+  grid-template-areas: "intro photo" "detail photo";
+  column-gap: clamp(36px, 4vw, 64px);
+  row-gap: 36px;
+  align-items: center;
+}
+.why-gather__intro {
+  grid-area: intro;
+  align-self: end;
+  min-width: 0;
+}
+.why-gather__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 28px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.26em;
+  line-height: 1.5;
+}
+.why-gather__eyebrow::after {
+  content: "";
+  width: 58px;
+  height: 1px;
+  background: currentColor;
+}
+.why-gather h2 {
+  margin-bottom: 24px;
+  font-size: clamp(52px, 5.2vw, 84px);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+.why-gather__scripture {
+  margin: 0;
+}
+.why-gather__scripture blockquote {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(28px, 2.6vw, 42px);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: pretty;
+}
+.why-gather__scripture figcaption {
+  margin-top: 17px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.28em;
+}
+.why-gather__scripture cite {
+  font-style: normal;
+}
+.why-gather__photo {
+  grid-area: photo;
+  position: relative;
+  min-width: 0;
+  min-height: 590px;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 22px;
+  background: var(--sage);
+}
+.why-gather__photo img {
+  object-fit: cover;
+  object-position: 56% center;
+}
+.why-gather__detail {
+  grid-area: detail;
+  align-self: start;
+  min-width: 0;
+}
+.why-gather__mission {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(21px, 1.6vw, 25px);
+  line-height: 1.45;
+  letter-spacing: 0.005em;
+}
+.why-gather__principles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.why-gather__principles li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+.why-gather__principles li + li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: var(--line);
+}
+.why-gather__icon {
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: #eeecdf;
+  color: var(--forest);
+}
+.why-gather__icon svg {
+  width: 34px;
+  height: 34px;
+}
+.why-gather__label {
+  font-size: 12px;
+  font-weight: 550;
+  letter-spacing: 0.18em;
+  line-height: 1.7;
+}
+@media (max-width: 1200px) and (min-width: 1001px) {
+  .why-gather__photo {
+    min-height: 550px;
+  }
+  .why-gather__inner {
+    row-gap: 28px;
+  }
+  .why-gather__label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+  }
+}
+@media (max-width: 1000px) {
+  .why-gather {
+    padding-block: 12px 72px;
+  }
+  .why-gather__inner {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "intro" "photo" "detail";
+    gap: 32px;
+  }
+  .why-gather h2 {
+    font-size: clamp(48px, 7.8vw, 72px);
+  }
+  .why-gather__scripture blockquote {
+    max-width: 25ch;
+    font-size: clamp(30px, 4.3vw, 38px);
+  }
+  .why-gather__photo {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 1.35;
+  }
+  .why-gather__mission {
+    max-width: 52ch;
+    font-size: 24px;
+  }
+  .why-gather__principles {
+    margin-top: 30px;
+  }
+}
+@media (max-width: 600px) {
+  .why-gather {
+    padding-block: 12px 52px;
+  }
+  .why-gather__inner {
+    gap: 28px;
+  }
+  .why-gather__eyebrow {
+    margin-bottom: 23px;
+    font-size: 10px;
+    gap: 18px;
+  }
+  .why-gather__eyebrow::after {
+    width: 44px;
+  }
+  .why-gather h2 {
+    margin-bottom: 20px;
+    font-size: clamp(42px, 11.5vw, 62px);
+  }
+  .why-gather__scripture blockquote {
+    font-size: clamp(26px, 6.6vw, 34px);
+    line-height: 1.2;
+  }
+  .why-gather__scripture figcaption {
+    margin-top: 15px;
+    font-size: 10px;
+  }
+  .why-gather__photo {
+    aspect-ratio: 1.23;
+    border-radius: 16px;
+  }
+  .why-gather__mission {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+  .why-gather__icon {
+    width: 60px;
+    height: 60px;
+  }
+  .why-gather__icon svg {
+    width: 29px;
+    height: 29px;
+  }
+  .why-gather__principles li {
+    gap: 11px;
+  }
+  .why-gather__label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+}
