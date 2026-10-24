@@ -75,7 +75,7 @@ img {
   color: var(--ink);
 }
 :focus-visible {
-  outline: 3px solid #b86726;
+  outline: 3px solid #2d6655;
   outline-offset: 5px;
   border-radius: 3px;
 }

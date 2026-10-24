@@ -19,7 +19,7 @@ export function StudentStory() {
         <div className="student-story__collage">
           <Photo
             src="finish-planning"
-            alt="Students collaborating at an outdoor table."
+            alt="Two people standing together outdoors."
             className="student-story__wide"
             sizes="(max-width:700px) 85vw, 44vw"
           />

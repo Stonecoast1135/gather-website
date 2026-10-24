@@ -28,7 +28,7 @@ export default function About() {
         </div>
         <Photo
           src="finish-planning"
-          alt="Young people collaborating around a table."
+          alt="Two people standing together outdoors."
           className="about-hero__photo"
           priority
         />

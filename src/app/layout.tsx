@@ -26,10 +26,13 @@ export const metadata: Metadata = {
   description:
     "Help rescue food for local organizations and track your volunteer hours with Gather.",
   robots: { index: isIndexable, follow: isIndexable },
-  icons: { other: [
-    { rel: "icon", url: "/icons/gather-tab-light-v2.png", type: "image/png", sizes: "96x96", media: "(prefers-color-scheme: light)" },
-    { rel: "icon", url: "/icons/gather-tab-dark-v2.png", type: "image/png", sizes: "96x96", media: "(prefers-color-scheme: dark)" },
-  ] },
+  icons: {
+    // Keep the existing ICO/PNG fallbacks; transparent theme-aware marks avoid Safari's square edge treatment.
+    other: [
+      { rel: "icon", url: "/icons/gather-tab-light-v2.png", type: "image/png", sizes: "96x96", media: "(prefers-color-scheme: light)" },
+      { rel: "icon", url: "/icons/gather-tab-dark-v2.png", type: "image/png", sizes: "96x96", media: "(prefers-color-scheme: dark)" },
+    ],
+  },
 };
 export const viewport: Viewport = {
   themeColor: "#faf6ec",

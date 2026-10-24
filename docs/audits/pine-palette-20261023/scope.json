@@ -1,0 +1,11 @@
+{
+  "status": "LOCAL_PREVIEW_ONLY",
+  "files": [
+    "src/app/finishing.css",
+    "src/app/globals.css",
+    "src/components/gather-graphics.css"
+  ],
+  "changes": "Orange focus outline and tan/peach vector accents replaced with pine and sage. Existing layout, frosted header, custom photography and routes unchanged.",
+  "build": "PASS",
+  "productionUnchanged": true
+}

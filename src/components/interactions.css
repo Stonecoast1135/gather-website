@@ -1,8 +1,13 @@
+:root { --site-header-height: 96px; }
+/* Reserve room for content while the fixed header overlays each page background. */
+body { padding-top: var(--site-header-height); }
 .site-header {
-  position: relative;
+  position: fixed;
+  inset: 0 0 auto;
   z-index: 20;
+  padding: 12px clamp(10px, 1.1vw, 20px) 0;
   color: var(--ink, #092b27);
-  background: var(--cream, #faf6eb);
+  background: transparent;
 }
 
 .site-header__inner,
@@ -11,12 +16,25 @@
   margin-inline: auto;
 }
 
+/* A single floating glass treatment shared by every public page. */
 .site-header__inner {
   display: flex;
   align-items: center;
-  min-height: 96px;
+  width: 100%;
+  min-height: 84px;
+  padding: 10px clamp(24px, 3.5vw, 60px);
   gap: 40px;
+  border: 1px solid transparent;
+  border-radius: 22px;
+  background: rgb(250 246 236 / 62%);
+  -webkit-backdrop-filter: blur(22px) saturate(80%);
+  backdrop-filter: blur(22px) saturate(80%);
+  box-shadow: 0 5px 25px rgb(31 42 25 / 6%);
 }
+html { scroll-padding-top: calc(var(--site-header-height) + 16px); }
+/* Extend the Impact photo behind the header without lifting its title or controls. */
+.impact-page .impact-hero { margin-top: calc(-1 * var(--site-header-height)); }
+.impact-page .impact-hero__content { padding-top: var(--site-header-height); }
 .site-header__brand,
 .site-footer__brand {
   display: inline-flex;
@@ -67,8 +85,8 @@
   transform: scaleX(1);
 }
 .site-header__join {
-  min-height: 46px;
-  padding: 12px 24px;
+  min-height: 50px;
+  padding: 12px 29px;
   font-size: 14px;
 }
 .site-header__join svg {
@@ -463,8 +481,13 @@
   }
 }
 @media (max-width: 900px) {
+  :root { --site-header-height: 88px; }
+  .site-header { padding: 12px 10px 0; }
   .site-header__inner {
-    min-height: 80px;
+    min-height: 76px;
+    padding: 10px 19px;
+    gap: 14px;
+    border-radius: 23px;
   }
   .site-header__brand {
     width: 43px;
@@ -474,13 +497,18 @@
     width: 39px;
     height: 46px;
   }
-  .desktop-nav,
+  .desktop-nav { display: none !important; }
   .site-header__join {
-    display: none !important;
+    display: inline-flex;
+    min-height: 46px;
+    min-width: 0;
+    padding: 10px 23px;
+    margin-left: auto;
+    font-size: 14px;
   }
   .menu-trigger {
     display: inline-flex;
-    margin-right: -10px;
+    margin: 0 -5px 0 0;
   }
 }
 @media (max-width: 600px) {

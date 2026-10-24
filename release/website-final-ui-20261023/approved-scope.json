@@ -1,0 +1,26 @@
+{
+  "baseSourceCommit": "91941b59ea5c0bbff44b3bd3e2cececce3089f14",
+  "purpose": "Publish approved Home hero, site-wide frosted floating header, original custom imagery/cache repair, and green accent palette. Preserve existing live branding, Safari icons, routes, destination and impact behavior.",
+  "paths": [
+    "docs/audits/pine-palette-20261023/scope.json",
+    "public/images/gather-about-portrait.webp",
+    "release/website-final-ui-20261023/approved-scope.json",
+    "release/website-final-ui-20261023/build.log",
+    "release/website-final-ui-20261023/validation.json",
+    "src/app/about/page.tsx",
+    "src/app/finishing.css",
+    "src/app/get-involved/page.tsx",
+    "src/app/globals.css",
+    "src/app/how-it-works/page.tsx",
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/components/gather-graphics.css",
+    "src/components/home-hero.css",
+    "src/components/interactions.css",
+    "src/components/student-story.tsx",
+    "src/components/ui.tsx",
+    "tests/launch.spec.ts"
+  ],
+  "allOtherBaselineFiles": "byte-for-byte unchanged",
+  "approval": "Owner explicitly approved making all reviewed UI changes live in this chat."
+}

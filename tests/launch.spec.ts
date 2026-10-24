@@ -5,7 +5,7 @@ import { formatImpact, getImpactTotals, parseImpact } from "../src/lib/impact";
 import { launchStorageKey as campaignKey } from "../src/lib/launch-campaign";
 
 const routes = [
-  { path: "/", heading: /Less waste\.\s*More good\./ },
+  { path: "/", heading: /Less waste\.\s*Stronger\s*communities\./ },
   { path: "/how-it-works", heading: "How It Works" },
   { path: "/get-involved", heading: "Get Involved" },
   { path: "/impact", heading: "Our measured impact." },

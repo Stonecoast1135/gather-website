@@ -17,7 +17,7 @@
   fill: var(--graphic-sage, #cdd6b6);
 }
 .gather-illustration__tan {
-  fill: var(--graphic-tan, #d5b38b);
+  fill: var(--graphic-tan, #a9bfa4);
 }
 .gather-illustration__forest {
   fill: var(--graphic-forest, var(--forest, #043c32));

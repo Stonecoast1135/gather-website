@@ -1,5 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
+import homePhoto from "../../public/images/launch-handoff.webp";
+import businessPhoto from "../../public/images/finish-bakery.webp";
+import organizationPhoto from "../../public/images/finish-sorting.webp";
 import type { ComponentProps } from "react";
 import { destinations } from "@/lib/site-config";
 
@@ -39,6 +42,14 @@ export function ActionLink({
     </Link>
   );
 }
+// Fingerprinted image URLs prevent older optimized copies from replacing the selected custom photos.
+const customPhotos: Record<string, StaticImageData | string> = {
+  "launch-handoff": homePhoto,
+  "finish-planning": "/images/gather-about-portrait.webp",
+  "finish-bakery": businessPhoto,
+  "finish-sorting": organizationPhoto,
+};
+
 export function Photo({
   src,
   alt,
@@ -55,8 +66,10 @@ export function Photo({
   return (
     <div className={`photo ${className}`}>
       <Image
-        src={`/images/${src}.webp`}
+        src={customPhotos[src] ?? `/images/${src}.webp`}
         alt={alt}
+        // Serve this compact portrait directly to avoid stale optimized-image failures.
+        unoptimized={src === "finish-planning"}
         fill
         sizes={sizes}
         preload={priority}

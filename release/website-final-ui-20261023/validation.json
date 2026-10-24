@@ -1,0 +1,21 @@
+{
+  "productionNextBuild": "PASS",
+  "eslintSrc": "PASS",
+  "previewBrowserChecks": {
+    "pages": [
+      "/",
+      "/about",
+      "/how-it-works",
+      "/get-involved",
+      "/impact"
+    ],
+    "widths": [
+      390,
+      1440
+    ],
+    "horizontalOverflow": false,
+    "brokenImages": 0
+  },
+  "preservation": "Existing branding, Safari icon assets, site configuration, redirects, impact boundary, and every non-approved baseline file remain identical to live source.",
+  "authorization": "Owner approved making all reviewed changes live and saving them."
+}

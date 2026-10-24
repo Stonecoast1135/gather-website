@@ -14,7 +14,7 @@ const stages = [
     title: "Businesses share extra food.",
     copy: "A business posts food available for pickup.",
     photo: "finish-bakery",
-    alt: "A baker preparing bread in a working bakery.",
+    alt: "A box of groceries being handed over at a business.",
   },
   {
     title: "Students help move it.",
@@ -26,7 +26,7 @@ const stages = [
     title: "The delivery is confirmed.",
     copy: "Completed rescues contribute to service records and impact.",
     photo: "gather-confirmed-phone",
-    alt: "People organizing food at a community destination.",
+    alt: "A phone displaying a confirmed service record.",
   },
 ];
 const faqs = [

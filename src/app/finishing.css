@@ -125,7 +125,7 @@
   --graphic-cream: #174f41;
   --graphic-sage: #a5b68a;
   --graphic-line: #a5b68a;
-  --graphic-tan: #c9a67a;
+  --graphic-tan: #b9cdaa;
 }
 .join-route {
   position: absolute;
@@ -266,7 +266,7 @@
   background: #edf0e2;
 }
 .role-card:nth-child(2) {
-  background: #f2e8d8;
+  background: #e4eedc;
 }
 .role-card:nth-child(3) {
   background: #e3ebe1;
@@ -361,7 +361,7 @@
   --graphic-forest: #f8f5e9;
   --graphic-cream: #103e31;
   --graphic-sage: #678264;
-  --graphic-tan: #b79d70;
+  --graphic-tan: #99b58f;
   --graphic-line: #9dac8c;
 }
 .metric .metric-label {
