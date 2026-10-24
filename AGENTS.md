@@ -620,7 +620,7 @@ Do not assume the first coded version is final.
 
 ## Current state
 
-The approved five-page launch redesign is implemented on a non-production review branch. Do not redesign approved areas during unrelated work. Production release requires explicit owner approval of the preview.
+The approved five-page design and final October23 UI refinements are live. `release/production-baseline.json` records the latest verified public website source and deployment. Begin future UI changes from the newest verified live source, preserve existing approved work, and reconcile any newer production release before publishing. Do not redesign approved areas during unrelated work. Production release requires explicit owner approval of the preview.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
