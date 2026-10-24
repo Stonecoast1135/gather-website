@@ -1,0 +1,35 @@
+{
+  "productionNextBuild": "PASS (19 static routes, TypeScript passed)",
+  "eslintSrc": "PASS",
+  "scopeGuard": "PASS: exactly 5 approved source/doc/asset changes; all other reviewed baseline files unchanged",
+  "cleanUpload": "PASS: 103 committed files; unrelated supabase folder excluded",
+  "localResponsiveWidths": [
+    1600,
+    1440,
+    1280,
+    1200,
+    1024,
+    900,
+    768,
+    600,
+    430,
+    390,
+    375
+  ],
+  "replacementPhotoReviewedAt": [
+    1440,
+    1024,
+    900,
+    390,
+    375
+  ],
+  "liveBrowserWidths": [
+    1440,
+    390
+  ],
+  "liveAssetMatches": 44,
+  "livePageChecks": 5,
+  "newConsoleErrors": 0,
+  "appAuthenticationNotificationsBackend": "Untouched: website-only Vercel project deployment",
+  "authorization": "Owner approved making the reviewed section and photo live."
+}

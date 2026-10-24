@@ -1,0 +1,540 @@
+{
+  "sourceCommit": "eb6b009fcec7715610ed91d584126bde4eb20d74",
+  "sourceFileCount": 133,
+  "sourceFingerprint": "f6933b22f07914bb1e70551f2b37ecf0092fafe47f07491bf49d941f7b578013",
+  "fingerprintAlgorithm": "sha256 of UTF-8 newline-joined path + NUL + sha256, ordered by git ls-tree",
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "69f09a5ac6d44d19bf17b307666f12b63a4f3b620d412d05c65b7c5d7a658167"
+    },
+    {
+      "path": ".vercelignore",
+      "sha256": "a6a26516082448b8182124969a90d6d59326102057ce63c2791f5e892791e579"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "56dcb15ae97d1742445aac1afd4c6095b15c4245ec019cb63eaae8f7b1afe79d"
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49"
+    },
+    {
+      "path": "DESIGN-BLUEPRINT.md",
+      "sha256": "30cc8f76b73f5835b08854ec37bd0ef957111e37afcb4745e2630aee53e4727e"
+    },
+    {
+      "path": "LAUNCH-BLOCKERS.md",
+      "sha256": "f7a7cded9f6f869a8be39aec844fcfaa510db777fd5dc8cbfc79789c27999de7"
+    },
+    {
+      "path": "README.md",
+      "sha256": "013b29c34c636b94a989c497ca890dd82e2f3f82d78aba488886ef8d4e3a3375"
+    },
+    {
+      "path": "TEMPORARY-IMAGERY.md",
+      "sha256": "dc193cbcb6dee90dd63b26364c85046d1f79c464e34aad3c3b3ad4bfe01aa307"
+    },
+    {
+      "path": "design-references:/gather_empowering_student_service_locally.png",
+      "sha256": "5f89049057d7929678d45279f84e83089b98d980cb8e58319b02dd348e10b6ca"
+    },
+    {
+      "path": "design-references:/gather_every_community_s_hero.png",
+      "sha256": "38c47ae0ddfe802ba6408256ed86982e7e7ef17f04ba7a0748bbbf3cdb2f3a2b"
+    },
+    {
+      "path": "design-references:/gather_food_rescue_impact_page.png",
+      "sha256": "b9e05867e1043527f2e0d419ca2cc36e77dd6f770e1703ba4804965ea112b0d4"
+    },
+    {
+      "path": "design-references:/gather_food_rescue_in_action.png",
+      "sha256": "875bc063ec7ae568060b4d3a1b00c28607d67c2b91e86d219226d7d0654b1815"
+    },
+    {
+      "path": "design-references:/gather_food_support_for_communities.png",
+      "sha256": "cbeadd5a89442b8c6b8e21ba8f54f533d9f04ed265036f23f8fbfb2abce12a83"
+    },
+    {
+      "path": "design-references:/gather_good_food_good_people.png",
+      "sha256": "2527be6589edc0e8403adec51272722b20e27c9cf80b08080793b4ed25c38900"
+    },
+    {
+      "path": "design-references:/gather_how_a_rescue_comes_to_life.png",
+      "sha256": "55eae6ec5f0084da175fa88606f78400ac490715c08dda62fb1f09effbc516b9"
+    },
+    {
+      "path": "design-references:/gather_real_change_measured_honestly.png",
+      "sha256": "ae08096f6118560918b1b3c22daef15f73a54c573c234f358d2d2e8b0bfdce28"
+    },
+    {
+      "path": "design-references:/gather_rooted_in_community_reducing_food_waste.png",
+      "sha256": "efde66308e6862e03e835bf1d0a7e5dac70951a29e29400701c39f404a8391b3"
+    },
+    {
+      "path": "design-references:/gather_turning_surplus_into_community_impact.png",
+      "sha256": "d645942d98d3351d5adcd1174a9f6cb5650d1467daa004c922a83a41b0c6de14"
+    },
+    {
+      "path": "docs/APPROVED-REBUILD-BRIEF.md",
+      "sha256": "99cbef479dfe4b317ef020f09ed42f5c8c9fdb72330c1d5a07e29fd3a9aed1ea"
+    },
+    {
+      "path": "docs/FINISHING-ASSETS.md",
+      "sha256": "ef20fd433de41ec0d9a4abdcaa845b3abbc218114bec0ec07fb10452a89afc25"
+    },
+    {
+      "path": "docs/FINISHING-BRIEF.md",
+      "sha256": "5094fcfcc107e21afffeac65998d49bb09d215c7ea309051b86b585fcd1bfd0f"
+    },
+    {
+      "path": "docs/FINISHING-PLAN.md",
+      "sha256": "b3ec1953e87b494f058a7030f98a1117121e80804394879a6446477d80ff10cb"
+    },
+    {
+      "path": "docs/GRAPHIC-SYSTEM.md",
+      "sha256": "633221f39007b5152dd27abc060ce26b357ca3a212bf74b30d8e102e51487a1b"
+    },
+    {
+      "path": "docs/LAUNCH-ASSETS.md",
+      "sha256": "d8cf032b18922eb6075e7dccd5f26e20a183fe16a4b2641222d3c0f99c7466cd"
+    },
+    {
+      "path": "docs/LAUNCH-REBUILD-HANDOFF.md",
+      "sha256": "634478f37b9a4a8fe3f245e00772936bd56abaca1c938dd07394a22cc8eba9ff"
+    },
+    {
+      "path": "docs/POPUP-DIAGNOSIS.md",
+      "sha256": "f8228bcd740db5169a93fbc0399cd913aa80517eb5a055808f80d3210c2f996d"
+    },
+    {
+      "path": "docs/REFINEMENT-BRIEF.md",
+      "sha256": "eebf3535b820762890f95432cb439554f525407d0d42fa4b09142541892f8ec4"
+    },
+    {
+      "path": "docs/REFINEMENT-PLAN.md",
+      "sha256": "119b4aec65c9ab58ba48a9f173c2c0520b29f780d59baeedff1af9ab8369a5b5"
+    },
+    {
+      "path": "docs/approved-launch-design.png",
+      "sha256": "be0faf775f5094bf8a0ac558d30f93573f3baae7e43d384f9e988cba4c7fd300"
+    },
+    {
+      "path": "docs/audits/gather-logo-rebrand.md",
+      "sha256": "757a8e3881ba88c301ef6dcffcdf96e5083c9558c004933a5e4bcbee16d7bec7"
+    },
+    {
+      "path": "docs/audits/pine-palette-20261023/scope.json",
+      "sha256": "2765dea379911463c8e73b107d3b0cbc03b6e920fc312f4f60183a07d593bead"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "sha256": "49b00ab19ffaf1a82295832d527ca300ef6c3af489d493cc8701dee5518e2534"
+    },
+    {
+      "path": "next.config.ts",
+      "sha256": "00efafd835553941573148c59e7398a15d6ae06d1708d6fb148001837cfec862"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "95608d950cc16478cb4502fa7974e4e79cab11cfb8d505d7f05968615c29c4a8"
+    },
+    {
+      "path": "package.json",
+      "sha256": "c5b50c03a96f3ca7e6ea1528061407f856bdbfe980b6bbfe3ee77769ca834779"
+    },
+    {
+      "path": "playwright.config.ts",
+      "sha256": "8d931629176fb04dc4a8b2acc38f403e85510ab9e1f4dc828e618cc9f589c57c"
+    },
+    {
+      "path": "postcss.config.mjs",
+      "sha256": "dfac7ac2d86d326a0e5adb024e7943c181393ed17a5fcb8f0315b24c7da6ddde"
+    },
+    {
+      "path": "public/brand/gather-g-master.png",
+      "sha256": "c5103349025176ec8445e64c50ef5ab983ef6704c1dc8ecefc7249da18e2017f"
+    },
+    {
+      "path": "public/brand/gather-mark-cream.png",
+      "sha256": "9a6336e7e438f69ca5e114eae3e122fda597a5fb44a94233145e0e345d2b7d09"
+    },
+    {
+      "path": "public/brand/gather-mark-forest.png",
+      "sha256": "97757bd89c54557b60c0f7a70e3d3a5ca478a2ece46b7dbb426126ac87130108"
+    },
+    {
+      "path": "public/brand/gather-mark.png",
+      "sha256": "46ac0c17a1fc44fb16a46f4bf13036179c7d69a91eaf2be3fa5c39c223c4c511"
+    },
+    {
+      "path": "public/file.svg",
+      "sha256": "2b67812c325c199a02536cdbeea0c593a72f707d323b72ee3e08dbab06753bd4"
+    },
+    {
+      "path": "public/globe.svg",
+      "sha256": "b614b9bf183925957661ac851498fe1d8029fd43a62fbfed86f9e2624a57e7cf"
+    },
+    {
+      "path": "public/icons/gather-tab-dark-v2.png",
+      "sha256": "07f9bf4555b30697f31d1e20ee2afeb69bd1d38c16967e1a4a10db733413d64d"
+    },
+    {
+      "path": "public/icons/gather-tab-light-v2.png",
+      "sha256": "fc32a53f24fc0443fd33e4b3d26472fa2390aea74e29a03ea0a04faf2f7fbc21"
+    },
+    {
+      "path": "public/images/audience-business-bakery.webp",
+      "sha256": "12e9dd19e5d7576cf0c86e7ac2b8994d0d6159546f6849123cf2a870ce74b5af"
+    },
+    {
+      "path": "public/images/audience-recipient-produce.webp",
+      "sha256": "1f31e95aec0fb0cfccb8122c4cd0e1e9298cb576b4ac0d6b9caa432c53d9fc9b"
+    },
+    {
+      "path": "public/images/audience-schools-service.webp",
+      "sha256": "00e0a5b9b336f9b95cffa15aa42a96689d82159fb43844fa6a459f871724dddc"
+    },
+    {
+      "path": "public/images/audience-supporters-hands.webp",
+      "sha256": "99bea49bd7edd7c0c0a04a5dfd3727b62965abfc9892a67929d2d779c780bce7"
+    },
+    {
+      "path": "public/images/audience-volunteers-service.webp",
+      "sha256": "6ccbcf277838b18edee65c9c72c82b595ef6dcc59839ac48baddffc583b4c506"
+    },
+    {
+      "path": "public/images/business-kitchen-service.webp",
+      "sha256": "0897a5fe86cd83d2588c17691341ac9e81dae60db0c3ac1baae25bbe8dd0bf4c"
+    },
+    {
+      "path": "public/images/community-garden.webp",
+      "sha256": "c41a255a0e16ca36b870e8ace92c01559623003cb16cc10b7c6f6d7fa7a740bd"
+    },
+    {
+      "path": "public/images/community-handoff.webp",
+      "sha256": "a2d8127cd2b773b773025249a03f4c8de953f3b368d28e6fb16cd369e7cc261d"
+    },
+    {
+      "path": "public/images/community-sorting.webp",
+      "sha256": "930cf06c315f07b4e106cf9aa1ab5c7e233f2f28193e6a3d5c0d4fb271cc5796"
+    },
+    {
+      "path": "public/images/denver-skyline.webp",
+      "sha256": "c8eca722b7ec3b717fc08edcc05d856fe687697eda4755696a454f2e381c7a59"
+    },
+    {
+      "path": "public/images/finish-bakery.webp",
+      "sha256": "cb92970a4d73570b615e999814aeca22a6f611d78c6260e5d80537649dc542d0"
+    },
+    {
+      "path": "public/images/finish-bread.webp",
+      "sha256": "aea91a46cfbda91574a24d048ed84e9cf949a5a5646d51c839667ea185c098b4"
+    },
+    {
+      "path": "public/images/finish-community.webp",
+      "sha256": "6a7daf0eda7f5eaca61dd420c69cf4144f064c93e8e785b337ae630e4584da28"
+    },
+    {
+      "path": "public/images/finish-food-detail.webp",
+      "sha256": "57d24b613447535ffc8c9dc6619a2abc7d55690905d227f7d0b28a870e59ce55"
+    },
+    {
+      "path": "public/images/finish-planning.webp",
+      "sha256": "f88bed0f4bea76ec23e2036cf7c607be8ad35c0012251ed0bc45ccb1e88f0e01"
+    },
+    {
+      "path": "public/images/finish-sorting.webp",
+      "sha256": "51fe67d451a9a2b1d8a202b38beace21613ac01254a029bb9783090e2ded29e7"
+    },
+    {
+      "path": "public/images/finish-teamwork.webp",
+      "sha256": "72f3a962ebdbd6b9b0ff6b8f0565adc444a9a651c9b8a09ef74c3a1ff2d2f938"
+    },
+    {
+      "path": "public/images/finish-transport.webp",
+      "sha256": "f26d9a56c10a8582f6cefed70f64d58c1e33416cf1b086b4926a6eda8542aeb3"
+    },
+    {
+      "path": "public/images/gather-about-portrait.webp",
+      "sha256": "f88bed0f4bea76ec23e2036cf7c607be8ad35c0012251ed0bc45ccb1e88f0e01"
+    },
+    {
+      "path": "public/images/gather-confirmed-phone.webp",
+      "sha256": "f8c052faa45ba38802799b1f50ac9697eccc17292a60244f0de7ed164f6fc442"
+    },
+    {
+      "path": "public/images/hero-community-tomatoes.webp",
+      "sha256": "6910a13a7f7adaa13264dc0f4dd169f584a2fcaf8526afb71052943c956c7ab1"
+    },
+    {
+      "path": "public/images/launch-community.webp",
+      "sha256": "7e55f2386c1d35af8d4837e12f4695bcc2f6a6e8d198875079d53cc3c2039223"
+    },
+    {
+      "path": "public/images/launch-handoff.webp",
+      "sha256": "f9007212667525881e6e5226c6f136d0ebfdf66b08ff14cdb018ec16ef121fdb"
+    },
+    {
+      "path": "public/images/launch-market.webp",
+      "sha256": "6eb2430ec10442f6551968c0f2eacea0347cc445c6feb2e420999675f955cd88"
+    },
+    {
+      "path": "public/images/launch-produce.webp",
+      "sha256": "da1ee45b972c5215dce8cf7f23a5fe8fa36b8a428112606b7a84af3f8af80252"
+    },
+    {
+      "path": "public/images/launch-student.webp",
+      "sha256": "4e400705c93ddd5b23609f2aa17a363cb0d69cdb281c5c0de248c10ab444c1db"
+    },
+    {
+      "path": "public/images/market-produce.webp",
+      "sha256": "6e086bd0058f74ef046467efdc659661005db438653e0c0a616472f8543cc63f"
+    },
+    {
+      "path": "public/images/produce-in-motion.webp",
+      "sha256": "bb1336b6e5836ad15efaec52df4b89b0f215e0ffc806134b4605b461bb312d70"
+    },
+    {
+      "path": "public/images/why-food-sharing.webp",
+      "sha256": "75f2cff99ce3e101fe081b98efcb75bd791b4daf446fa64cb2e10555668aff9f"
+    },
+    {
+      "path": "public/next.svg",
+      "sha256": "55995dfad6ecb4945a1e856ddca03c5e16aa5bf13fd21b4df6a74ae79357bcfc"
+    },
+    {
+      "path": "public/share-gather.png",
+      "sha256": "c131fa047300893a96a6e851bdffd59978a65ce6ea0e534b74205007c20074b0"
+    },
+    {
+      "path": "public/vercel.svg",
+      "sha256": "f081337b2fee635b455b63275406a3e7f39d6a014e25ad90dab5a67e62a12ac4"
+    },
+    {
+      "path": "public/window.svg",
+      "sha256": "644768c4aaeb4767bce293344eeb0c125fb804a94d801440424072202d85e3a1"
+    },
+    {
+      "path": "release/production-baseline.json",
+      "sha256": "a650bbee98670e0601ef97600ebc29bb4a61b9f74886310a668eabf3356e33b9"
+    },
+    {
+      "path": "release/website-final-ui-20261023/approved-scope.json",
+      "sha256": "61a5eb9c3edc7a03c5b73d40ab1dbb952b58e996a4655573156ee5e6324a0214"
+    },
+    {
+      "path": "release/website-final-ui-20261023/build.log",
+      "sha256": "94f212a2e73713982c22075f83f9e9be3dec8e0faf21ce0f45307ae46fe28a38"
+    },
+    {
+      "path": "release/website-final-ui-20261023/live-verification.json",
+      "sha256": "67bf8d780524966043073aeeac82a42b195cf5482031fdf4f68af4daa87e493b"
+    },
+    {
+      "path": "release/website-final-ui-20261023/source-manifest.json",
+      "sha256": "185963b5f6bf0500307a7e475118a7be2be98332d10edadb4eb7498b26d09c43"
+    },
+    {
+      "path": "release/website-final-ui-20261023/validation.json",
+      "sha256": "a02592aa2973306bcd75889b45bde7f89cb2c6d6c28a6c8ae5e6dea1b4455695"
+    },
+    {
+      "path": "scripts/capture-launch.mjs",
+      "sha256": "93a3f38a5aab7dd57d33cc7e428465bbc75af67001e4ad05039683adef1fd9eb"
+    },
+    {
+      "path": "scripts/capture-refinement.mjs",
+      "sha256": "66bed06dafdfe81348c946ee8d4b52d7a070f48a1e80cccc322ef0dffeb50f00"
+    },
+    {
+      "path": "scripts/prepare-brand.mjs",
+      "sha256": "fe0c51e0b89e9ce7d6c5c8942b6611ade051210bdfff3f04b26e238f6f93eaac"
+    },
+    {
+      "path": "scripts/verify-finishing-motion.mjs",
+      "sha256": "36130efd5e3766c0ef290b13d9449471a8e0aab2b3e2ec59ff8d9d2e2442b903"
+    },
+    {
+      "path": "src/app/about/page.tsx",
+      "sha256": "f19f96df28780e1fc3e891c2f1baa2a68920f1bb143c5ca0d3d8b6f85d55c242"
+    },
+    {
+      "path": "src/app/apple-icon.png",
+      "sha256": "3636ddd7fd44fa72e9f320232c502972d47cfaca2d6714713dc512dd97210a84"
+    },
+    {
+      "path": "src/app/businesses/page.tsx",
+      "sha256": "6cacea193c295e9690ae90740db69ab5a3640b5ffeb8d18fb35125b70f35a555"
+    },
+    {
+      "path": "src/app/contact/page.tsx",
+      "sha256": "7530846b8fb92bda42b68a45e19b0e6a2e7cab894752e76324cbae106180902c"
+    },
+    {
+      "path": "src/app/download/page.tsx",
+      "sha256": "4960e1fbbeda151105cad859354814abde361f7545bf43954364c438daa08a30"
+    },
+    {
+      "path": "src/app/favicon.ico",
+      "sha256": "88660c113ce353f059f7440ec93bb36fee3b5e8a51136bcffb53c4bd0a5d0f63"
+    },
+    {
+      "path": "src/app/finishing.css",
+      "sha256": "05384cf121dee33d669fbb79de18b2fef43a3d19e4b02880321724ddcf91759e"
+    },
+    {
+      "path": "src/app/get-involved/page.tsx",
+      "sha256": "fb4ab1af3f3224be8f449300c9216ed7f17e691270dddebc10f35d3ed3afc289"
+    },
+    {
+      "path": "src/app/globals.css",
+      "sha256": "10c1d718db19a4893911adba8193cff8cb0e3e88b9563845dc23cf0ad23358e6"
+    },
+    {
+      "path": "src/app/how-it-works/page.tsx",
+      "sha256": "fd03dfae2d42900b0eba9aa6cc3423b669290420efe571a7c7ed15306d26f4c4"
+    },
+    {
+      "path": "src/app/icon.png",
+      "sha256": "7685cbdbee92192ccda991b4d451ebc792240f247466ce401d00c0b9fae9ddf9"
+    },
+    {
+      "path": "src/app/impact/page.tsx",
+      "sha256": "5a58fb4f6d36abd43a80bfada839443f05a8ef9d55ce4a368681cfe3bfd669fc"
+    },
+    {
+      "path": "src/app/layout.tsx",
+      "sha256": "b59ab5879fc9f95f3b407e5c000137449ebaff1b444380dbbc3acaeced00721f"
+    },
+    {
+      "path": "src/app/not-found.tsx",
+      "sha256": "ef3f8b2d0a2c9800f2db2f17018e63d9a160ee51025b33534b7416243f26d2fb"
+    },
+    {
+      "path": "src/app/organizations/page.tsx",
+      "sha256": "07a38fbc5077cfeaebcfe1569aa9e0c183f601fa2ab348ec910f43a511a66364"
+    },
+    {
+      "path": "src/app/page.tsx",
+      "sha256": "7c6a9ecd4884181d2d347a51c0d4d02de6d39ff31f99fb5199efa67af044f4e8"
+    },
+    {
+      "path": "src/app/robots.ts",
+      "sha256": "97b71a6cfcca12a18c2883f35a7fd9c3594c6e234bbfa6cf2a5de42efdb9de43"
+    },
+    {
+      "path": "src/app/schools/page.tsx",
+      "sha256": "cfce382dc6e8d1d6993ec6119177eb07ed22ad61a5349b1294b0b81f2fbf3d8f"
+    },
+    {
+      "path": "src/app/sitemap.ts",
+      "sha256": "45062ff5db4d26fe72b9e9570718f05f46ee60393100606dd55c821bb2067de3"
+    },
+    {
+      "path": "src/app/support/page.tsx",
+      "sha256": "a7072ed86503ef1fd0eca6a728d2703c3c9759cefb321222fc37827b9859b014"
+    },
+    {
+      "path": "src/app/volunteers/page.tsx",
+      "sha256": "69818959bc3f7a4087449fdcd36f211f1435bdc6144467e838b8508fe1d9a785"
+    },
+    {
+      "path": "src/components/accordion.tsx",
+      "sha256": "0c575c799243772adad91378300ea7c58bc5320b1026e0796589224a76b65d20"
+    },
+    {
+      "path": "src/components/dialog.ts",
+      "sha256": "b4167668dc84b0d2d485032f425d105e0d59539f6299cee83b9663e666b15489"
+    },
+    {
+      "path": "src/components/find-your-place.tsx",
+      "sha256": "aaed9b62f8cb70192fc7c959e086b5636c852cc4cb76b66a794f57b709a11a80"
+    },
+    {
+      "path": "src/components/gather-graphics.css",
+      "sha256": "383ff933c6e952945b1a87c4d42c47963302d5e78a4997ff200c9b348eeb4cc4"
+    },
+    {
+      "path": "src/components/gather-graphics.tsx",
+      "sha256": "7a2efc59da940dd386ab00000417ae7c6cb2e13dc8795d8078dfb68c76c25c87"
+    },
+    {
+      "path": "src/components/home-hero.css",
+      "sha256": "c5fa829ceb0c7480cdcebba6deec03d498450272a0ba854e79d04d421a703e0d"
+    },
+    {
+      "path": "src/components/home-refinement.css",
+      "sha256": "e10396ba4b0782d80c4c867a7d794f24b7534c7a5d73a5af2fc9967a6b2af579"
+    },
+    {
+      "path": "src/components/interactions.css",
+      "sha256": "c7cae9615a6cfafc9d83f2043f9251a88adf6d7ffef98abe4c1d439f82c408e6"
+    },
+    {
+      "path": "src/components/join-section.tsx",
+      "sha256": "4f77c36413c589437d45869438bfcb5f8d32fcb48b4e8427b67d89268eb94762"
+    },
+    {
+      "path": "src/components/launch-announcement.tsx",
+      "sha256": "9c6cd7d54aedcaaec6442e2008e23c09af9262010494a39be064501004f8aa93"
+    },
+    {
+      "path": "src/components/reveal.tsx",
+      "sha256": "2ce8dfadac7eb97eec18a5b12fb925fcddd52e254f8e3ca2be9b1ae177e3a633"
+    },
+    {
+      "path": "src/components/site-footer.tsx",
+      "sha256": "f30e40703457320f5b22824f84a704d7e5071de03e734cf9cb8bdacfef3e1893"
+    },
+    {
+      "path": "src/components/site-header.tsx",
+      "sha256": "e03242aa0bf575f67a84124b5265d1be7fa9eba6807c540c0ddafba82f47b8c5"
+    },
+    {
+      "path": "src/components/student-story.tsx",
+      "sha256": "02e50b918da1f86148ac17166783d91ca36702a3dc31d6e3ac2d9f6245ca694b"
+    },
+    {
+      "path": "src/components/ui.tsx",
+      "sha256": "9ba0f9cc4ca0f3dbe5d1cdfe70bbe7f28c7f2ad4bf0e7b1732ab889a01a8aa17"
+    },
+    {
+      "path": "src/components/why-we-gather.css",
+      "sha256": "32d14587568466e0e0fc0840fce80793ed6e5758d6ade4015203c1bd89d310bc"
+    },
+    {
+      "path": "src/components/why-we-gather.tsx",
+      "sha256": "39a574d30e6d40ed46859f0ec0d65a423c184709c548e6bc3ee767d36fc826f3"
+    },
+    {
+      "path": "src/lib/impact.ts",
+      "sha256": "60c0f476f3fdf65e1f9379429f9ebc1d39519a665e582d778a251536dd0779d4"
+    },
+    {
+      "path": "src/lib/launch-campaign.ts",
+      "sha256": "bc26f771e52545620f20a9c7b1e0166a534d1b95c9113b6d4451661446a80e09"
+    },
+    {
+      "path": "src/lib/metadata.ts",
+      "sha256": "1406f81a58b78f6fcded8d32f3b48abb2722dac3fa0e6378956271d28c3444f2"
+    },
+    {
+      "path": "src/lib/site-config.ts",
+      "sha256": "19146b353e84546213d06b6b2be2e1b83929103c06d6010938c4a7fccb0c13cc"
+    },
+    {
+      "path": "tests/launch.spec.ts",
+      "sha256": "63bd1c07e8d6a7458ebcf7e0e7c037ccf6d4a1c8673f9a205ba5e92e8dfcd809"
+    },
+    {
+      "path": "tests/refinement.spec.ts",
+      "sha256": "2bd64839528fedeca4b90fb7684c7f85ce9ad83bf7eed39289253cf29b983694"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "8f2eec323cc9eb9ccc304cd05e896a46d405ddf3ddabcaf1b4c5254bb593107e"
+    }
+  ]
+}

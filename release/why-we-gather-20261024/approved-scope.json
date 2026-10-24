@@ -1,0 +1,19 @@
+{
+  "baseSourceCommit": "9291c642fb800b163fa5473bd71546891cc71f0c",
+  "reviewBaseCommit": "f82cff5019b5a60576de095b5dae410a3ea9f17e",
+  "candidateSourceCommit": "eb6b009fcec7715610ed91d584126bde4eb20d74",
+  "previousDeployment": "dpl_41b1tUH7MrsXTMENiXaH8eTV7GZ4",
+  "purpose": "Publish owner-approved Why We Gather Home section and selected authentic food-sharing photo.",
+  "paths": [
+    "docs/FINISHING-ASSETS.md",
+    "public/images/why-food-sharing.webp",
+    "src/app/page.tsx",
+    "src/components/why-we-gather.css",
+    "src/components/why-we-gather.tsx"
+  ],
+  "allOtherBaselineFiles": "byte-for-byte unchanged from the reviewed production receipt commit",
+  "approval": "Owner requested making this reviewed section and photo live in this chat.",
+  "excludedLocalWork": [
+    "supabase/"
+  ]
+}

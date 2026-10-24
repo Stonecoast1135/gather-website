@@ -1,29 +1,33 @@
 {
   "schemaVersion": 1,
   "status": "PRODUCTION_VERIFIED",
-  "releaseDate": "2026-10-23",
-  "sourceCommit": "9291c642fb800b163fa5473bd71546891cc71f0c",
-  "sourceBranch": "codex/website-final-ui-20261023",
-  "deployment": "dpl_41b1tUH7MrsXTMENiXaH8eTV7GZ4",
-  "deploymentUrl": "https://gather-website-8svdkn8zs-axiom-caf8.vercel.app",
+  "releaseDate": "2026-10-24",
+  "sourceCommit": "eb6b009fcec7715610ed91d584126bde4eb20d74",
+  "sourceBranch": "codex/why-we-gather-20261023",
+  "deployment": "dpl_6bguTiiAeoeTJD3iknK7ocygiWhP",
+  "deploymentUrl": "https://gather-website-ibvdla33i-axiom-caf8.vercel.app",
   "projectId": "prj_fmAev0nhDtzhHzRAEmxRZ1hmGJnO",
   "organizationId": "team_m4VUcO69MsQzjECosdZgFVMZ",
   "domains": [
     "https://www.gatherforward.org",
     "https://gatherforward.org"
   ],
-  "previousSource": "91941b59ea5c0bbff44b3bd3e2cececce3089f14",
-  "previousDeployment": "dpl_91UVpM2ryxzJbg5jtV7FQ4LR3iK4",
-  "sourceManifest": "release/website-final-ui-20261023/source-manifest.json",
-  "sourceFingerprint": "bca17b523bec1c3bc8d5307ced21614b47e3ed07d6b7eda683494f7c1d96f88a",
-  "sourceFileCount": 127,
-  "verificationReceipt": "release/website-final-ui-20261023/live-verification.json",
-  "candidateScope": "release/website-final-ui-20261023/approved-scope.json",
+  "previousSource": "9291c642fb800b163fa5473bd71546891cc71f0c",
+  "previousDeployment": "dpl_41b1tUH7MrsXTMENiXaH8eTV7GZ4",
+  "sourceManifest": "release/why-we-gather-20261024/source-manifest.json",
+  "sourceFingerprint": "f6933b22f07914bb1e70551f2b37ecf0092fafe47f07491bf49d941f7b578013",
+  "sourceFileCount": 133,
+  "verificationReceipt": "release/why-we-gather-20261024/live-verification.json",
+  "candidateScope": "release/why-we-gather-20261024/approved-scope.json",
   "tests": {
     "productionBuild": "PASS",
     "eslintSrc": "PASS",
     "livePages": 5,
-    "livePublicAssetMatches": 43
+    "livePublicAssetMatches": 44,
+    "liveBrowserWidths": [
+      1440,
+      390
+    ]
   },
-  "scope": "Approved public hero/header, original imagery/cache correction, and green accents. App/authenticated logic untouched in this repository."
+  "scope": "Owner-approved Why We Gather Home section, exact John 6:12 mission text, and authentic food-sharing photo. Existing website UI, app, authentication, and notifications preserved."
 }
