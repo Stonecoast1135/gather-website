@@ -1,0 +1,60 @@
+{
+  "checkedAt": "2026-10-27T04:44:07.639Z",
+  "checks": [
+    {
+      "images": [
+        {
+          "alt": "Two people standing together outdoors.",
+          "loaded": true
+        },
+        {
+          "alt": "A community gathering outdoors beneath string lights.",
+          "loaded": true
+        }
+      ],
+      "instagramSvg": true,
+      "page": "about",
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "images": [
+        {
+          "alt": "Two people standing together outdoors.",
+          "loaded": true
+        },
+        {
+          "alt": "A community gathering outdoors beneath string lights.",
+          "loaded": true
+        }
+      ],
+      "instagramSvg": true,
+      "page": "about",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "page": "get-involved",
+      "organizationJoin": "https://my.gatherforward.org"
+    },
+    {
+      "page": "how-it-works",
+      "scrollWidth": 390,
+      "verifiedDrivingWording": true,
+      "width": 390
+    },
+    {
+      "imagesLoaded": true,
+      "page": "impact",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "page": "home",
+      "organizationJoin": "https://my.gatherforward.org",
+      "contact": "mailto:help@gatherforward.org"
+    }
+  ],
+  "consoleErrors": [],
+  "physicalDeviceTest": false
+}

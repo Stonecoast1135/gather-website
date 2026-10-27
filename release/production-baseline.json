@@ -39,5 +39,6 @@
     "liveCanonicalIndexability": "PASS"
   },
   "scope": "Owner-approved final public website content, participation, Impact/About, arrow/focus refinements and selected About photo. Existing approved UI, destinations, metadata/configuration, authenticated app, authentication and notification/backend systems preserved.",
-  "metadataOnlyReceiptCommit": "This authoritative record is saved after deploying sourceCommit; it does not change the deployed runtime or widen the exact candidate scope."
+  "metadataOnlyReceiptCommit": "This authoritative record is saved after deploying sourceCommit; it does not change the deployed runtime or widen the exact candidate scope.",
+  "liveBrowserVerification": "release/final-refinements-production-20261026/browser-verification.json"
 }
