@@ -1,0 +1,412 @@
+{
+  "status": "PASS",
+  "verifiedAt": "2026-10-27T04:34:36.637Z",
+  "deployment": "dpl_GZxmmp3sHvCb8FX1aeQnWevm8W4M",
+  "sourceCommit": "fc8c9246770d262933f823154ea2e7d2d94821de",
+  "resolvedVia": "Vercel inspect https://www.gatherforward.org READY production",
+  "sourceFingerprint": "9efc504bdc6a18de1c51b35eff4c1296bb633192f6c63a41fe4e4fdd87cdcb96",
+  "exactSourceFilesRechecked": 141,
+  "exactUploadedSourceMatchReceipt": "source-upload-verification.json",
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "htmlSha256": "9137031c46f59a056abb191bb709e1509e032dd12e5f7c644c178bd0458c07c4",
+      "robotsMeta": "index, follow",
+      "xRobotsTag": null,
+      "canonical": "https://www.gatherforward.org"
+    },
+    {
+      "path": "/how-it-works",
+      "status": 200,
+      "htmlSha256": "e239b0e66063d66e39a93e86a9b561525bf6c63f663cea88308dfb45c82ce650",
+      "robotsMeta": "index, follow",
+      "xRobotsTag": null,
+      "canonical": "https://www.gatherforward.org/how-it-works"
+    },
+    {
+      "path": "/get-involved",
+      "status": 200,
+      "htmlSha256": "37adbad3567931d95424af5eabfca700f52ed9a5f14ef87ca55bb4e054ed8b59",
+      "robotsMeta": "index, follow",
+      "xRobotsTag": null,
+      "canonical": "https://www.gatherforward.org/get-involved"
+    },
+    {
+      "path": "/impact",
+      "status": 200,
+      "htmlSha256": "05f86349480268ff5c0ffb60b46c890db83c17621c4047279476036e29d52c80",
+      "robotsMeta": "index, follow",
+      "xRobotsTag": null,
+      "canonical": "https://www.gatherforward.org/impact"
+    },
+    {
+      "path": "/about",
+      "status": 200,
+      "htmlSha256": "d5001f7c79558edc0b9a9185e6cf49acb40af63bf1ad221e8ee8d37555e3ac72",
+      "robotsMeta": "index, follow",
+      "xRobotsTag": null,
+      "canonical": "https://www.gatherforward.org/about"
+    }
+  ],
+  "apexRedirect": {
+    "status": 308,
+    "location": "https://www.gatherforward.org/"
+  },
+  "robotsTxt": "User-Agent: *\nAllow: /\n\nSitemap: https://www.gatherforward.org/sitemap.xml\n",
+  "sitemap": {
+    "status": 200,
+    "canonicalRoutes": 7,
+    "sha256": "571d662c2e1ff131cedc741d3d1ef29a262f6527dec32b0c461910e85fbae0da"
+  },
+  "assets": {
+    "count": 45,
+    "matched": 45,
+    "files": [
+      {
+        "path": "/apple-icon.png",
+        "status": 200,
+        "bytes": 9659,
+        "sha256": "3636ddd7fd44fa72e9f320232c502972d47cfaca2d6714713dc512dd97210a84",
+        "matchesSource": true
+      },
+      {
+        "path": "/brand/gather-g-master.png",
+        "status": 200,
+        "bytes": 44409,
+        "sha256": "c5103349025176ec8445e64c50ef5ab983ef6704c1dc8ecefc7249da18e2017f",
+        "matchesSource": true
+      },
+      {
+        "path": "/brand/gather-mark-cream.png",
+        "status": 200,
+        "bytes": 34409,
+        "sha256": "9a6336e7e438f69ca5e114eae3e122fda597a5fb44a94233145e0e345d2b7d09",
+        "matchesSource": true
+      },
+      {
+        "path": "/brand/gather-mark-forest.png",
+        "status": 200,
+        "bytes": 34401,
+        "sha256": "97757bd89c54557b60c0f7a70e3d3a5ca478a2ece46b7dbb426126ac87130108",
+        "matchesSource": true
+      },
+      {
+        "path": "/brand/gather-mark.png",
+        "status": 200,
+        "bytes": 22266,
+        "sha256": "46ac0c17a1fc44fb16a46f4bf13036179c7d69a91eaf2be3fa5c39c223c4c511",
+        "matchesSource": true
+      },
+      {
+        "path": "/favicon.ico",
+        "status": 200,
+        "bytes": 2260,
+        "sha256": "88660c113ce353f059f7440ec93bb36fee3b5e8a51136bcffb53c4bd0a5d0f63",
+        "matchesSource": true
+      },
+      {
+        "path": "/file.svg",
+        "status": 200,
+        "bytes": 391,
+        "sha256": "2b67812c325c199a02536cdbeea0c593a72f707d323b72ee3e08dbab06753bd4",
+        "matchesSource": true
+      },
+      {
+        "path": "/globe.svg",
+        "status": 200,
+        "bytes": 1035,
+        "sha256": "b614b9bf183925957661ac851498fe1d8029fd43a62fbfed86f9e2624a57e7cf",
+        "matchesSource": true
+      },
+      {
+        "path": "/icon.png",
+        "status": 200,
+        "bytes": 29188,
+        "sha256": "7685cbdbee92192ccda991b4d451ebc792240f247466ce401d00c0b9fae9ddf9",
+        "matchesSource": true
+      },
+      {
+        "path": "/icons/gather-tab-dark-v2.png",
+        "status": 200,
+        "bytes": 4632,
+        "sha256": "07f9bf4555b30697f31d1e20ee2afeb69bd1d38c16967e1a4a10db733413d64d",
+        "matchesSource": true
+      },
+      {
+        "path": "/icons/gather-tab-light-v2.png",
+        "status": 200,
+        "bytes": 3985,
+        "sha256": "fc32a53f24fc0443fd33e4b3d26472fa2390aea74e29a03ea0a04faf2f7fbc21",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/about-why-we-started-community.webp",
+        "status": 200,
+        "bytes": 77610,
+        "sha256": "d1ff6b82ff9970a1917e614e5a907e00818e61c7f204ce355c6547385d14db93",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/audience-business-bakery.webp",
+        "status": 200,
+        "bytes": 40160,
+        "sha256": "12e9dd19e5d7576cf0c86e7ac2b8994d0d6159546f6849123cf2a870ce74b5af",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/audience-recipient-produce.webp",
+        "status": 200,
+        "bytes": 116368,
+        "sha256": "1f31e95aec0fb0cfccb8122c4cd0e1e9298cb576b4ac0d6b9caa432c53d9fc9b",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/audience-schools-service.webp",
+        "status": 200,
+        "bytes": 39040,
+        "sha256": "00e0a5b9b336f9b95cffa15aa42a96689d82159fb43844fa6a459f871724dddc",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/audience-supporters-hands.webp",
+        "status": 200,
+        "bytes": 52554,
+        "sha256": "99bea49bd7edd7c0c0a04a5dfd3727b62965abfc9892a67929d2d779c780bce7",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/audience-volunteers-service.webp",
+        "status": 200,
+        "bytes": 87154,
+        "sha256": "6ccbcf277838b18edee65c9c72c82b595ef6dcc59839ac48baddffc583b4c506",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/business-kitchen-service.webp",
+        "status": 200,
+        "bytes": 57594,
+        "sha256": "0897a5fe86cd83d2588c17691341ac9e81dae60db0c3ac1baae25bbe8dd0bf4c",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/community-garden.webp",
+        "status": 200,
+        "bytes": 318424,
+        "sha256": "c41a255a0e16ca36b870e8ace92c01559623003cb16cc10b7c6f6d7fa7a740bd",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/community-handoff.webp",
+        "status": 200,
+        "bytes": 102458,
+        "sha256": "a2d8127cd2b773b773025249a03f4c8de953f3b368d28e6fb16cd369e7cc261d",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/community-sorting.webp",
+        "status": 200,
+        "bytes": 107752,
+        "sha256": "930cf06c315f07b4e106cf9aa1ab5c7e233f2f28193e6a3d5c0d4fb271cc5796",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/denver-skyline.webp",
+        "status": 200,
+        "bytes": 339574,
+        "sha256": "c8eca722b7ec3b717fc08edcc05d856fe687697eda4755696a454f2e381c7a59",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/finish-bakery.webp",
+        "status": 200,
+        "bytes": 124906,
+        "sha256": "cb92970a4d73570b615e999814aeca22a6f611d78c6260e5d80537649dc542d0",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/finish-bread.webp",
+        "status": 200,
+        "bytes": 185832,
+        "sha256": "aea91a46cfbda91574a24d048ed84e9cf949a5a5646d51c839667ea185c098b4",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/finish-community.webp",
+        "status": 200,
+        "bytes": 280218,
+        "sha256": "6a7daf0eda7f5eaca61dd420c69cf4144f064c93e8e785b337ae630e4584da28",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/finish-food-detail.webp",
+        "status": 200,
+        "bytes": 221154,
+        "sha256": "57d24b613447535ffc8c9dc6619a2abc7d55690905d227f7d0b28a870e59ce55",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/finish-planning.webp",
+        "status": 200,
+        "bytes": 128478,
+        "sha256": "f88bed0f4bea76ec23e2036cf7c607be8ad35c0012251ed0bc45ccb1e88f0e01",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/finish-sorting.webp",
+        "status": 200,
+        "bytes": 122592,
+        "sha256": "51fe67d451a9a2b1d8a202b38beace21613ac01254a029bb9783090e2ded29e7",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/finish-teamwork.webp",
+        "status": 200,
+        "bytes": 176818,
+        "sha256": "72f3a962ebdbd6b9b0ff6b8f0565adc444a9a651c9b8a09ef74c3a1ff2d2f938",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/finish-transport.webp",
+        "status": 200,
+        "bytes": 87752,
+        "sha256": "f26d9a56c10a8582f6cefed70f64d58c1e33416cf1b086b4926a6eda8542aeb3",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/gather-about-portrait.webp",
+        "status": 200,
+        "bytes": 128478,
+        "sha256": "f88bed0f4bea76ec23e2036cf7c607be8ad35c0012251ed0bc45ccb1e88f0e01",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/gather-confirmed-phone.webp",
+        "status": 200,
+        "bytes": 124880,
+        "sha256": "f8c052faa45ba38802799b1f50ac9697eccc17292a60244f0de7ed164f6fc442",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/hero-community-tomatoes.webp",
+        "status": 200,
+        "bytes": 294722,
+        "sha256": "6910a13a7f7adaa13264dc0f4dd169f584a2fcaf8526afb71052943c956c7ab1",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/launch-community.webp",
+        "status": 200,
+        "bytes": 240890,
+        "sha256": "7e55f2386c1d35af8d4837e12f4695bcc2f6a6e8d198875079d53cc3c2039223",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/launch-handoff.webp",
+        "status": 200,
+        "bytes": 101134,
+        "sha256": "f9007212667525881e6e5226c6f136d0ebfdf66b08ff14cdb018ec16ef121fdb",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/launch-market.webp",
+        "status": 200,
+        "bytes": 390530,
+        "sha256": "6eb2430ec10442f6551968c0f2eacea0347cc445c6feb2e420999675f955cd88",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/launch-produce.webp",
+        "status": 200,
+        "bytes": 390918,
+        "sha256": "da1ee45b972c5215dce8cf7f23a5fe8fa36b8a428112606b7a84af3f8af80252",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/launch-student.webp",
+        "status": 200,
+        "bytes": 201760,
+        "sha256": "4e400705c93ddd5b23609f2aa17a363cb0d69cdb281c5c0de248c10ab444c1db",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/market-produce.webp",
+        "status": 200,
+        "bytes": 129110,
+        "sha256": "6e086bd0058f74ef046467efdc659661005db438653e0c0a616472f8543cc63f",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/produce-in-motion.webp",
+        "status": 200,
+        "bytes": 98552,
+        "sha256": "bb1336b6e5836ad15efaec52df4b89b0f215e0ffc806134b4605b461bb312d70",
+        "matchesSource": true
+      },
+      {
+        "path": "/images/why-food-sharing.webp",
+        "status": 200,
+        "bytes": 103848,
+        "sha256": "75f2cff99ce3e101fe081b98efcb75bd791b4daf446fa64cb2e10555668aff9f",
+        "matchesSource": true
+      },
+      {
+        "path": "/next.svg",
+        "status": 200,
+        "bytes": 1375,
+        "sha256": "55995dfad6ecb4945a1e856ddca03c5e16aa5bf13fd21b4df6a74ae79357bcfc",
+        "matchesSource": true
+      },
+      {
+        "path": "/share-gather.png",
+        "status": 200,
+        "bytes": 58481,
+        "sha256": "c131fa047300893a96a6e851bdffd59978a65ce6ea0e534b74205007c20074b0",
+        "matchesSource": true
+      },
+      {
+        "path": "/vercel.svg",
+        "status": 200,
+        "bytes": 128,
+        "sha256": "f081337b2fee635b455b63275406a3e7f39d6a014e25ad90dab5a67e62a12ac4",
+        "matchesSource": true
+      },
+      {
+        "path": "/window.svg",
+        "status": 200,
+        "bytes": 385,
+        "sha256": "644768c4aaeb4767bce293344eeb0c125fb804a94d801440424072202d85e3a1",
+        "matchesSource": true
+      }
+    ]
+  },
+  "selectedAboutPhoto": {
+    "path": "/images/about-why-we-started-community.webp",
+    "status": 200,
+    "bytes": 77610,
+    "sha256": "d1ff6b82ff9970a1917e614e5a907e00818e61c7f204ce355c6547385d14db93",
+    "matchesSource": true
+  },
+  "optimizedAboutPhoto": {
+    "status": 200,
+    "contentType": "image/jpeg",
+    "bytes": 55038,
+    "sha256": "abbb3343a501594780dbd64f2b50c775d629d4fdcd7e5873abfd7efccd9dd79d"
+  },
+  "newRequestedContent": "PASS Organization CTA, JoinToday and approval notes; driver/age/confirmation/approval FAQ; About welcome and selectedphoto",
+  "unrelatedSourcePreservedByteForByte": [
+    "package.json",
+    "package-lock.json",
+    "next.config.ts",
+    "src/lib/site-config.ts",
+    "src/lib/metadata.ts",
+    "src/lib/impact.ts",
+    "src/app/layout.tsx",
+    "src/app/robots.ts",
+    "src/app/sitemap.ts",
+    ".vercelignore"
+  ],
+  "scope": "14 approved runtime source files plus new Aboutphoto; all other runtime/static baseline files retained; no authenticated app/backend changes in website project",
+  "mutationsPerformed": false,
+  "limits": "Live HTTP/source verification is complete. Existing full local browser regression ran before the final photo-only source change; fresh production build, focused lint and local/live raw and optimized image checks cover that change. Physical devices are not newly audited by these checks."
+}

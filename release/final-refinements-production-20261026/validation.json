@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "deployedSourceCommit": "fc8c9246770d262933f823154ea2e7d2d94821de",
+  "productionBuild": {
+    "status": "PASS",
+    "sourceCommit": "fc8c9246770d262933f823154ea2e7d2d94821de",
+    "environment": "VERCEL_ENV=production",
+    "engine": "Next16.3.3 Turbopack",
+    "typescript": "PASS",
+    "staticPages": 19,
+    "log": "production-build.log",
+    "logNormalization": "Terminal carriage returns and trailing spaces normalized in saved log; original raw log retained in local release evidence."
+  },
+  "focusedLint": {
+    "status": "PASS",
+    "sourceCommit": "fc8c9246770d262933f823154ea2e7d2d94821de",
+    "path": "src/app/about/page.tsx"
+  },
+  "priorCompleteRegression": {
+    "status": "PASS",
+    "testedSourceCommit": "235def60369496e76d7342607e0848bd6ef605db",
+    "browserSuite": {
+      "configured": 180,
+      "passed": 177,
+      "failed": 0,
+      "flaky": 0,
+      "skipped": 3,
+      "perEngine": {
+        "chromium": {
+          "passed": 59,
+          "skipped": 1
+        },
+        "firefox": {
+          "passed": 59,
+          "skipped": 1
+        },
+        "webkit": {
+          "passed": 59,
+          "skipped": 1
+        }
+      },
+      "skipReason": "Protected Vercel Preview campaign-reset check intentionally does not apply to local server."
+    },
+    "eslintSrcAndTests": "PASS",
+    "routeTypeGeneration": "PASS",
+    "typescript": "PASS"
+  },
+  "finalPhotoChange": {
+    "sourceCommit": "fc8c9246770d262933f823154ea2e7d2d94821de",
+    "previousSourceCommit": "73fed99ca54d2c9c42e90c60fa3537116f7f0474",
+    "paths": [
+      "public/images/about-why-we-started-community.webp",
+      "src/app/about/page.tsx"
+    ],
+    "change": "Owner-selected photo path and exact alt text only; no layout or interaction change.",
+    "fullBrowserSuiteRerun": false,
+    "freshChecks": [
+      "production build and TypeScript",
+      "focused About lint",
+      "WebP dimension/decode check",
+      "local and live raw photo SHA256 match",
+      "local and live Next optimized image200"
+    ]
+  },
+  "exactScopeGuard": "PASS14 approved runtime source paths plus1 new photo; all unrelated baseline files byte-identical. Full exactdiff in approved-scope.json.",
+  "cleanSourceUpload": "PASS108 exact source UID/SHA1 matches; unrelated supabase and generated/environment files excluded",
+  "livePages": 5,
+  "liveAssetMatches": 45,
+  "liveIndexability": "PASS all5pages index/follow and no noindex header; canonicalwww; robotsAllow:/;7 canonical sitemap routes",
+  "apexRedirect": "308 https://gatherforward.org/ -> https://www.gatherforward.org/",
+  "physicalDeviceLimits": "No fresh physical iPhone/Android audit. Existing browser suite covers Chromium/Firefox/WebKit touch emulation, reduced motion and reflow equivalents.",
+  "productionScope": "Public website project only; no website release changes to authenticated app, notification workers, sender/database/configuration or schedules."
+}

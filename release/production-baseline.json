@@ -1,33 +1,43 @@
 {
   "schemaVersion": 1,
   "status": "PRODUCTION_VERIFIED",
-  "releaseDate": "2026-10-24",
-  "sourceCommit": "eb6b009fcec7715610ed91d584126bde4eb20d74",
-  "sourceBranch": "codex/why-we-gather-20261023",
-  "deployment": "dpl_6bguTiiAeoeTJD3iknK7ocygiWhP",
-  "deploymentUrl": "https://gather-website-ibvdla33i-axiom-caf8.vercel.app",
+  "releaseDate": "2026-10-26",
+  "verifiedAt": "2026-10-27T04:34:36.637Z",
+  "sourceCommit": "fc8c9246770d262933f823154ea2e7d2d94821de",
+  "sourceBranch": "codex/final-refinements-20261026",
+  "deployment": "dpl_GZxmmp3sHvCb8FX1aeQnWevm8W4M",
+  "deploymentUrl": "https://gather-website-58hnghp2u-axiom-caf8.vercel.app",
   "projectId": "prj_fmAev0nhDtzhHzRAEmxRZ1hmGJnO",
   "organizationId": "team_m4VUcO69MsQzjECosdZgFVMZ",
   "domains": [
     "https://www.gatherforward.org",
     "https://gatherforward.org"
   ],
-  "previousSource": "9291c642fb800b163fa5473bd71546891cc71f0c",
-  "previousDeployment": "dpl_41b1tUH7MrsXTMENiXaH8eTV7GZ4",
-  "sourceManifest": "release/why-we-gather-20261024/source-manifest.json",
-  "sourceFingerprint": "f6933b22f07914bb1e70551f2b37ecf0092fafe47f07491bf49d941f7b578013",
-  "sourceFileCount": 133,
-  "verificationReceipt": "release/why-we-gather-20261024/live-verification.json",
-  "candidateScope": "release/why-we-gather-20261024/approved-scope.json",
+  "previousSource": "eb6b009fcec7715610ed91d584126bde4eb20d74",
+  "previousDeployment": "dpl_6bguTiiAeoeTJD3iknK7ocygiWhP",
+  "sourceManifest": "release/final-refinements-production-20261026/source-manifest.json",
+  "sourceFingerprint": "9efc504bdc6a18de1c51b35eff4c1296bb633192f6c63a41fe4e4fdd87cdcb96",
+  "sourceFileCount": 141,
+  "verificationReceipt": "release/final-refinements-production-20261026/live-verification.json",
+  "candidateScope": "release/final-refinements-production-20261026/approved-scope.json",
+  "validationReceipt": "release/final-refinements-production-20261026/validation.json",
   "tests": {
-    "productionBuild": "PASS",
-    "eslintSrc": "PASS",
+    "productionBuild": "PASS final fc8c924 source; TypeScript and19 static routes",
+    "focusedAboutLint": "PASS final fc8c924 source",
+    "priorCompleteBrowserRegression": {
+      "testedSourceCommit": "235def60369496e76d7342607e0848bd6ef605db",
+      "passed": 177,
+      "skipped": 3,
+      "failed": 0,
+      "flaky": 0,
+      "skipReason": "Protected Vercel Preview-only reset check does not apply locally.",
+      "photoOnlyFollowup": "Full browser suite predates final selected About photo; fresh production build and raw/optimized photo checks pass locally and live."
+    },
     "livePages": 5,
-    "livePublicAssetMatches": 44,
-    "liveBrowserWidths": [
-      1440,
-      390
-    ]
+    "livePublicAssetMatches": 45,
+    "uploadedSourceUIDMatches": 108,
+    "liveCanonicalIndexability": "PASS"
   },
-  "scope": "Owner-approved Why We Gather Home section, exact John 6:12 mission text, and authentic food-sharing photo. Existing website UI, app, authentication, and notifications preserved."
+  "scope": "Owner-approved final public website content, participation, Impact/About, arrow/focus refinements and selected About photo. Existing approved UI, destinations, metadata/configuration, authenticated app, authentication and notification/backend systems preserved.",
+  "metadataOnlyReceiptCommit": "This authoritative record is saved after deploying sourceCommit; it does not change the deployed runtime or widen the exact candidate scope."
 }

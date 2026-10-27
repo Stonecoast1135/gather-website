@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "baseSourceCommit": "eb6b009fcec7715610ed91d584126bde4eb20d74",
+  "previousDeployment": "dpl_6bguTiiAeoeTJD3iknK7ocygiWhP",
+  "reviewBaseCommit": "563f93c51c5351c10065c29be33388bd0fb499b8",
+  "candidateSourceCommit": "fc8c9246770d262933f823154ea2e7d2d94821de",
+  "sourceFingerprint": "9efc504bdc6a18de1c51b35eff4c1296bb633192f6c63a41fe4e4fdd87cdcb96",
+  "purpose": "Publish all owner-approved final public website refinements and the owner-selected About origins photo.",
+  "approval": "Owner explicitly authorized production website and app deployment of all approved changes in this chat.",
+  "scopeBoundToSourceCommit": true,
+  "runtimeSourcePaths": [
+    "src/app/about/page.tsx",
+    "src/app/finishing.css",
+    "src/app/get-involved/page.tsx",
+    "src/app/globals.css",
+    "src/app/how-it-works/page.tsx",
+    "src/app/impact/page.tsx",
+    "src/app/page.tsx",
+    "src/components/find-your-place.tsx",
+    "src/components/gather-graphics.tsx",
+    "src/components/home-hero.css",
+    "src/components/home-refinement.css",
+    "src/components/interactions.css",
+    "src/components/site-footer.tsx",
+    "src/components/site-header.tsx"
+  ],
+  "assetPaths": [
+    "public/images/about-why-we-started-community.webp"
+  ],
+  "supportingTestPaths": [
+    "tests/interaction-polish.spec.ts",
+    "tests/launch.spec.ts",
+    "tests/refinement.spec.ts"
+  ],
+  "supportingSourceHistoryAndReceiptPaths": [
+    "docs/audits/final-refinements-20261026/content-review.json",
+    "docs/audits/final-refinements-20261026/verification.json",
+    "release/production-baseline.json",
+    "release/why-we-gather-20261024/approved-scope.json",
+    "release/why-we-gather-20261024/live-verification.json",
+    "release/why-we-gather-20261024/source-manifest.json",
+    "release/why-we-gather-20261024/validation.json"
+  ],
+  "exactSourceDiff": [
+    {
+      "status": "A",
+      "path": "docs/audits/final-refinements-20261026/content-review.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audits/final-refinements-20261026/verification.json"
+    },
+    {
+      "status": "A",
+      "path": "public/images/about-why-we-started-community.webp"
+    },
+    {
+      "status": "M",
+      "path": "release/production-baseline.json"
+    },
+    {
+      "status": "A",
+      "path": "release/why-we-gather-20261024/approved-scope.json"
+    },
+    {
+      "status": "A",
+      "path": "release/why-we-gather-20261024/live-verification.json"
+    },
+    {
+      "status": "A",
+      "path": "release/why-we-gather-20261024/source-manifest.json"
+    },
+    {
+      "status": "A",
+      "path": "release/why-we-gather-20261024/validation.json"
+    },
+    {
+      "status": "M",
+      "path": "src/app/about/page.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/app/finishing.css"
+    },
+    {
+      "status": "M",
+      "path": "src/app/get-involved/page.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/app/globals.css"
+    },
+    {
+      "status": "M",
+      "path": "src/app/how-it-works/page.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/app/impact/page.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/app/page.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/components/find-your-place.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/components/gather-graphics.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/components/home-hero.css"
+    },
+    {
+      "status": "M",
+      "path": "src/components/home-refinement.css"
+    },
+    {
+      "status": "M",
+      "path": "src/components/interactions.css"
+    },
+    {
+      "status": "M",
+      "path": "src/components/site-footer.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/components/site-header.tsx"
+    },
+    {
+      "status": "A",
+      "path": "tests/interaction-polish.spec.ts"
+    },
+    {
+      "status": "M",
+      "path": "tests/launch.spec.ts"
+    },
+    {
+      "status": "M",
+      "path": "tests/refinement.spec.ts"
+    }
+  ],
+  "allOtherBaselineFiles": "byte-for-byte unchanged between the exact base and candidate commits; verified for every baseline path outside exactSourceDiff",
+  "preserved": "Dependencies, Next configuration, metadata/layout, robots/sitemap, destinations and public impact-data helpers, existing imagery outside the newly added About photo. Authenticated app and all notification/backend systems are separate and untouched by this website release.",
+  "excludedLocalWork": [
+    "supabase/",
+    "node_modules/",
+    ".env*",
+    ".vercel/",
+    ".next/",
+    "local screenshots and reports"
+  ],
+  "releaseUpload": {
+    "committedSourceFiles": 141,
+    "uploadedSourceFiles": 108,
+    "sourceUIDMatches": 108,
+    "unexpectedFiles": 0,
+    "missingFiles": 0
+  },
+  "postDeploymentMetadata": "This scope describes only eb6b009 to fc8c924, the exact deployed runtime. The later receipt commit updates AGENTS current-state date, the authoritative baseline and this release record directory only; it is not a new runtime deployment and does not expand this scope."
+}
