@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "status": "LOCAL_REVIEW_CANDIDATE_PASS_WITH_CONNECTED_LIMITATIONS",
+  "date": "2026-10-26",
+  "testedSourceCommit": "235def60369496e76d7342607e0848bd6ef605db",
+  "baseLocalSource": "563f93c51c5351c10065c29be33388bd0fb499b8",
+  "productionRuntimeSource": "eb6b009fcec7715610ed91d584126bde4eb20d74",
+  "productionDeployment": "dpl_6bguTiiAeoeTJD3iknK7ocygiWhP",
+  "productionChanged": false,
+  "productionBaselineReceiptUnchanged": true,
+  "preExistingUntrackedSupabasePreserved": true,
+  "build": {
+    "nextProductionBuild": "PASS",
+    "buildId": "lb7rL1B-DvxfBAGIGCXtR",
+    "staticFileCount": 32,
+    "staticManifestSha256": "9de0a3be99a280ba55a732d8ca9823a71c1e2c522687946437521ad5dbfdd6f2"
+  },
+  "checks": {
+    "eslintSrcAndTests": "PASS",
+    "routeTypeGeneration": "PASS",
+    "typescript": "PASS",
+    "browserSuite": {
+      "configured": 180,
+      "passed": 177,
+      "failed": 0,
+      "flaky": 0,
+      "skipped": 3,
+      "perEngine": {
+        "chromium": {
+          "passed": 59,
+          "skipped": 1
+        },
+        "firefox": {
+          "passed": 59,
+          "skipped": 1
+        },
+        "webkit": {
+          "passed": 59,
+          "skipped": 1
+        }
+      },
+      "skipReason": "Protected Vercel Preview campaign-reset check intentionally does not run against local server."
+    }
+  },
+  "responsiveWidths": [
+    1600,
+    1440,
+    1280,
+    1200,
+    1100,
+    1024,
+    900,
+    768,
+    600,
+    430,
+    390,
+    375
+  ],
+  "visualEvidence": "/Users/codytackitt/.codex/visualizations/2026/10/09/01a12191-d951-7e50-9f97-5ee7426ccac2/final-refinements-20261026/visual-review.json",
+  "sourceHashes": {
+    "src/app/about/page.tsx": "aecbed7125f5d907ea8d8d6235db107a3ff822ce3e7b5c704c713132aa1ba45e",
+    "src/app/finishing.css": "35cc5118cac12e3afb7680e6f229414532279a41e9b7b2a153a9201ef4e62ed2",
+    "src/app/get-involved/page.tsx": "24fb8b9bc577161c0f275afdc6f95922572571dba8e958061dc1dbf275252279",
+    "src/app/globals.css": "d859b297f89f9785abc3df6030e864e48c9922bdfad78a7d316851759add5a91",
+    "src/app/how-it-works/page.tsx": "ecf31a3309bf21a9506e78f6bb74b78c060c69f442566d1a7d1b5a23738b5405",
+    "src/app/impact/page.tsx": "27b3e1ae832a81736dd129170c7bdd4de6b2fc8a0f8a97ad6852a8b2f4a474e1",
+    "src/app/page.tsx": "f651da6b437633140335c7803fa0d1b506ebffe6095040a9e34015cba2a48ff6",
+    "src/components/find-your-place.tsx": "d16e3dfcf94049b97685dc1282ea749407534cc90104cbada66523b2093e4f19",
+    "src/components/gather-graphics.tsx": "52d0fc56bc2e59adafc8935b7463a1d599870f5974a846fa89a7d33eeb539f11",
+    "src/components/home-hero.css": "2e4419b90ac5abbe9aed85614ec46cf0f3b8d82fb612d1345bd65c667c622ad8",
+    "src/components/home-refinement.css": "348e2bbd7ee2548e6a32d7facd049c7ca92c2467e7cefc61a58a63ebf1d194af",
+    "src/components/interactions.css": "ed6acb180dcd3ecb8b0216eb6b734ecd0479ab538576e71e2c8748cac65e4070",
+    "src/components/site-footer.tsx": "2392d8f0bcfc96b85f835e8c3262d9440da889f8b9e17c3d7a55fb4051ec13d0",
+    "src/components/site-header.tsx": "e7ca1af5d5968bad3dfd3dcf086935a9550d11eccbad02b569afb702d40c6a57",
+    "tests/interaction-polish.spec.ts": "18d9f66c701c9bb7ea434d78dc6b3897078d3fc6a3628a00a6f9f5fb97aae6c5",
+    "tests/launch.spec.ts": "e9d308aa18748c20edf1d378224c4660382ef059f56a2b43d341dd039e1674dc",
+    "tests/refinement.spec.ts": "4e4c62bb400047c0bd0bb92726dfd27f534c1335d23309097b57a6e33f47541f"
+  },
+  "exactFilesChanged": [
+    "docs/audits/final-refinements-20261026/content-review.json",
+    "src/app/about/page.tsx",
+    "src/app/finishing.css",
+    "src/app/get-involved/page.tsx",
+    "src/app/globals.css",
+    "src/app/how-it-works/page.tsx",
+    "src/app/impact/page.tsx",
+    "src/app/page.tsx",
+    "src/components/find-your-place.tsx",
+    "src/components/gather-graphics.tsx",
+    "src/components/home-hero.css",
+    "src/components/home-refinement.css",
+    "src/components/interactions.css",
+    "src/components/site-footer.tsx",
+    "src/components/site-header.tsx",
+    "tests/interaction-polish.spec.ts",
+    "tests/launch.spec.ts",
+    "tests/refinement.spec.ts"
+  ],
+  "testAdjustment": "The old mobile main-hero-CTA-above-800 assertion conflicted with the approved photo-first layout. Updated test verifies always-visible floating-header Join plus scroll-accessible unchanged hero Join. No approved hero geometry was changed to satisfy the stale test. Pointer outline assertions use actual outline-style:none rather than computed width when border is not drawn.",
+  "remainingLimits": [
+    "Physical iPhone Safari, Android Chrome and native browser-chrome zoom not tested; WebKit touch emulation and 200% reflow-equivalent viewport passed.",
+    "No production publishing, partner messaging, account creation or connected database mutation tests were performed.",
+    "Existing app signup root is the supported Join destination. Create account and Organization role choice remain in its existing flow; no role-preselection URL was invented."
+  ],
+  "durableLogs": {
+    "gather-final-refinements-website-tests-final.log": "bacbe15588cc7ff290b764409e8945e00ac6a90693b9b1f7c738c5a4e70b1c70",
+    "gather-final-refinements-app-regression-final.log": "f2b5357632f64b2431d7e206e4053ac9fb16d41bbcc9d5d6e373121ff0a63b38",
+    "gather-final-refinements-website-build-final.log": "1ee266ddfb10900e5ad5d589db0b97b50825f5ee3da824b1344373bb3b2990fb"
+  }
+}
