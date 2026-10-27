@@ -51,8 +51,8 @@ export default function About() {
           </div>
           <div className="why-composition">
             <Photo
-              src="finish-teamwork"
-              alt="Volunteers sorting produce and packing food boxes together."
+              src="about-why-we-started-community"
+              alt="A community gathering outdoors beneath string lights."
               className="why-photo"
               sizes="(max-width:800px) 90vw, 44vw"
             />
