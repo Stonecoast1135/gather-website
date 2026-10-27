@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ActionLink, Photo } from "@/components/ui";
+import { ActionLink, Arrow, Photo } from "@/components/ui";
 import { JoinSection } from "@/components/join-section";
 import { GatherIllustration, RescueRoute } from "@/components/gather-graphics";
 import { Reveal } from "@/components/reveal";
@@ -56,7 +56,7 @@ export default function Home() {
               <li><HeroPointIcon kind="heart" /><span>Student<br />volunteers</span></li>
             </ul>
             <Link className="text-link hero-secondary" href="/how-it-works">
-              How it works <span aria-hidden="true">↓</span>
+              How it works <Arrow />
             </Link>
           </div>
           <svg className="home-hero__leaves" viewBox="0 0 700 700" preserveAspectRatio="xMidYMid meet" aria-hidden="true">

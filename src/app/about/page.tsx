@@ -38,26 +38,23 @@ export default function About() {
           <div className="why-story">
             <h2>Why we started</h2>
             <p>
-              Gather began with students in Colorado and a simple idea: extra
-              food and people ready to help should be easier to connect.
+              Gather began with students in Colorado who wanted to put the
+              message of John 6:12 into action: gather what remains and let
+              nothing be wasted.
             </p>
             <p>
-              We’re bringing food rescue and meaningful service together, so
-              businesses can share what they have, local organizations can
-              receive food they can use, and students can see the difference
-              their time makes.
+              Inspired by the love of Jesus Christ, we set out to make it easier
+              for local businesses to share surplus food, organizations to
+              receive it, and volunteers to serve their communities.
             </p>
+            <p className="why-welcome">Everyone is welcome, regardless of religious background.</p>
           </div>
           <div className="why-composition">
             <Photo
-              src="finish-food-detail"
-              alt="Hands preparing fresh food."
+              src="finish-teamwork"
+              alt="Volunteers sorting produce and packing food boxes together."
               className="why-photo"
-              sizes="(max-width:700px) 75vw, 34vw"
-            />
-            <GatherIllustration
-              kind="community"
-              className="why-community-graphic"
+              sizes="(max-width:800px) 90vw, 44vw"
             />
           </div>
         </div>

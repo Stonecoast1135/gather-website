@@ -286,10 +286,25 @@
 .role-card__actions {
   margin-top: auto;
 }
+.role-card#organizations .button {
+  white-space: normal;
+  text-align: center;
+}
+.role-card__secondary {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 44px;
+  margin-top: 8px;
+  color: var(--forest);
+  font-size: 14px;
+  font-weight: 600;
+  text-underline-offset: 4px;
+}
 .role-card h2 {
   font-size: clamp(32px, 3vw, 40px);
 }
-.role-card:focus-within {
+.role-card:has(:focus-visible) {
   box-shadow: 0 9px 25px #233b2429;
 }
 .role-card:active {
@@ -302,31 +317,38 @@
 }
 .participation-composition {
   display: grid;
-  grid-template-columns: 0.38fr 1fr;
+  grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
-  gap: 46px;
-  padding-block: 24px 27px;
+  gap: clamp(38px, 6vw, 88px);
+  padding-block: 54px 58px;
 }
-.participation-graphic {
-  width: 240px;
-  margin: auto;
-  --graphic-wash: #f2f1e6;
+.participation-invitation h2 {
+  margin: 0 0 18px;
+  font-size: clamp(38px, 3.8vw, 54px);
+  line-height: 1.08;
+}
+.participation-invitation .eyebrow {
+  margin-bottom: 16px;
+}
+.participation-invitation .participation-lead {
+  max-width: 43ch;
+  margin-bottom: 23px;
+  font-size: 18px;
+  line-height: 1.65;
 }
 .participation-notes {
   text-align: left;
-  padding: 20px 0;
+  padding: 8px 0 8px 35px;
   border-left: 1px solid #bfc8b2;
-  padding-left: 43px;
 }
 .participation-notes p {
-  max-width: 880px;
-  margin: 11px 0 0;
+  max-width: 43ch;
+  margin: 16px 0 0;
+  font-size: 14px;
+  line-height: 1.65;
 }
 .participation-notes p:first-child {
   margin-top: 0;
-}
-.participation-notes .launch-status {
-  font-size: 21px;
 }
 .impact-hero {
   padding: 67px 0 66px;
@@ -382,30 +404,37 @@
   min-height: 54px;
 }
 .brighter-section {
-  min-height: 560px;
-  overflow: clip;
+  display: block;
+  min-height: 0;
+  padding-block: clamp(52px, 6vw, 88px);
 }
-.brighter-section > .photo {
-  inset-inline-start: 29%;
+.brighter-section__inner {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: clamp(36px, 6vw, 88px);
 }
-.brighter-section > .photo img {
-  object-position: 62% 45%;
+.brighter-section .brighter-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  border-radius: 24px 64px 24px 24px;
+}
+.brighter-photo img {
+  object-position: 50% 50%;
 }
 .brighter-copy {
   max-width: 440px;
-  padding: 51px 0 30px;
+  padding: 0;
 }
 .brighter-copy h2 {
+  margin-bottom: 22px;
   font-size: clamp(45px, 4.1vw, 63px);
 }
 .brighter-copy p {
   max-width: 32ch;
-}
-.brighter-graphic {
-  width: 160px;
-  margin-top: 13px;
-  margin-left: 28px;
-  --graphic-wash: #e9ebdc;
+  font-size: 18px;
+  line-height: 1.65;
 }
 .about-hero {
   grid-template-columns: 1fr 1.05fr;
@@ -423,36 +452,45 @@
   object-position: 60% 48%;
 }
 .why-section {
-  padding: 58px 0 54px;
+  padding: clamp(48px, 6vw, 84px) 0;
   background: #e7eadc;
 }
 .why-section__inner {
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 80px;
+  gap: clamp(36px, 6vw, 88px);
+}
+.why-story {
+  grid-column: 2;
+  grid-row: 1;
 }
 .why-story h2 {
   margin-bottom: 24px;
   font-size: 48px;
 }
 .why-story p {
-  font-size: 17px;
+  font-size: 18px;
+  line-height: 1.65;
   max-width: 49ch;
+}
+.why-story .why-welcome {
+  margin-top: 24px;
+  font-size: 15px;
+  color: var(--muted);
 }
 .why-composition {
   position: relative;
-  padding: 0 85px 40px 0;
+  grid-column: 1;
+  grid-row: 1;
+  padding: 0;
 }
 .why-photo {
-  height: 325px;
-  border-radius: 30% 9px 9px 9px / 27% 9px 9px 9px;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 52px 18px 18px 18px;
 }
-.why-community-graphic {
-  position: absolute;
-  width: 216px;
-  right: -7px;
-  bottom: 0;
-  --graphic-wash: #e7eadc;
+.why-photo img {
+  object-position: 50% 35%;
 }
 .mission-section {
   padding-block: 58px 64px;
@@ -509,12 +547,6 @@
   }
 }
 @media (min-width: 701px) and (max-width: 1100px) {
-  .brighter-curve {
-    width: 130%;
-  }
-  .brighter-copy {
-    max-width: 325px;
-  }
   .student-section {
     grid-template-columns: 1.1fr 1fr;
     gap: 39px;
@@ -581,11 +613,8 @@
     font-size: 12px;
   }
   .participation-composition {
-    grid-template-columns: 210px 1fr;
-    gap: 20px;
-  }
-  .participation-graphic {
-    width: 210px;
+    grid-template-columns: 1fr 0.95fr;
+    gap: 32px;
   }
   .participation-notes {
     padding-left: 28px;
@@ -605,12 +634,6 @@
   }
   .why-section__inner {
     gap: 35px;
-  }
-  .why-composition {
-    padding-right: 48px;
-  }
-  .why-community-graphic {
-    width: 173px;
   }
   .mission-section {
     gap: 22px;
@@ -832,23 +855,20 @@
     border-radius: 0 40% 0 0 / 0 28px 0 0;
   }
   .participation-composition {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    padding-block: 22px 29px;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-block: 39px 42px;
   }
-  .participation-graphic {
-    width: 200px;
-    margin: 0 auto 7px;
+  .participation-invitation h2 {
+    font-size: 39px;
+  }
+  .participation-invitation .participation-lead {
+    font-size: 17px;
   }
   .participation-notes {
     padding: 0;
     border: 0;
     text-align: left;
-  }
-  .participation-notes .launch-status {
-    font-size: 19px;
-    max-width: 28ch;
   }
   .participation-notes p {
     font-size: 14px;
@@ -897,43 +917,6 @@
   .impact-hero .accordion summary {
     font-size: 14px;
   }
-  .brighter-section {
-    min-height: 0;
-  }
-  .brighter-section .container {
-    width: calc(100% - 48px);
-  }
-  .brighter-copy {
-    padding: 34px 0 20px;
-    max-width: 100%;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 113px;
-    column-gap: 14px;
-    row-gap: 19px;
-  }
-  .brighter-copy h2 {
-    font-size: 40px;
-    max-width: 210px;
-    margin-bottom: 0;
-  }
-  .brighter-copy p {
-    grid-column: 1 / -1;
-    font-size: 16px;
-    max-width: 32ch;
-  }
-  .brighter-graphic {
-    grid-column: 2;
-    grid-row: 1;
-    align-self: center;
-    width: 113px;
-    margin: 0;
-  }
-  .brighter-section > .photo {
-    inset: auto;
-    width: 100%;
-    height: 340px;
-    border-radius: 35% 0 0 0 / 26% 0 0 0;
-  }
   .about-hero {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -971,16 +954,6 @@
   }
   .why-story p + p {
     margin-top: 17px;
-  }
-  .why-composition {
-    padding: 0 50px 36px 0;
-  }
-  .why-photo {
-    height: 245px;
-  }
-  .why-community-graphic {
-    width: 166px;
-    right: -7px;
   }
   .mission-section {
     grid-template-columns: 1fr;
@@ -1028,10 +1001,6 @@
   .metric dt {
     gap: 7px;
   }
-  .brighter-graphic {
-    width: 105px;
-    margin: 0;
-  }
 }
 @media (prefers-reduced-motion: reduce) {
   .is-revealed .photo img {
@@ -1046,4 +1015,35 @@
 .place-panel__content--organizations img,
 .role-card#organizations img {
   object-position: 50% 20%;
+}
+
+/* The two editorial sections keep their photo boundaries intact on small screens. */
+@media (max-width: 800px) {
+  .brighter-section__inner,
+  .why-section__inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+  .brighter-copy {
+    max-width: 520px;
+  }
+  .brighter-copy h2 {
+    font-size: clamp(36px, 7vw, 48px);
+    margin-bottom: 18px;
+  }
+  .brighter-copy p {
+    font-size: 17px;
+  }
+  .brighter-section .brighter-photo {
+    border-radius: 18px 42px 18px 18px;
+  }
+  .why-story,
+  .why-composition {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .why-photo {
+    border-radius: 36px 16px 16px 16px;
+    max-width: 600px;
+  }
 }

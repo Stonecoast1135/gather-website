@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { ActionLink, Logo } from "@/components/ui";
 import { closeDialog, openDialog, trapDialogFocus } from "@/components/dialog";
 import { destinations, primaryLinks } from "@/lib/site-config";
@@ -12,6 +12,7 @@ export function SiteHeader() {
   const menuRef = useRef<HTMLDialogElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [pointerMenu, setPointerMenu] = useState(false);
 
   useEffect(() => {
     const menu = menuRef.current;
@@ -35,8 +36,9 @@ export function SiteHeader() {
     if (menuRef.current) closeDialog(menuRef.current);
   }
 
-  function showMenu() {
+  function showMenu(event: MouseEvent<HTMLButtonElement>) {
     const menu = menuRef.current;
+    setPointerMenu(event.detail > 0);
     // Safari does not focus buttons on pointer click. Set the return target
     // before the dialog records the currently focused element.
     triggerRef.current?.focus({ preventScroll: true });
@@ -70,6 +72,11 @@ export function SiteHeader() {
           aria-haspopup="dialog"
           aria-controls="mobile-menu"
           aria-expanded={menuOpen}
+          data-pointer-focus={pointerMenu ? "true" : undefined}
+          onKeyDown={() => setPointerMenu(false)}
+          onBlur={() => {
+            if (!menuRef.current?.open) setPointerMenu(false);
+          }}
           onClick={showMenu}
         >
           <svg width="25" height="22" viewBox="0 0 25 22" aria-hidden="true">
@@ -87,8 +94,13 @@ export function SiteHeader() {
         id="mobile-menu"
         className="mobile-menu"
         aria-label="Site navigation"
+        data-pointer-open={pointerMenu ? "true" : undefined}
         onClose={() => setMenuOpen(false)}
-        onKeyDown={trapDialogFocus}
+        onPointerDownCapture={() => setPointerMenu(true)}
+        onKeyDown={(event) => {
+          setPointerMenu(false);
+          trapDialogFocus(event);
+        }}
         onClick={(event) => {
           if (event.target === event.currentTarget) closeMenu();
         }}

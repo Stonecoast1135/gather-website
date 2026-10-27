@@ -45,9 +45,13 @@ const faqs = [
     question: "Do I need a car?",
     answer: (
       <p>
-        Choose opportunities that fit your transportation and the food being
-        moved. Review pickup and delivery instructions before claiming a rescue.
-        Drivers must be legally authorized to drive and use a suitable vehicle.
+        You can create a Gather account at age 13 or older. Our current food
+        rescue teams need an eligible licensed driver with access to a suitable
+        vehicle to pick up and deliver food safely. To take a driver role, you
+        must be legally authorized to drive and confirm your driving eligibility
+        in Gather. Helper roles are available only when the rescue’s team
+        requirements allow them. Review the pickup and delivery instructions
+        before joining.
       </p>
     ),
   },

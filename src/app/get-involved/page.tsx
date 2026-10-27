@@ -2,10 +2,9 @@ import { ActionLink, Photo } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
 import { pageMetadata } from "@/lib/metadata";
 import { destinations } from "@/lib/site-config";
-import { GatherIllustration } from "@/components/gather-graphics";
 export const metadata = pageMetadata(
   "Get Involved",
-  "Join Gather as a student volunteer or business, or get in touch about receiving food for your organization.",
+  "Join Gather as a volunteer, business, or organization and help good food reach your community.",
   "/get-involved",
 );
 const roles = [
@@ -33,11 +32,11 @@ const roles = [
     id: "organizations",
     title: "Organizations",
     lead: "Help good food reach your community.",
-    copy: "Get in touch about receiving food through Gather.",
+    copy: "Create an account to receive food through Gather. Approval is required before receiving donations.",
     photo: "finish-sorting",
     alt: "Three people holding Gather signs.",
-    action: "Contact us",
-    href: destinations.email,
+    action: "Join as an Organization",
+    href: destinations.signup,
   },
 ];
 export default function GetInvolved() {
@@ -62,7 +61,11 @@ export default function GetInvolved() {
               <p>{role.copy}</p>
               <div className="role-card__actions">
                 <ActionLink href={role.href}>{role.action}</ActionLink>
-                {i > 0 && (
+                {role.id === "organizations" ? (
+                  <a className="role-card__secondary" href={destinations.email}>
+                    Contact us
+                  </a>
+                ) : i > 0 && (
                   <p className="contact-line">
                     Questions?{" "}
                     <a href={destinations.email}>help@gatherforward.org</a>
@@ -74,19 +77,24 @@ export default function GetInvolved() {
         ))}
       </Reveal>
       <Reveal className="participation-section">
-        <div className="container participation-composition">
-          <GatherIllustration
-            kind="community"
-            className="participation-graphic"
-          />
+        <section className="container participation-composition" aria-labelledby="join-today-heading">
+          <div className="participation-invitation">
+            <p className="eyebrow">GOOD FOOD. SHARED LOCALLY.</p>
+            <h2 id="join-today-heading">Join Gather today.</h2>
+            <p className="participation-lead">
+              Create your account as a volunteer, business, or organization and
+              become part of a community working to rescue good food.
+            </p>
+            <ActionLink>Join Gather</ActionLink>
+          </div>
           <div className="participation-notes">
-            <p className="launch-status">
-              Signups are open. Local rescue opportunities are coming.
+            <p>
+              Accounts are for ages 13 and up. Food rescue teams need an
+              eligible licensed driver with access to a suitable vehicle.
             </p>
             <p>
-              Accounts are for ages 13 and up. Adults are welcome, too.
               Businesses and organizations need Gather approval before
-              participating.
+              participating. Rescue opportunities depend on local availability.
             </p>
             <p id="schools">
               Schools &amp; programs:{" "}
@@ -95,7 +103,7 @@ export default function GetInvolved() {
               hours.
             </p>
           </div>
-        </div>
+        </section>
       </Reveal>
     </main>
   );

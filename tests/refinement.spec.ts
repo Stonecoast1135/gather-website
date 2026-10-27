@@ -19,8 +19,8 @@ const roles = [
   {
     label: "Organizations",
     headline: "Put good food to use.",
-    action: "Contact us",
-    href: "mailto:help@gatherforward.org",
+    action: "Join as an Organization",
+    href: "https://my.gatherforward.org",
     photo: "finish-sorting",
   },
 ] as const;
@@ -179,4 +179,34 @@ test("role transitions respect reduced motion and the story link navigates", asy
   await expect(
     page.locator(".mission-item .gather-illustration--volunteer"),
   ).toHaveCount(1);
+});
+
+test("Organization joining keeps the existing account entry and contact option in both placements", async ({
+  page,
+}) => {
+  await page.goto("/get-involved");
+  const organization = page.locator(".role-card#organizations");
+  await expect(
+    organization.getByRole("link", { name: "Join as an Organization", exact: true }),
+  ).toHaveAttribute("href", "https://my.gatherforward.org");
+  await expect(
+    organization.getByRole("link", { name: "Contact us", exact: true }),
+  ).toHaveAttribute("href", "mailto:help@gatherforward.org");
+  await expect(organization).toContainText("Approval is required before receiving donations.");
+  const invitation = page.getByRole("region", { name: "Join Gather today." });
+  await expect(invitation.getByRole("link", { name: "Join Gather", exact: true }))
+    .toHaveAttribute("href", "https://my.gatherforward.org");
+  await expect(invitation).toContainText("Rescue opportunities depend on local availability.");
+  await expect(invitation).toContainText("Each program sets its own requirements for accepting hours.");
+
+  await page.goto("/");
+  await page.getByRole("tab", { name: "Organizations", exact: true }).click();
+  const panel = page.getByRole("tabpanel");
+  await expect(
+    panel.getByRole("link", { name: "Join as an Organization", exact: true }),
+  ).toHaveAttribute("href", "https://my.gatherforward.org");
+  await expect(
+    panel.getByRole("link", { name: "Contact us", exact: true }),
+  ).toHaveAttribute("href", "mailto:help@gatherforward.org");
+  await expect(panel).toContainText("Gather approval is required.");
 });

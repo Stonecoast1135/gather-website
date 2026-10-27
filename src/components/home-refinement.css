@@ -97,8 +97,8 @@
   width: fit-content;
 }
 .place-panel__contact {
-  min-height: 42px;
-  padding-top: 17px;
+  min-height: 56px;
+  padding-top: 12px;
 }
 .place-panel__contact p {
   font-size: 13px;
@@ -106,6 +106,9 @@
   line-height: 1.6;
 }
 .place-panel__contact a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   text-underline-offset: 3px;
   text-decoration: underline;
 }
@@ -300,8 +303,8 @@
     margin-bottom: 21px;
   }
   .place-panel__contact {
-    min-height: 43px;
-    padding-top: 14px;
+    min-height: 56px;
+    padding-top: 12px;
   }
   .place-panel__contact p {
     font-size: 12px;

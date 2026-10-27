@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-10-26",
+  "reviewScope": "Independent read-only source content/link/security and existing-photo-provenance review of current local public website; no publish/push/remote mutation or browser/live backend claim.",
+  "baseCommit": "563f93c51c5351c10065c29be33388bd0fb499b8",
+  "result": "PASS_SOURCE_REVIEW_WITH_RUNTIME_TESTS_OWNED_BY_PARENT",
+  "sourceSnapshot": {
+    "src/app/about/page.tsx": "aecbed7125f5d907ea8d8d6235db107a3ff822ce3e7b5c704c713132aa1ba45e",
+    "src/app/impact/page.tsx": "27b3e1ae832a81736dd129170c7bdd4de6b2fc8a0f8a97ad6852a8b2f4a474e1",
+    "src/app/how-it-works/page.tsx": "ecf31a3309bf21a9506e78f6bb74b78c060c69f442566d1a7d1b5a23738b5405",
+    "src/app/get-involved/page.tsx": "24fb8b9bc577161c0f275afdc6f95922572571dba8e958061dc1dbf275252279",
+    "src/components/find-your-place.tsx": "d16e3dfcf94049b97685dc1282ea749407534cc90104cbada66523b2093e4f19",
+    "src/components/site-footer.tsx": "2392d8f0bcfc96b85f835e8c3262d9440da889f8b9e17c3d7a55fb4051ec13d0",
+    "src/app/page.tsx": "f651da6b437633140335c7803fa0d1b506ebffe6095040a9e34015cba2a48ff6",
+    "src/components/site-header.tsx": "e7ca1af5d5968bad3dfd3dcf086935a9550d11eccbad02b569afb702d40c6a57"
+  },
+  "linkContracts": {
+    "organizationJoinGetInvolved": "https://my.gatherforward.org",
+    "organizationJoinHomeFindYourPlace": "https://my.gatherforward.org",
+    "joinGather": "https://my.gatherforward.org",
+    "organizationContactGetInvolved": "mailto:help@gatherforward.org",
+    "organizationContactHomeFindYourPlace": "mailto:help@gatherforward.org",
+    "schoolProgramContact": "mailto:help@gatherforward.org",
+    "instagram": "https://www.instagram.com/gather.forward/",
+    "privacy": "https://my.gatherforward.org/privacy",
+    "terms": "https://my.gatherforward.org/terms",
+    "heroHowItWorks": "/how-it-works"
+  },
+  "signupContract": {
+    "existingEntry": "Existing app web root; no fabricated signup path/query or second registration implementation.",
+    "roleSelection": "Current app WelcomeScreen defaults web root to sign-in. Existing Create account toggles accountMode; role chosen in existing confirmed-email onboarding. No supported organization role-preselection URL was found.",
+    "roleVerification": "Organization signup still requires the existing authorized verification/approval process.",
+    "appSourcesRead": [
+      "src/screens/auth/WelcomeScreen.tsx",
+      "src/screens/auth/SignupFlowScreens.tsx",
+      "src/navigation/linking.ts",
+      "src/utils/deepLinks.ts"
+    ],
+    "securityScope": "Source inspection only, no registration or account changes."
+  },
+  "eligibilityDecision": {
+    "ownerDirection": "Parent reports user chose currently verified rules after finding discrepancy with proposed blanket16 claim.",
+    "preserved": "Account minimum13 acknowledgement; legal driver authorization and suitable vehicle; helper roles conditional on existing rescue/team requirements.",
+    "notClaimed": "No assertion of blanket16 enforcement, automatic school acceptance, universally available rescues, walking/biking/transit rescue support, immediate Organization approval, or active rescue operations in every location."
+  },
+  "metadata": {
+    "changedPage": "Get Involved description now includes Organization joining; canonical remains /get-involved.",
+    "unchangedCanonicalOrigin": "https://www.gatherforward.org",
+    "localAndPreviewNoindex": "isIndexable still only VERCEL_ENV production; metadata/robots/sitemap implementation unchanged.",
+    "newPrivateDataSources": false
+  },
+  "photography": [
+    {
+      "asset": "public/images/finish-teamwork.webp",
+      "sha256": "72f3a962ebdbd6b9b0ff6b8f0565adc444a9a651c9b8a09ef74c3a1ff2d2f938",
+      "unchangedAssetBytes": true,
+      "placement": "About: Why we started (replaces prepared-food detail in this placement only)",
+      "photographer": "cottonbro studio",
+      "originalSource": "https://www.pexels.com/photo/3-women-standing-beside-table-6591148/",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "provenanceRecord": "docs/FINISHING-ASSETS.md",
+      "provenanceScope": "Existing repository photo/source/license documentation reviewed; no new image download, generation, branding, face edits or fresh license fetch performed by this audit.",
+      "illustrativeUse": "Not a claim about Gather founders, events, partners, recipients or completed rescues."
+    },
+    {
+      "asset": "public/images/finish-community.webp",
+      "sha256": "6a7daf0eda7f5eaca61dd420c69cf4144f064c93e8e785b337ae630e4584da28",
+      "unchangedAssetBytes": true,
+      "placement": "Impact: A brighter tomorrow (same existing photograph, new unmasked composition)",
+      "photographer": "fauxels",
+      "originalSource": "https://www.pexels.com/photo/sharing-cherry-tomatoes-3184188/",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "provenanceRecord": "docs/FINISHING-ASSETS.md",
+      "provenanceScope": "Existing repository photo/source/license documentation reviewed; no new image download, generation, branding, face edits or fresh license fetch performed by this audit.",
+      "illustrativeUse": "Not a claim about Gather founders, events, partners, recipients or completed rescues."
+    }
+  ],
+  "preservationChecks": [
+    {
+      "path": "src/lib/impact.ts",
+      "unchangedFromCurrentLocalBase": true,
+      "sha256": "60c0f476f3fdf65e1f9379429f9ebc1d39519a665e582d778a251536dd0779d4"
+    },
+    {
+      "path": "src/lib/site-config.ts",
+      "unchangedFromCurrentLocalBase": true,
+      "sha256": "19146b353e84546213d06b6b2be2e1b83929103c06d6010938c4a7fccb0c13cc"
+    },
+    {
+      "path": "src/lib/metadata.ts",
+      "unchangedFromCurrentLocalBase": true,
+      "sha256": "1406f81a58b78f6fcded8d32f3b48abb2722dac3fa0e6378956271d28c3444f2"
+    },
+    {
+      "path": "src/app/layout.tsx",
+      "unchangedFromCurrentLocalBase": true,
+      "sha256": "b59ab5879fc9f95f3b407e5c000137449ebaff1b444380dbbc3acaeced00721f"
+    },
+    {
+      "path": "src/app/robots.ts",
+      "unchangedFromCurrentLocalBase": true,
+      "sha256": "97b71a6cfcca12a18c2883f35a7fd9c3594c6e234bbfa6cf2a5de42efdb9de43"
+    },
+    {
+      "path": "src/app/sitemap.ts",
+      "unchangedFromCurrentLocalBase": true,
+      "sha256": "45062ff5db4d26fe72b9e9570718f05f46ee60393100606dd55c821bb2067de3"
+    },
+    {
+      "path": "package.json",
+      "unchangedFromCurrentLocalBase": true,
+      "sha256": "c5b50c03a96f3ca7e6ea1528061407f856bdbfe980b6bbfe3ee77769ca834779"
+    },
+    {
+      "path": "package-lock.json",
+      "unchangedFromCurrentLocalBase": true,
+      "sha256": "95608d950cc16478cb4502fa7974e4e79cab11cfb8d505d7f05968615c29c4a8"
+    },
+    {
+      "path": "src/components/ui.tsx",
+      "unchangedFromCurrentLocalBase": true,
+      "sha256": "9ba0f9cc4ca0f3dbe5d1cdfe70bbe7f28c7f2ad4bf0e7b1732ab889a01a8aa17"
+    },
+    {
+      "path": "src/components/why-we-gather.tsx",
+      "unchangedFromCurrentLocalBase": true,
+      "sha256": "39a574d30e6d40ed46859f0ec0d65a423c184709c548e6bc3ee767d36fc826f3"
+    }
+  ],
+  "contentChecks": [
+    {
+      "claim": "Both Organization placements expose Join as an Organization plus Contact us",
+      "passed": true
+    },
+    {
+      "claim": "Organization receipt/participation approval remains explicit",
+      "passed": true
+    },
+    {
+      "claim": "Signup note retains 13+ accounts, licensed-driver/team requirement, partner approval, local availability and program control over hours",
+      "passed": true
+    },
+    {
+      "claim": "FAQ follows verified rules without asserting blanket minimum16, walking, biking or public transport rescue eligibility",
+      "passed": true
+    },
+    {
+      "claim": "About origins contain only user-provided Christian/student Colorado substance and explicitly inclusive participation",
+      "passed": true
+    },
+    {
+      "claim": "About uses illustrative teamwork photograph, preserves hero portrait and removes isolated house/community origin graphic",
+      "passed": true
+    },
+    {
+      "claim": "Impact retains aggregate-only unavailable totals and no added fabricated metrics",
+      "passed": true
+    },
+    {
+      "claim": "Instagram uses consistent SVG; href and same-tab external behavior unchanged",
+      "passed": true
+    },
+    {
+      "claim": "Home How it works action retains exact original path",
+      "passed": true
+    },
+    {
+      "claim": "New local internal href routes resolve to existing page files",
+      "passed": true
+    }
+  ],
+  "securityFindings": {
+    "newSignupQueryParameters": false,
+    "newBackendAdapterOrRequests": false,
+    "newAuthOrPermissionCode": false,
+    "newDependenciesOrEnvironmentConfig": false,
+    "unsafeNewHtmlInjection": false,
+    "newWindowOpenerBehavior": false,
+    "privateRecordsExposed": false,
+    "publicImpact": "Unchanged parser accepts only three aggregate fields, rejects unexpected fields, preserves zero, and renders -- for unavailable values. No reporting backend is connected by this change."
+  },
+  "limitations": [
+    "This source review is not a physical-device/browser test or connected auth/eligibility/recipient-matching/RLS test.",
+    "Runtime responsive/link/keyboard tests are being run and recorded separately by the parent. Intermediate full-suite results were not treated as a final pass.",
+    "Existing approved images outside the requested About/Impact placements were preserved; no new endorsement or founder identity is inferred from them."
+  ]
+}

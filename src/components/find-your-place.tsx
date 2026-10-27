@@ -32,11 +32,11 @@ const roles = [
     id: "organizations",
     label: "Organizations",
     headline: "Put good food to use.",
-    description: "Get in touch about receiving food through Gather.",
-    action: "Contact us",
-    href: destinations.email,
+    description: "Create an account to receive food through Gather. Gather approval is required.",
+    action: "Join as an Organization",
+    href: destinations.signup,
     photo: "finish-sorting",
-    alt: "A volunteer sorting bread and groceries at a community food center.",
+    alt: "Three people holding Gather signs.",
   },
 ] as const;
 
@@ -115,6 +115,9 @@ export function FindYourPlace() {
             <p>{role.description}</p>
             <ActionLink href={role.href}>{role.action}</ActionLink>
             <div className="place-panel__contact">
+              {role.id === "organizations" && (
+                <a href={destinations.email}>Contact us</a>
+              )}
               {role.id === "businesses" && (
                 <p>
                   Questions?{" "}

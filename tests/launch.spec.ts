@@ -680,20 +680,26 @@ test.describe("responsive and accessibility review", () => {
     await expectNoOverflow(page);
   });
 
-  test("the mobile primary action is present before scrolling", async ({
+  test("mobile joining stays available in the floating header and the photo-first hero", async ({
     page,
   }) => {
     for (const width of [360, 390, 430]) {
       await page.setViewportSize({ width, height: 800 });
       await page.goto("/");
       const action = page
-        .locator("main")
+        .locator("header")
         .getByRole("link", { name: "Join Gather", exact: true })
         .first();
       await expect(action).toBeVisible();
       const bounds = await action.boundingBox();
       expect(bounds!.y).toBeGreaterThanOrEqual(0);
       expect(bounds!.y + bounds!.height).toBeLessThanOrEqual(800);
+      await expect(action).toHaveAttribute("href", destinations.signup);
+      const heroAction = page.locator("main").getByRole("link", { name: "Join Gather", exact: true }).first();
+      await expect(heroAction).toHaveAttribute("href", destinations.signup);
+      await heroAction.scrollIntoViewIfNeeded();
+      await expect(heroAction).toBeInViewport();
+      await expect(action).toBeInViewport();
     }
   });
 

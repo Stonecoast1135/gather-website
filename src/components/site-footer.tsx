@@ -19,7 +19,10 @@ export function SiteFooter() {
         <div className="site-footer__contact">
           <a href={destinations.email}>help@gatherforward.org</a>
           <a href={destinations.instagram}>
-            Instagram <span aria-hidden="true">↗</span>
+            Instagram
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false">
+              <path d="M5 15 15 5M5 5h10v10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </a>
         </div>
         <div className="site-footer__bottom">

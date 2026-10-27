@@ -248,8 +248,8 @@ export function GatherIllustration({
 
 function RouteConnector({ vertical = false }: { vertical?: boolean }) {
   const path = vertical
-    ? "M12 2C4 15 20 32 12 52m-6-7 6 8 6-8"
-    : "M3 27C30 6 72 6 96 28m-14-4 15 5-3-14";
+    ? "M12 4C3 18 12 29 12 50M6 43L12 50L18 43"
+    : "M4 29C29 4 69 4 94 29M82 26L94 29L91 17";
   return (
     <svg
       className={`rescue-route__connector${vertical ? " rescue-route__connector--vertical" : ""}`}

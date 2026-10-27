@@ -83,31 +83,20 @@ export default async function Impact() {
         </div>
       </section>
       <Reveal className="brighter-section">
-        <Photo
-          src="finish-community"
-          alt="People sharing time and food together in a community setting."
-        />
-        <svg
-          className="brighter-curve"
-          viewBox="0 0 1440 470"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <path d="M0 0C360-70 510 72 678 277C804 430 1040 470 1170 470H0Z" />
-        </svg>
-        <div className="container">
+        <div className="container brighter-section__inner">
           <div className="brighter-copy">
-            <h2>
-              A brighter
-              <br />
-              tomorrow.
-            </h2>
+            <h2>A brighter tomorrow.</h2>
             <p>
               Together, we can reduce food waste, strengthen communities, and
               create opportunities for good.
             </p>
-            <GatherIllustration kind="community" className="brighter-graphic" />
           </div>
+          <Photo
+            src="finish-community"
+            alt="People sharing fresh food around a table."
+            className="brighter-photo"
+            sizes="(max-width:800px) 90vw, 52vw"
+          />
         </div>
       </Reveal>
     </main>
